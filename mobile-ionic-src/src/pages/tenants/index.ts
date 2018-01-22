@@ -68,7 +68,7 @@ export class TenantsPage {
     }
   ];
 
-  shouldShowControls : bolean = false;
+  shouldShowControls: bolean = false;
 
   constructor(public navCtrl: NavController) {
     this.members = this.members_list;
