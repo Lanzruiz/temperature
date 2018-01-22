@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2>
+        <ion-icon name="menu"></ion-icon>
+      </ion-col><!-- ion-col -->
+      <ion-col col-8>
+        <ion-title>Monika - Tenants</ion-title>
+      </ion-col><!-- ion-col -->
+      <ion-col col-2 class="add">
+        <ion-icon name="add"></ion-icon>
+      </ion-col>
+    </ion-row><!-- ion-row -->
+    <ion-row id="search-box">
+      <ion-col col-12>
+        <ion-item>
+          <ion-searchbar>
+          </ion-searchbar>
+        </ion-item>
+      </ion-col>
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-header><!-- ion-header -->
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let member of members; let key = index;">
+      <ion-col col-10>
+        <ion-item class="name">
+          <ion-label class="{{ member.color }}">{{ member.name }}</ion-label>
+        </ion-item>
+        <ion-item class="email">
+          <ion-label>{{ member.email }}</ion-label>
+        </ion-item>
+        <ion-item class="meta">
+          <ion-label>
+            <span>Version {{ member.version }}</span>
+            <span>{{ member.size }}</span>
+          </ion-label>
+        </ion-item>
+      </ion-col><!-- ion-col -->
+      <ion-col col-2>
+        <ion-icon (click)="showControls(key)" ios="ios-more" md="md-more"></ion-icon>
+      </ion-col><!-- ion-col -->
+      <ion-col col-12 class="controls" *ngIf="shouldShowControls && controlIndex == key">
+        <ion-row>
+          <ion-col width-20 class="download">
+            <ion-icon ios="ios-download-outline" md="md-download"></ion-icon>
+            <span>Download</span>
+          </ion-col>
+          <ion-col width-20 class="backup">
+            <ion-icon ios="ios-add-circle-outline" md="md-add-circle"></ion-icon>
+            <span>Backup</span>
+          </ion-col>
+          <ion-col width-20 class="edit">
+            <ion-icon ios="ios-more" md="md-more"></ion-icon>
+            <span>Edit</span>
+          </ion-col>
+          <ion-col width-20 class="restore">
+              <ion-icon ios="ios-flag" md="md-flag"></ion-icon>
+            <span>Restore</span>
+          </ion-col>
+          <ion-col width-20 class="trash">
+            <ion-icon ios="ios-trash-outline" md="md-trash"></ion-icon>
+            <span>Trash</span>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-content><!-- ion-content -->
