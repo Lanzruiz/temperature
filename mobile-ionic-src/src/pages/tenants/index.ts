@@ -68,7 +68,8 @@ export class TenantsPage {
     }
   ];
 
-  shouldShowControls: bolean = false;
+  shouldShowControls: boolean;
+  listIndex: number;
 
   constructor(public navCtrl: NavController) {
     this.members = this.members_list;
@@ -78,7 +79,7 @@ export class TenantsPage {
 
     this.shouldShowControls = this.shouldShowControls === true ? false : true;
 
-    this.controlIndex = key;
+    this.listIndex = key;
   }
 
 }
