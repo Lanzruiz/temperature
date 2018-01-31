@@ -2,13 +2,13 @@
   <ion-grid>
     <ion-row>
       <ion-col col-2>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon class="ion-navicon-round"></ion-icon>
       </ion-col><!-- ion-col -->
       <ion-col col-8>
         <ion-title>Monika - Tenants</ion-title>
       </ion-col><!-- ion-col -->
       <ion-col col-2 class="add">
-        <ion-icon name="add"></ion-icon>
+        <ion-icon (click)="addTenant()" class="ion-plus-round"></ion-icon>
       </ion-col>
     </ion-row><!-- ion-row -->
     <ion-row id="search-box">
@@ -40,28 +40,28 @@
         </ion-item>
       </ion-col><!-- ion-col -->
       <ion-col col-2>
-        <ion-icon (click)="showControls(key)" ios="ios-more" md="md-more"></ion-icon>
+        <ion-icon (click)="showControls(key)" class="ion-more"></ion-icon>
       </ion-col><!-- ion-col -->
-      <ion-col col-12 class="controls" *ngIf="shouldShowControls && controlIndex == key">
+      <ion-col col-12 class="controls" *ngIf="shouldShowControls && listIndex == key">
         <ion-row>
           <ion-col width-20 class="download">
-            <ion-icon ios="ios-download-outline" md="md-download"></ion-icon>
+            <ion-icon class="ion-ios-download-outline"></ion-icon>
             <span>Download</span>
           </ion-col>
           <ion-col width-20 class="backup">
-            <ion-icon ios="ios-add-circle-outline" md="md-add-circle"></ion-icon>
+            <ion-icon class="ion-ios-upload-outline"></ion-icon>
             <span>Backup</span>
           </ion-col>
           <ion-col width-20 class="edit">
-            <ion-icon ios="ios-more" md="md-more"></ion-icon>
+            <ion-icon class="ion-more"></ion-icon>
             <span>Edit</span>
           </ion-col>
           <ion-col width-20 class="restore">
-              <ion-icon ios="ios-flag" md="md-flag"></ion-icon>
+              <ion-icon class="ion-ios-flag"></ion-icon>
             <span>Restore</span>
           </ion-col>
           <ion-col width-20 class="trash">
-            <ion-icon ios="ios-trash-outline" md="md-trash"></ion-icon>
+            <ion-icon class="ion-ios-trash-outline"></ion-icon>
             <span>Trash</span>
           </ion-col>
         </ion-row>

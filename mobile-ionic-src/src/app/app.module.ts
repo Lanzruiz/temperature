@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/index';
 import { ForgotPasswordPage } from '../pages/login/forgot-password/index';
 import { TenantsPage } from '../pages/tenants/index';
+import { AddTenantPage } from '../pages/tenants/add/index';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     LoginPage,
     ForgotPasswordPage,
-    TenantsPage
+    TenantsPage,
+    AddTenantPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     LoginPage,
     ForgotPasswordPage,
-    TenantsPage
+    TenantsPage,
+    AddTenantPage
   ],
   providers: [
     StatusBar,

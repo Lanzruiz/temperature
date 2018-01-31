@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { AddTenantPage } from '../tenants/add/index';
+
 @Component({
   selector: 'page-tenants',
   templateUrl: 'index.html'
@@ -80,6 +82,11 @@ export class TenantsPage {
     this.shouldShowControls = this.shouldShowControls === true ? false : true;
 
     this.listIndex = key;
+  }
+
+
+  addTenant(){
+    this.navCtrl.push(AddTenantPage);
   }
 
 }
