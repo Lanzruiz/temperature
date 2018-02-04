@@ -7,6 +7,7 @@ import { LoginPage } from '../pages/login/index';
 import { ForgotPasswordPage } from '../pages/login/forgot-password/index';
 import { TenantsPage } from '../pages/tenants/index';
 import { AddTenantPage } from '../pages/tenants/add/index';
+import { EditTenantPage } from '../pages/tenants/edit/index';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,8 @@ export class MyApp {
       { title: 'Login', component: LoginPage },
       { title: 'Forgot Password', component: ForgotPasswordPage },
       { title: 'Tenants', component: TenantsPage },
-      { title: 'Add Tenant', component: AddTenantPage }
+      { title: 'Add Tenant', component: AddTenantPage },
+      { title: 'Edit Tenant', component: EditTenantPage }
     ];
 
   }

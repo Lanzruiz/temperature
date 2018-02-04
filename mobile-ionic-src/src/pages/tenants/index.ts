@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { AddTenantPage } from '../tenants/add/index';
+import { EditTenantPage } from '../tenants/edit/index';
 
 @Component({
   selector: 'page-tenants',
@@ -74,7 +75,7 @@ export class TenantsPage {
   listIndex: number;
 
   constructor(public navCtrl: NavController) {
-    this.members = this.members_list;
+    this.members = this.members_list;;
   }
 
   showControls(key){
@@ -85,8 +86,12 @@ export class TenantsPage {
   }
 
 
-  addTenant(){
+  onAddTenant(){
     this.navCtrl.push(AddTenantPage);
+  }
+
+  onEditTenant() {
+    this.navCtrl.push(EditTenantPage);
   }
 
 }

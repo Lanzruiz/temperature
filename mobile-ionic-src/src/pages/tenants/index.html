@@ -8,7 +8,7 @@
         <ion-title>Monika - Tenants</ion-title>
       </ion-col><!-- ion-col -->
       <ion-col col-2 class="add">
-        <ion-icon (click)="addTenant()" class="ion-plus-round"></ion-icon>
+        <ion-icon (click)="onAddTenant()" class="ion-plus-round"></ion-icon>
       </ion-col>
     </ion-row><!-- ion-row -->
     <ion-row id="search-box">
@@ -52,7 +52,7 @@
             <ion-icon class="ion-ios-upload-outline"></ion-icon>
             <span>Backup</span>
           </ion-col>
-          <ion-col width-20 class="edit">
+          <ion-col width-20 class="edit" (click)="onEditTenant()">
             <ion-icon class="ion-more"></ion-icon>
             <span>Edit</span>
           </ion-col>
