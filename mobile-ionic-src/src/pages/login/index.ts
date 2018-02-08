@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { ForgotPasswordPage } from './forgot-password/index';
+import { SignupPage } from './signup/index';
 import { TenantsPage } from '../tenants/index';
 
 @Component({
@@ -12,6 +13,10 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController) {
 
+  }
+
+  onSignup() {
+    this.navCtrl.push(SignupPage);
   }
 
   onClickForgotPassword() {
