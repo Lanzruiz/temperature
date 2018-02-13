@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/index';
 import { ForgotPasswordPage } from '../pages/login/forgot-password/index';
 import { SignupPage } from '../pages/login/signup/index';
+import { ProfileAuthentication } from '../pages/login/signup/authenticate/index';
 import { TenantsPage } from '../pages/tenants/index';
 import { AddTenantPage } from '../pages/tenants/add/index';
 import { EditTenantPage } from '../pages/tenants/edit/index';
@@ -19,6 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     ForgotPasswordPage,
     SignupPage,
+    ProfileAuthentication,
     TenantsPage,
     AddTenantPage,
     EditTenantPage
@@ -33,6 +35,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     ForgotPasswordPage,
     SignupPage,
+    ProfileAuthentication,
     TenantsPage,
     AddTenantPage,
     EditTenantPage
