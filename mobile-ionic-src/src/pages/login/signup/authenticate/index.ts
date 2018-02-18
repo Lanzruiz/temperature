@@ -4,10 +4,10 @@ import { NavParams, AlertController, NavController } from 'ionic-angular';
 import { TenantsPage } from '../../../tenants/index';
 
 @Component({
-  selector: 'profile-authentication',
+  selector: 'screen-authentication',
   templateUrl: 'index.html'
 })
-export class ProfileAuthentication {
+export class SignupAuthenticationScreen {
 
   constructor(
       public params: NavParams,
