@@ -4,7 +4,6 @@ var dateFormat = require('dateformat');
 var userModel = require('../models/user');
 
 
-const user = new userModel("User");
 
 exports.loggedIn = function(req, res, next)
 {

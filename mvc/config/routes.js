@@ -10,7 +10,7 @@ module.exports = function (app, passport) {
 
     app.get('/api/list', home.list);//home
     app.post('/api/signup', home.signup);//home
-    app.get('/login', user.login);//home
+    app.get('/', user.login);//home
 
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/home', // redirect to the secure profile section

@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var dateFormat = require('dateformat');
 var userModel = require('../models/user');
 
-const user = new userModel("User");
+
 
 
 class userController {
