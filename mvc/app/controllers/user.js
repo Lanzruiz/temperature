@@ -9,10 +9,6 @@ var mongoose = require('mongoose');
 
 module.exports = {
  
-  signup : function(req, res){
-
-  },
-
   add : function(req, res){
 
     var item = {
@@ -26,28 +22,33 @@ module.exports = {
 
     var data = new userModel(item);
     data.save(function(err) {
-    if (err) throw err;
+      if (err) throw err;
 
-    // fetch user and test password verification
-    userModel.findOne({ email: req.body.email }, function(err, user) {
-        if (err) throw err;
+      // fetch user and test password verification
+      userModel.findOne({ email: req.body.email }, function(err, user) {
+          if (err) throw err;
 
-        // test a matching password
-        user.comparePassword(req.body.password, function(err, isMatch) {
-            if (err) throw err;
-            console.log(req.body.password, isMatch); // -> Password123: true
-        });
+          // test a matching password
+          user.comparePassword(req.body.password, function(err, isMatch) {
+              if (err) throw err;
+              console.log(req.body.password, isMatch); // -> Password123: true
+          });
 
-        
+          
+      });
     });
-});
     console.log('Data has been save!');
 
   },
-  list : function(res){
+
+  login: function(res){
+
+  },
+
+  list : function(req, res){
     userModel.find()
          .then(function(doc){
-             console.log(doc);
+            res.status(200).send(doc); 
          })
   },
 

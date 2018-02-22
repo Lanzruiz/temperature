@@ -24,9 +24,10 @@ module.exports = function (app, passport) {
 
 
     //api
-     app.post('/api/add', user.add);
+     app.post('/api/user/add', user.add);
 
-     app.get('/api/list', user.list);//home
+     app.get('/api/user/list/:id', user.list);
+     app.get('/api/tenant/list/:id', user.list);
 
 
 }
