@@ -42,8 +42,7 @@ exports.home = function(req, res) {
 
 exports.signup = function(req, res) {
 
-	user.add;
-	res.render('login.ejs');
+	res.render('signup.ejs');
 
 }
 

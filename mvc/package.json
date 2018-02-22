@@ -5,6 +5,7 @@
   "dependencies": {
     "async": "latest",
     "basic-auth-connect": "latest",
+    "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.13.2",
     "client-sessions": "latest",
@@ -19,6 +20,7 @@
     "express-session": "latest",
     "fs-extra": "latest",
     "http-proxy": "latest",
+    "js-sha256": "^0.9.0",
     "md5": "latest",
     "mime": "latest",
     "mongoose": "latest",
@@ -35,6 +37,7 @@
     "pm2": "latest",
     "request": "latest",
     "serve-favicon": "~2.3.0",
+    "sha256": "^0.2.0",
     "simple-encryptor": "latest",
     "underscore": "latest"
   }

@@ -5,12 +5,10 @@ var user = require('../app/controllers/user');
 
 module.exports = function (app, passport) {
 
-    app.post('/home', user.login);
-    app.get('/signup', home.signup);
-
-    app.get('/api/list', home.list);//home
-    app.post('/api/signup', home.signup);//home
-    app.get('/', user.login);//home
+    app.get('/add', home.signup);
+   
+    //app.post('/api/signup', home.signup);//home
+    //app.get('/', user.login);//home
 
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/home', // redirect to the secure profile section
@@ -23,6 +21,12 @@ module.exports = function (app, passport) {
         failureRedirect: '/login', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
     }));
+
+
+    //api
+     app.post('/api/add', user.add);
+
+     app.get('/api/list', user.list);//home
 
 
 }
