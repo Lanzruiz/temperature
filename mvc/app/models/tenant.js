@@ -1,5 +1,4 @@
 var database = require('../../config/database')
-var database = require('../../lib/mongoose')
 var mongoose = require('mongoose');
 mongoose.connect(database.url);
 var Schema = mongoose.Schema;
@@ -16,8 +15,7 @@ var UserDataSchema =  new Schema({
 	role: Number,
 	created_date: Date,
 	updated_date: Date, 
-	active_hash: String,
-	tenant: String
+	active_hash: String
 
 },{collection: 'users'});
 

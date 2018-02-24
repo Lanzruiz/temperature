@@ -2,26 +2,26 @@ var MongoClient = require('mongodb').MongoClient;
 var database = require('../config/database')
 
 
-class Mongo {
+module.exports.checkpassword = function(next) {
+    var user = this;
 
-    connect(json) {
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) return next();
 
-        MongoClient.connect(database.url, function(err, db) {
+    // generate a salt
+    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+        if (err) return next(err);
 
-			   if (err) throw err;
-			   var dbo = db.db("test");
-			  
-				   dbo.collection(collection).find({}).toArray(function(err, result) {
-				      if (err) throw err;
-				        res.json(result);
-				        db.close();
-				   });
-			   
-		});
-    }
+        // hash the password using our new salt
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            if (err) return next(err);
 
+            // override the cleartext password with the hashed one
+            user.password = hash;
+            next();
+        });
+    });
 }
 
 
-module.exports = Mongo;
 

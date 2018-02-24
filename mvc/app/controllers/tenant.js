@@ -17,8 +17,7 @@ module.exports = {
        middlename: req.body.middlename,
        lastname: req.body.lastname,
        password: req.body.password,
-       role: 1,
-       tenant: "skdjsjd"
+       role: 2
     }
 
     var data = new userModel(item);
@@ -48,6 +47,7 @@ module.exports = {
   },
 
   list : function(req, res){
+    console.log(req.params.id);
     userModel.find()
          .then(function(doc){
             res.status(200).send(doc); 

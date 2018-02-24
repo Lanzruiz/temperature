@@ -1,6 +1,7 @@
 
 var home = require('../app/controllers/home');
 var user = require('../app/controllers/user');
+var tenant = require('../app/controllers/tenant');
 //you can include all your controllers
 
 module.exports = function (app, passport) {
@@ -24,10 +25,14 @@ module.exports = function (app, passport) {
 
 
     //api
-     app.post('/api/user/add', user.add);
+    app.post('/api/user/add', user.add);
+    app.get('/api/user/list/:id', user.list);
+     
+    app.post('/api/tenant/add', tenant.add);
+    app.get('/api/tenant/list/:id', user.list);
+    app.get('/api/tenant/member/list/:id', user.list);
 
-     app.get('/api/user/list/:id', user.list);
-     app.get('/api/tenant/list/:id', user.list);
+
 
 
 }
