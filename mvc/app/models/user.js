@@ -30,6 +30,7 @@ UserDataSchema.methods.comparePassword = function(candidatePassword, cb) {
     });
 };
 
+
 var UserData = mongoose.model('user', UserDataSchema);
 
 

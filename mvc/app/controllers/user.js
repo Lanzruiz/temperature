@@ -17,8 +17,7 @@ module.exports = {
        middlename: req.body.middlename,
        lastname: req.body.lastname,
        password: req.body.password,
-       role: 1,
-       tenant: "skdjsjd"
+       role: 1
     }
 
     var data = new userModel(item);

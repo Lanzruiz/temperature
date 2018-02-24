@@ -29,7 +29,7 @@ module.exports = function (app, passport) {
     app.get('/api/user/list/:id', user.list);
      
     app.post('/api/tenant/add', tenant.add);
-    app.get('/api/tenant/list/:id', user.list);
+    app.get('/api/tenant/list/:id', tenant.list);
     app.get('/api/tenant/member/list/:id', user.list);
 
 

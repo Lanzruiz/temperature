@@ -48,7 +48,7 @@ module.exports = {
 
   list : function(req, res){
     console.log(req.params.id);
-    userModel.find()
+    userModel.find({role:2})
          .then(function(doc){
             res.status(200).send(doc); 
          })
