@@ -24,22 +24,26 @@ module.exports.checkpassword = function(next) {
 }
 
 
-module.exports.createtenant = function(req) {
+module.exports.createtenant = function(req, res) {
 
-	var url = "mongodb://localhost:27017/"+req.body.tenantdb;
+	 var url = database.url+req.body.company;
 
-	MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      console.log("Database created!");
-      db.close();
+      console.log("Database created!");
+      db.close();
     });
 
-    var dbo = db.db(req.body.tenantdb);
-	var myobj = { name: "Company Inc", address: "Highway 37" };
-	dbo.collection("customers").insertOne(myobj, function(err, res) {
-	    if (err) throw err;
-	    console.log("1 document inserted");
-	    db.close();
+
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db(req.body.company);
+      var myobj = {firstname: req.body.firstname, lastname: req.body.lastname, role: 1 };
+      dbo.collection("users").insertOne(myobj, function(err, res) {
+        if (err) throw err;
+        console.log("1 document inserted");
+        db.close();
+      });
     });
 
 }
