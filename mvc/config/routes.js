@@ -24,13 +24,14 @@ module.exports = function (app, passport) {
     }));
 
 
-    //api
+    //main user api
     app.post('/api/user/add', user.add);
-    app.get('/api/user/list/:id', user.list);
-     
+    app.get('/api/user/list/:access_token', user.list);
+    app.get('/api/tenant/list/:access_token', tenant.list);
     app.post('/api/tenant/add', tenant.add);
+
+    //tenant api
     app.post('/api/tenant/adduser', tenant.adduser);
-    app.get('/api/tenant/list/:id', tenant.list);
     app.get('/api/tenant/member/list/:id', user.list);
 
 

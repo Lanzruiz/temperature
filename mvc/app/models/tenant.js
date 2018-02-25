@@ -1,4 +1,5 @@
 var database = require('../../config/database')
+var database = require('../../lib/mongoose')
 var mongoose = require('mongoose');
 mongoose.connect(database.url+database.db);
 var Schema = mongoose.Schema;
@@ -7,17 +8,19 @@ SALT_WORK_FACTOR = 10;
 
 
 var UserDataSchema =  new Schema({
-	firstname: String,
-	middlename: String,
-	lastname: String,
-	password: String,
-	role: Number,
+    email: {type: String, required: true},
+    firstname: String,
+    middlename: String,
+    lastname: String,
+    password: String,
+    role: Number,
     company: String,
-    datase: String,
+    database: String,
     dbpassword: String,
-	created_date: Date,
-	updated_date: Date, 
-	active_hash: String
+    created_date: Date,
+    updated_date: Date, 
+    active_hash: String,
+    tenant: String
 
 },{collection: 'users'});
 
@@ -30,10 +33,8 @@ UserDataSchema.methods.comparePassword = function(candidatePassword, cb) {
     });
 };
 
-var UserData = mongoose.model('user', UserDataSchema);
 
-
-
+var UserData = mongoose.model('tenant', UserDataSchema);
 
 
 

@@ -11,7 +11,6 @@ var fs = require('fs');
 
 var bcrypt = require('bcrypt-nodejs');
 
-
 //expose this function to our app using module.exports
 module.exports = function(passport) {
 
@@ -163,6 +162,13 @@ module.exports = function(passport) {
     }));
 
 };
+
+
+module.exports = {
+
+    'access_token' : '04958slhskj09eu45ortetret5^53dssdf3esfsfsdfsdf'
+}
+
 
     
     
