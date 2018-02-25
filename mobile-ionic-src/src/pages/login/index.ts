@@ -19,11 +19,11 @@ export class LoginPage {
     this.navCtrl.push(SignupPage);
   }
 
-  onClickForgotPassword() {
+  onForgotPassword() {
     this.navCtrl.push(ForgotPasswordPage);
   }
 
-  onClickLogIn() {
+  onLogin() {
     this.navCtrl.push(TenantsPage);
   }
 }

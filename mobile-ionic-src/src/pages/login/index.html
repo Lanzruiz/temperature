@@ -1,60 +1,44 @@
-<ion-content no-bounce>
+<ion-content no-bounce padding>
   <ion-grid>
     <ion-row>
       <ion-col col-12>
-        <ion-title center>
-          <img src="../../assets/imgs/logo.png" />
-        </ion-title><!-- ion-title -->
+        <img src="../../assets/imgs/logo.jpg" />
       </ion-col><!-- ion-col -->
     </ion-row><!-- ion-row -->
 
     <ion-row>
-      <ion-col col-12 class="username">
-        <ion-item>
-          <ion-input type="text" placeholder="Username"></ion-input>
-        </ion-item><!-- ion-item -->
-      </ion-col><!-- ion-col -->
-      <ion-col col-12 class="password">
-        <ion-item>
-          <ion-input type="password" placeholder="Password"></ion-input>
-        </ion-item><!-- ion-item -->
-      </ion-col><!-- ion-col -->
-      <ion-col col-12 class="login">
-        <ion-item>
-          <button (click)="onClickLogIn()" ion-button>Log in</button>
-        </ion-item>
-      </ion-col><!-- ion-col -->
-      <ion-col col-12 class="remember-me">
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-label>Remember this device for 30 days</ion-label>
-        </ion-item>
-      </ion-col><!-- ion-col -->
+      <ion-col col-12>
+        <ion-list class="login-form">
+          <ion-item no-lines class="username">
+            <ion-icon item-left class="ion-person"></ion-icon>
+            <ion-input type="text" placeholder="User Name"></ion-input>
+          </ion-item><!-- ion-item -->
+          <ion-item no-lines class="password">
+            <ion-icon item-left class="ion-android-lock"></ion-icon>
+            <ion-input type="password" placeholder="Password"></ion-input>
+          </ion-item><!-- ion-item -->
+          <ion-item no-lines class="login-btn">
+            <button ion-button block (click)="onLogin()">Log in</button>
+          </ion-item><!-- ion-item -->
+        </ion-list><!-- ion-list -->
+      </ion-col><!-- ion-col --->
     </ion-row><!-- ion-row -->
   </ion-grid><!-- ion-grid -->
-
 </ion-content><!-- ion-content -->
 
-<ion-footer>
+<ion-footer padding>
   <ion-grid>
     <ion-row>
       <ion-col col-12>
-        <ion-item class="registration-label">
-          <ion-label>
-            <span>No yet registered?</span>
-          </ion-label>
-        </ion-item>
-      </ion-col><!-- ion-col -->
-      <ion-col col-12>
-        <ion-item>
-          <button ion-button (click)="onSignup()">Register Here</button>
-        </ion-item>
-      </ion-col><!-- ion-col -->
-      <ion-col col-12>
-        <ion-item class="forgot-password">
-          <a (click)="onClickForgotPassword()">Forgot Password</a>
-        </ion-item><!-- ion-item -->
+        <ion-list>
+          <ion-item no-lines class="register-btn">
+            <button ion-button block (click)="onSignup()">Register Here</button>
+          </ion-item><!-- ion-item -->
+          <ion-item no-lines text-center class="forgot-password-btn">
+            <button ion-button clear (click)="onForgotPassword()">Forgot Password?</button>
+          </ion-item><!-- ion-item -->
+        </ion-list><!-- ion-list -->
       </ion-col><!-- ion-col -->
     </ion-row><!-- ion-row -->
   </ion-grid><!-- ion-grid -->
-</ion-footer>
+</ion-footer><!-- ion-footer -->

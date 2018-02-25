@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ModalController, NavParams } from 'ionic-angular';
 
-import { ProfileAuthentication } from './authenticate/index';
+import { SignupAuthenticationScreen } from './authenticate/index';
 
 @Component({
   selector: 'page-signup',
@@ -29,7 +29,7 @@ export class SignupPage {
         {
           text: 'Ok',
           handler: () => {
-            let profileModal = this.modalCtrl.create(ProfileAuthentication, { userId: 8675309 });
+            let profileModal = this.modalCtrl.create(SignupAuthenticationScreen, { userId: 8675309 });
             profileModal.present();
           }
         }
