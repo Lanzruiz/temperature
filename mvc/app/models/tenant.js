@@ -15,6 +15,7 @@ var UserDataSchema =  new Schema({
     password: String,
     role: Number,
     company: String,
+    subdomain: String,
     database: String,
     dbpassword: String,
     created_date: Date,

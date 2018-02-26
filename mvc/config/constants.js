@@ -9,4 +9,5 @@ module.exports = {
 	"smtp_from_name":"express-mvc-generator",
 	"alert_email":"aler@email.com",
 	"alert_email_name":"Aler Name",
+	"base_url": "localhost"
 };

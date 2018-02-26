@@ -1,6 +1,6 @@
 var generatePassword = require("password-generator");
  
-var maxLength = 12;
+var maxLength = 18;
 var minLength = 12;
 var uppercaseMinCount = 3;
 var lowercaseMinCount = 3;
@@ -26,14 +26,18 @@ function isStrongEnough(password) {
     sc && sc.length >= specialMinCount;
 }
  
-module.exports.password = function() {
+function generatePassword() {
   var password = "";
-  var randomLength = Math.floor(Math.random() * (maxLength - minLength)) + minLength;
   while (!isStrongEnough(password)) {
-    password = generatePassword(randomLength, false, /[\w\d\?\-]/);
+    password = generatePassword(12, -p, /[\d\W\w\p]/);
   }
   return password;
-}  
+} 
+
+module.exports = {
+
+    'password' : generatePassword()
+}; 
   
 
  

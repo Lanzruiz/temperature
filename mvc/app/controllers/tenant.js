@@ -26,13 +26,15 @@ module.exports = {
          lastname: req.body.lastname,
          password: req.body.password,
          database: req.body.company,
+         dbpassword: password.password,
          company: req.body.company,
+         subdomain: req.body.subdomain.replace(/\s/g, '').toLowerCase(),
          role: 2
       }
 
       var tenant = {
           email: req.body.email,
-          password: req.body.password,
+          password: password.password,
           company: req.body.company,
           firstname: req.body.firstname,
           middlename: req.body.middlename,

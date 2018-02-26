@@ -3,10 +3,17 @@ var home = require('../app/controllers/home');
 var user = require('../app/controllers/user');
 var tenant = require('../app/controllers/tenant');
 //you can include all your controllers
+var subdomain = require('express-subdomain');
 
 module.exports = function (app, passport) {
 
+
     app.get('/', home.signup);
+
+    app.get('/signup', home.signup);
+
+    app.get('/login', home.login);
+
    
     //app.post('/api/signup', home.signup);//home
     //app.get('/', user.login);//home
@@ -33,6 +40,8 @@ module.exports = function (app, passport) {
     //tenant api
     app.post('/api/tenant/adduser', tenant.adduser);
     app.get('/api/tenant/member/list/:id', user.list);
+
+    app.use(subdomain('now', app));
 
 
 
