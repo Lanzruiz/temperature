@@ -18,6 +18,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
 var path = require('path');
+var subdomain = require('express-subdomain');
 
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -70,6 +71,7 @@ require('./config/routes.js')(app, passport); // load our routes and pass in our
 
 
 //launch ======================================================================
+app.use(subdomain('test', app));
 app.listen(port);
 console.log('The magic happens on port ' + port);
 
