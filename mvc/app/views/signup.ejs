@@ -52,7 +52,7 @@
 		
                                 
 			
-        <form role="form" action="/api/add" role="form" method="post" method="post" class="login-form">
+        <form role="form" action="/api/tenant/add" role="form" method="post" method="post" class="login-form">
                                                 
                                                 
             <div class="form-group">
@@ -77,12 +77,18 @@
 				 <input type="email" name="email" id="email" class="form-control  form-username"  required placeholder="Email" />
 				
 			</div>
+            <input type="hidden" id="access_token" name="access_token" value="04958slhskj09eu45ortetret5^53dssdf3esfsfsdfsdf">
    
 			<div class="form-group" >
-				<label for="password"  class="sr-only">Password</label> 
-				<input type="password" name="password" id="password" class="form-control  form-username" ng-model="user.password" required  placeholder="Password"/>
+				<label for="password"  class="sr-only">Company</label> 
+				<input type="text" name="company" id="company" class="form-control  form-username" ng-model="user.password" required  placeholder="Company"/>
 			    
 			</div>
+            <div class="form-group" >
+                <label for="password"  class="sr-only">Password</label> 
+                <input type="password" name="password" id="password" class="form-control  form-username" ng-model="user.password" required  placeholder="Password"/>
+                
+            </div>
 			
 			
 			                        <button type="submit" class="btn">Sign in!</button>

@@ -2,7 +2,8 @@ var numeral = require('numeral');
 var bcrypt = require('bcrypt-nodejs');
 var dateFormat = require('dateformat');
 var userModel = require('../models/user');
-
+var constant = require('../../config/constants')
+var trim = require('trim-character');
 
 
 exports.loggedIn = function(req, res, next)
@@ -28,9 +29,11 @@ exports.list = function(req, res) {
 }
 
 exports.home = function(req, res) {
+
+
+	 console.log(trim(req.hostname, '.'+constant.base_url))
 	
-	
-	res.render('home.ejs', {
+	res.render('login.ejs', {
 		error : req.flash("error"),
 		success: req.flash("success"),
 		session:req.session,
@@ -42,6 +45,7 @@ exports.home = function(req, res) {
 
 exports.signup = function(req, res) {
 
+
 	res.render('signup.ejs');
 
 }
@@ -50,6 +54,7 @@ exports.signup = function(req, res) {
 exports.login = function(req, res) {
 
 
+    console.log(trim(req.hostname, '.'+constant.base_url))
 	
 	if (req.session.user) {
 
