@@ -6,7 +6,7 @@ var tenant = require('../app/controllers/tenant');
 
 module.exports = function (app, passport) {
 
-    app.get('/add', home.signup);
+    app.get('/', home.signup);
    
     //app.post('/api/signup', home.signup);//home
     //app.get('/', user.login);//home
