@@ -51,6 +51,12 @@ exports.signup = function(req, res) {
 }
 
 
+exports.createTenant = function(req, res) {
+
+	res.render('tenants/createTenants.ejs');
+
+}
+
 exports.login = function(req, res) {
 
 
