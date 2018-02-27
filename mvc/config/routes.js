@@ -14,6 +14,7 @@ module.exports = function (app, passport) {
 
     app.get('/login', home.login);
 
+    app.post();
    
     //app.post('/api/signup', home.signup);//home
     //app.get('/', user.login);//home
