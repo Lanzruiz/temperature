@@ -18,33 +18,29 @@
 <body>
 
 	<div class="wrap">
-		<form role="form" action="/api/tenant/adduser" role="form" method="post" method="post" class="login-form">
+		<form role="form" action="/api/tenant/add" role="form" method="post" method="post" class="login-form">
 			<div class="form-group">
-				<label for="companyLegName">Company Legal Name:</label>
-				<input type="text" class="form-control" id="companyLegName">
+				<label for="company">Company Legal Name:</label>
+				<input type="text" class="form-control" name="company" id="company">
 			</div>
 			<div class="form-group">
 				<label for="subdomain">Subdomain:</label>
-				<input type="text" class="form-control" id="subdomain">
+				<input type="text" class="form-control" name="subdomain" id="subdomain">
 			</div>
 			<div class="form-group">
 				<label for="email">Email address:</label>
-				<input type="email" class="form-control" id="email">
+				<input type="email" class="form-control" name="email" id="email">
 			</div>
 
 			<div class="form-group">
 				<label for="contactnumber">Contact Number:</label>
-				<input type="number" class="form-control" id="contactnumber">
+				<input type="number" class="form-control" name="contactnumber" id="contactnumber">
 			</div>
-
-			<div class="form-group">
-				<label for="contactnumber">Contact Number:</label>
-				<input type="number" class="form-control" id="contactnumber">
-			</div>
+			<!-- <input type="hidden" name="access_token" id="access_token" value="04958slhskj09eu45ortetret5^53dssdf3esfsfsdfsdf"> -->
 
 			<div class="form-group">
 				<label for="address">Address:</label>
-				<textarea style="height: 200px" class="form-control" id="address"></textarea>
+				<textarea style="height: 200px" class="form-control" name="address" id="address"></textarea>
 			</div>
 
 			<button type="submit" class="btn-default">Create Tenant</button>
