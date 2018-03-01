@@ -14,10 +14,10 @@ module.exports = function (app, passport) {
 
     app.get('/login', home.login);
 
-    app.get('/createTenant', home.createTenant);//home
    
     //app.post('/api/signup', home.signup);//home
     //app.get('/', user.login);//home
+    app.post('/api/createTenants',home.createTenants);
 
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/home', // redirect to the secure profile section
@@ -38,10 +38,13 @@ module.exports = function (app, passport) {
     app.get('/api/tenant/list/:access_token', tenant.list);
     app.post('/api/tenant/add', tenant.add);
 <<<<<<< HEAD
+<<<<<<< HEAD
     app.get('/api/tenant/restore/:access_token', tenant.add);
 =======
     app.post('/api/tenant/backup', tenant.backup);
 >>>>>>> ready the code for backup
+=======
+>>>>>>> MCP-88 added uncommited files;
 
     //tenant api
     app.post('/api/tenant/adduser', tenant.adduser);
