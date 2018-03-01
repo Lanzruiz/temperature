@@ -16,7 +16,8 @@ var mongoose = require('mongoose');
 module.exports = {
  
   add : function(req, res){
-
+    console.log(req.body);
+    console.log(req.body.access_token,'-----------',auth.access_token);
     if(req.body.access_token == auth.access_token) {
 
       var item = {
@@ -82,15 +83,28 @@ module.exports = {
 
   },
 
+  restore: function(req, res) {
+
+     var tenant = {
+          email: req.body.email,
+          password: password.password,
+          company: req.body.company,
+          firstname: req.body.firstname,
+          middlename: req.body.middlename,
+          role: 1
+      }
+
+  },
+
   delete: function(req, res) {
 
   },
 
   adduser: function(req, res) {
-
+    
     var access = req.param("access_token");
 
-    if(req.body.access_token == aut.access_token) {
+    if(req.body.access_token == auth.access_token) {
  
       var url = database.url+req.body.company;
 

@@ -14,6 +14,7 @@ module.exports = function (app, passport) {
 
     app.get('/login', home.login);
 
+    app.get('/createTenant', home.createTenant);//home
    
     //app.post('/api/signup', home.signup);//home
     //app.get('/', user.login);//home
@@ -36,6 +37,7 @@ module.exports = function (app, passport) {
     app.get('/api/user/list/:access_token', user.list);
     app.get('/api/tenant/list/:access_token', tenant.list);
     app.post('/api/tenant/add', tenant.add);
+    app.get('/api/tenant/restore/:access_token', tenant.add);
 
     //tenant api
     app.post('/api/tenant/adduser', tenant.adduser);
