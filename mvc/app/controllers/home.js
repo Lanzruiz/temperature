@@ -5,7 +5,6 @@ var userModel = require('../models/user');
 var constant = require('../../config/constants')
 var trim = require('trim-character');
 
-
 exports.loggedIn = function(req, res, next)
 {
 	if (req.session.user) { // req.session.passport._id
@@ -50,10 +49,9 @@ exports.signup = function(req, res) {
 
 }
 
+exports.createTenants = function(req, res) {
 
-exports.createTenant = function(req, res) {
-
-	res.render('tenants/createTenants.ejs');
+    res.render('tenants/createTenants.ejs');
 
 }
 
@@ -61,7 +59,7 @@ exports.login = function(req, res) {
 
 
     console.log(trim(req.hostname, '.'+constant.base_url))
-	
+
 	if (req.session.user) {
 
 		res.redirect('/home');

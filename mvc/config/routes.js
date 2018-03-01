@@ -14,10 +14,10 @@ module.exports = function (app, passport) {
 
     app.get('/login', home.login);
 
-    app.get('/createTenant', home.createTenant);//home
    
     //app.post('/api/signup', home.signup);//home
     //app.get('/', user.login);//home
+    app.post('/api/createTenants',home.createTenants);
 
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/home', // redirect to the secure profile section
@@ -37,7 +37,6 @@ module.exports = function (app, passport) {
     app.get('/api/user/list/:access_token', user.list);
     app.get('/api/tenant/list/:access_token', tenant.list);
     app.post('/api/tenant/add', tenant.add);
-    app.post('/api/tenant/backup', tenant.backup);
 
     //tenant api
     app.post('/api/tenant/adduser', tenant.adduser);

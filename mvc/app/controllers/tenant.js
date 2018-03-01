@@ -16,8 +16,7 @@ var mongoose = require('mongoose');
 module.exports = {
  
   add : function(req, res){
-    console.log(req.body);
-    console.log(req.body.access_token,'-----------',auth.access_token);
+
     if(req.body.access_token == auth.access_token) {
 
       var item = {
@@ -88,9 +87,10 @@ module.exports = {
   },
 
   adduser: function(req, res) {
+
     var access = req.param("access_token");
 
-    if(req.body.access_token == auth.access_token) {
+    if(req.body.access_token == aut.access_token) {
  
       var url = database.url+req.body.company;
 
@@ -143,59 +143,6 @@ module.exports = {
 	page : function(req, res){
 
       res.render('login.ejs');
-
-  }
-
-  backup : function(req, res){
-
-    console.log('Backup started...');
-        //find the database name base on ID
- 
-    var id = req.params.id;
-    tenantModel.findOne({ id: id }, function(err, user) {
-      if (err) throw err;
-
-      
-          
-    }
-
-
-
-
-
-    //     Tenant.findById(id, function (err,res) {
-    //         var tool = new pg_backup_restore();
-    //         //create backup for the   host: config.dbConfig.host,
-    //             port: config.dbConfig.port,
-    //             user: config.dbConfig.user,
-    //             password: config.dbConfig.password,
-    //             dumpPath: '/Resource',
-    //             database: res.companyName
-    //         return tool.dumpDatabase({
-    //             host: config.dbConfig.host,
-    //             port: config.dbConfig.port,
-    //             user: config.dbConfig.user,
-    //             password: config.dbConfig.password,
-    //             dumpPath: '/Resource',
-    //             database: res.companyName
-    //         }, function (error, output, filePath) {
-    //             if (error instanceof Error) {
-    //                 console.log(error);
-    //             } else {
-    //                 console.log(output);
-    //                 console.log(filePath);
-    //                 //return {filePath : filePath};
-    //                // console.log(dumpFileName);
-    //             }
-    //         });
-    //     })
-    //     res.json({sucess:true  });
-    // }
-    // catch(err){
-    //     console.log(err);
-    //     res.send(500);
-    // }
-
 
   }
 }
