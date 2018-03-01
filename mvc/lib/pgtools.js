@@ -1,4 +1,4 @@
-pgtools.js
+
 !function () {
     'use strict';
     var Class = require('ee-class')
