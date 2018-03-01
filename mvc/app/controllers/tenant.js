@@ -101,6 +101,7 @@ module.exports = {
   },
 
   adduser: function(req, res) {
+
     var access = req.param("access_token");
 
     if(req.body.access_token == aut.access_token) {
