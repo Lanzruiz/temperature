@@ -12,6 +12,7 @@ var mongolib = require('../../lib/mongoose')
 var password = require('../../lib/password')
 var bcrypt = require('../../lib/bcrypt')
 var mongoose = require('mongoose');
+var pgtools = require('../../lib/pgtools');
 
 module.exports = {
  
@@ -100,11 +101,6 @@ module.exports = {
   },
 
   adduser: function(req, res) {
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> MCP-88 added uncommited files;
     var access = req.param("access_token");
 
     if(req.body.access_token == aut.access_token) {
@@ -158,10 +154,42 @@ module.exports = {
   },
 
 	page : function(req, res){
-
+ 
       res.render('login.ejs');
 
   }
+
+  backup: function(req, res){
+ 
+      var id = req.param('id');
+      tenantModel.findOne({ id: id}, function(err, tenant) {
+            if (err) throw err;
+
+            var tool = new pgtools();
+            tool.dumpDatabase({
+                host: 'localhost',
+                port: 5432,
+                user: 'postgres',
+                password: 'postgres',
+                dumpPath: 'public/Resource',
+                database: tenant.companyName
+            }, function (err, output, filePath) {
+                if (err) throw err;
+        
+                console.log(output);
+                console.log(filePath);
+
+                ///SHOULD SEND EMAIL WITH FILE PATH HERE
+
+                //return {filePath : filePath};
+               // console.log(dumpFileName);
+               
+            });
+
+      }
+
+  }
+
 }
 
 
