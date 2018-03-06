@@ -27,6 +27,11 @@ exports.list = function(req, res) {
 
 }
 
+exports.createnant = function(req, res) {
+
+    res.render('b3/new-tenant.ejs');
+}
+
 exports.home = function(req, res) {
 
 
@@ -44,7 +49,7 @@ exports.home = function(req, res) {
 
 exports.signup = function(req, res) {
 
-
+     console.log(trim(req.hostname, '.'+constant.base_url))
 	res.render('signup.ejs');
 
 }
@@ -53,6 +58,10 @@ exports.createTenants = function(req, res) {
 
     res.render('tenants/createTenants.ejs');
 
+}
+exports.tenantlist = function(req, res) {
+
+     res.render('b3/tenants.ejs');
 }
 
 exports.login = function(req, res) {
@@ -66,7 +75,7 @@ exports.login = function(req, res) {
 
 	} else {
 
-		res.render('login', {
+		res.render('b3/login.ejs', {
 			error : req.flash("error"),
 			success: req.flash("success"),
 			session:req.session

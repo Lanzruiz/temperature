@@ -8,11 +8,13 @@ var subdomain = require('express-subdomain');
 module.exports = function (app, passport) {
 
 
-    app.get('/', home.signup);
+    app.get('/', home.login);
 
     app.get('/signup', home.signup);
 
     app.get('/login', home.login);
+    app.get('/tenants/list', home.tenantlist);
+    app.get('/tenant/add', home.createnant);
 
    
     //app.post('/api/signup', home.signup);//home
