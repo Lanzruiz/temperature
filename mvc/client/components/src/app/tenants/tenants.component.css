@@ -1,0 +1,30 @@
+
+table {
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 4em auto;
+  border-collapse: collapse;
+  min-width: 23em; width: 70%; max-width: 56em;
+  border-radius: .5em;
+  box-shadow: 0 0 .5em #000;
+}
+thead {
+  background: linear-gradient(#606062, #28262b);
+  color: white;
+}
+
+td, th {
+  min-width: 100px;
+  height: 50px;
+  text-align: center;
+}
+h2,ol {
+  color: #999;
+}
+.alert-success td {
+  color: #3c763d;
+}
+
+.alert td button {
+  margin-right: 30px;
+}

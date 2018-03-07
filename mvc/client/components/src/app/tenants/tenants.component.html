@@ -1,18 +1,23 @@
-<h2>My Tenants</h2>
-
-<ul class="tenants">
-  <li *ngFor="let tenant of tenants"
+ <table class="table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" text-align="center">Company Legal Name</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tenant of tenants"
     [class.selected]="tenant === selectedTenant"
     (click)="onSelect(tenant)">
-    <span class="badge">{{tenant.id}}</span> {{tenant.name}}
-  </li>
-</ul>
+ 
+      <td>{{tenant.company}}</td>
+      <td>{{tenant.email}}</td>
+      <td><button (click)="onBackupClick(tenant)">backup</button></td>
+      <td><button (click)="onDeleteClick(tenant)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
 
 <app-tenant-list [tenant]="selectedTenant"></app-tenant-list>
-
-
-<!-- 
-Copyright 2017-2018 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->

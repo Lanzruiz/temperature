@@ -38,7 +38,7 @@ module.exports = function (app, passport) {
     app.get('/api/tenant/list/:access_token', tenant.list);
     app.post('/api/tenant/add', tenant.add);
     app.get('/api/tenant/restore/:access_token', tenant.add);
-    app.post('/api/tenant/backup/:id', tenant.backup);
+    //app.post('/api/tenant/backup/:id', tenant.backup);
 
     //tenant api
     app.post('/api/tenant/adduser', tenant.adduser);

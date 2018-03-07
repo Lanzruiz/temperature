@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tenant } from '../tenant';
 
+
+
 @Component({
   selector: 'app-tenant-list',
   templateUrl: './tenant-list.component.html',
@@ -12,7 +14,10 @@ export class TenantListComponent implements OnInit {
 
 
   @Input() tenant: Tenant;
-  constructor() { }
+  constructor(
+   
+  ) {}
+
 
   ngOnInit() {
   }

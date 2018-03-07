@@ -160,36 +160,36 @@ module.exports = {
 
   }
 
-  backup: function(req, res){
+  // backup: function(req, res){
  
-      var id = req.param('id');
-      tenantModel.findOne({ id: id}, function(err, tenant) {
-            if (err) throw err;
+  //     // var id = req.param('id');
+  //     // tenantModel.findOne({ id: id}, function(err, tenant) {
+  //     //       if (err) throw err;
 
-            var tool = new pgtools();
-            tool.dumpDatabase({
-                host: 'localhost',
-                port: 5432,
-                user: 'postgres',
-                password: 'postgres',
-                dumpPath: 'public/Resource',
-                database: tenant.companyName
-            }, function (err, output, filePath) {
-                if (err) throw err;
+  //     //       var tool = new pgtools();
+  //     //       tool.dumpDatabase({
+  //     //           host: 'localhost',
+  //     //           port: 5432,
+  //     //           user: 'postgres',
+  //     //           password: 'postgres',
+  //     //           dumpPath: 'public/Resource',
+  //     //           database: tenant.companyName
+  //     //       }, function (err, output, filePath) {
+  //     //           if (err) throw err;
         
-                console.log(output);
-                console.log(filePath);
+  //     //           console.log(output);
+  //     //           console.log(filePath);
 
-                ///SHOULD SEND EMAIL WITH FILE PATH HERE
+  //     //           ///SHOULD SEND EMAIL WITH FILE PATH HERE
 
-                //return {filePath : filePath};
-               // console.log(dumpFileName);
+  //     //           //return {filePath : filePath};
+  //     //          // console.log(dumpFileName);
                
-            });
+  //     //       });
 
-      }
+  //     // }
 
-  }
+  // }
 
 }
 
