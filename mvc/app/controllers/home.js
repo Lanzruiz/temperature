@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var dateFormat = require('dateformat');
 var userModel = require('../models/user');
 var constant = require('../../config/constants')
-var trim = require('trim-character');
+//var trim = require('trim-character');
 
 exports.loggedIn = function(req, res, next)
 {
@@ -35,7 +35,7 @@ exports.createnant = function(req, res) {
 exports.home = function(req, res) {
 
 
-	 console.log(trim(req.hostname, '.'+constant.base_url))
+	// console.log(trim(req.hostname, '.'+constant.base_url))
 	
 	res.render('login.ejs', {
 		error : req.flash("error"),
@@ -67,7 +67,7 @@ exports.tenantlist = function(req, res) {
 exports.login = function(req, res) {
 
 
-    console.log(trim(req.hostname, '.'+constant.base_url))
+    //console.log(trim(req.hostname, '.'+constant.base_url))
 
 	if (req.session.user) {
 

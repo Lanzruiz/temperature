@@ -1,0 +1,29 @@
+
+<h3>{{action=== ADD_ACTION? 'Create Tenant' : 'Update Tenant'}}</h3>
+<div class="detail">
+		<div class="form-group">
+			<label for="companyLegName">Company Legal Name:</label>
+			<input  [(ngModel)]="tenant.company" type="text" class="form-control" id="companyLegName">
+		</div>
+		<div class="form-group">
+			<label for="subdomain">Subdomain:</label>
+			<input  [(ngModel)]="tenant.subdomain" type="text" class="form-control" id="subdomain">
+		</div>
+		<div class="form-group">
+			<label for="email">Email address:</label>
+			<input  [(ngModel)]="tenant.email" type="email" class="form-control" id="email">
+		</div>
+
+		<div class="form-group">
+			<label for="contactnumber">Contact Number:</label>
+			<input  [(ngModel)]="tenant.contact" type="number" class="form-control" id="contactnumber">
+		</div>
+
+		<div class="form-group">
+			<label for="address">Address:</label>
+			<textarea [(ngModel)]="tenant.address" style="height: 200px" class="form-control" id="address"></textarea>
+		</div>
+
+		<button type="submit" class="btn-default">Submit</button>
+</div>
+
