@@ -1,9 +1,12 @@
 export class Tenant {
-	email: string,
-	password: string,
-	database: string,
-	dbpassword: string,
-	company: string,
-	subdomain: string,
-	role: number
+	_id: string;
+	email: string;
+	password: string;
+	database: string;
+	dbpassword: string;
+	company: string;
+	subdomain: string;
+	role: number;
+	contact : number;
+	address : string;
 }

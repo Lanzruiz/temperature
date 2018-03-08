@@ -10,6 +10,7 @@ import { TenantListComponent } from './tenant-list/tenant-list.component';
 import { TenantService } from './tenant.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { TenantDetailComponent } from './tenant-detail/tenant-detail.component';
 
 
 
@@ -18,7 +19,8 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     TenantsComponent,
     TenantListComponent,
-    LoginComponent
+    LoginComponent,
+    TenantDetailComponent
   ],
   imports: [
     BrowserModule,
