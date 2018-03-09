@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start" : "nodemon app"
-
-  },  
+    "start": "nodemon app"
+  },
   "dependencies": {
     "async": "latest",
     "async-method": "^0.1.1",
@@ -31,6 +30,7 @@
     "js-sha256": "^0.9.0",
     "md5": "latest",
     "mime": "latest",
+    "mongodb": "^3.0.4",
     "mongoose": "latest",
     "morgan": "~1.6.1",
     "multer": "latest",
