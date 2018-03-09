@@ -2,6 +2,10 @@
   "name": "test",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "start" : "nodemon app"
+
+  },  
   "dependencies": {
     "async": "latest",
     "async-method": "^0.1.1",
