@@ -93,21 +93,21 @@ module.exports = {
 
       var sql = fs.readFileSync('sql/role.sql').toString();
 
-      //pg.connect('postgres://postgres:Bounce1234@localhost:5433/postgres', function(err, client, done){
-          //if(err){
-           //   console.log('error: ', err);
+      pg.connect('postgres://postgres:Bounce1234@localhost:5433/postgres', function(err, client, done){
+          if(err){
+           console.log('error: ', err);
              
-         // }
-          //client.query(sql, function(err, result){
-            //  done();
-         //     if(err){
-        //          console.log('error: ', err);
+          }
+        client.query(sql, function(err, result){
+          done();
+           if(err){
+                console.log('error: ', err);
                  
-      //        }
+            }
               
-    //      });
-  //    });
-//      });
+          });
+      });
+     });
 
 
 
