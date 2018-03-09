@@ -24,7 +24,7 @@ export class TenantService {
 		this.http.put('http://localhost:9000/api/updateTenant',tenant);
 	}
 
-	deleteTenant() {
-    	this.http.delete('http://localhost:9000/api/deleteTenant');
+	deleteTenant(id) {
+    	this.http.delete('http://localhost:9000/api/tenant/delete/'+id);
     }
 }
