@@ -49,8 +49,9 @@ export class TenantsComponent implements OnInit {
 
   onDeleteClick(tenant: Tenant): void {
   	if(window.confirm('Are sure you want to delete this item ?')){
-    	//put your delete method logic headeralert(tenant._id);e
-    	alert(tenant._id);
+    	//put your delete method logic headeralert(tenant._id);
+    	//alert(tenant._id);
+      this.tenantService.deleteTenant(tenant._id);
    	}
   	
   }
