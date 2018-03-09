@@ -64,57 +64,6 @@ module.exports = {
 
       });
 
-      // create tenant db
-      
-      const config = {
-        user: 'postgres',
-        password: 'Bounce1234',
-        port: 5433,
-        host: 'localhost'
-      }
-       
-      pgtools.createdb(config, req.body.company, function (err, res) {
-        if (err) {
-          console.error(err);
-          process.exit(-1);
-        }
-        console.log(res);
-        
-
-       });
-
-
-      var stream = fs.createWriteStream("sql/role.sql");
-      stream.once('open', function(fd) {
-        stream.write("CREATE USER "+req.body.company+" WITH PASSWORD '"+password.password+"';");
-        //stream.write("My second row\n");
-        //stream.end();
-
-
-      var sql = fs.readFileSync('sql/role.sql').toString();
-
-      pg.connect('postgres://postgres:Bounce1234@localhost:5433/postgres', function(err, client, done){
-          if(err){
-           console.log('error: ', err);
-             
-          }
-        client.query(sql, function(err, result){
-          done();
-           if(err){
-                console.log('error: ', err);
-                 
-            }
-              
-          });
-      });
-     });
-
-
-
-      
-      console.log(bcrypt.hash);
-
-      console.log('Data has been save!');
       res.status(200).send('data has been saved!');
     } else {
       res.status(403).send('Access Denied!');
