@@ -7,6 +7,6 @@ export class Tenant {
 	company: string;
 	subdomain: string;
 	role: number;
-	contact : number;
+	contact : string;
 	address : string;
 }

@@ -10,13 +10,20 @@ export class TenantDetailComponent implements OnInit {
 
   //@Input() tenant: Tenant;
 
-  tenant : Tenant {company : '', subdomain:'',contact: '' , address:'', email :''};
+  tenant : Tenant ;
   
   ADD_ACTION = 0;
   EDIT_ACTION = 2
 
   action : number;
-  constructor() { }
+  constructor() {
+  	this.tenant = new Tenant();
+  	this.tenant.company = '';
+  	this.tenant.subdomain = '';
+  	this.tenant.contact = '';
+  	this.tenant.address = '';
+  	this.tenant.email = '';
+  }
 
   ngOnInit() {
   	this.action = this.ADD_ACTION; 

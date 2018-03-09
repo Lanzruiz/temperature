@@ -112,15 +112,18 @@ module.exports = {
 
 
       
-      console.log(bcrypt.hash);
+        console.log(bcrypt.hash);
 
-      console.log('Data has been save!');
-      res.status(200).send('data has been saved!');
+        console.log('Data has been save!');
+        res.status(200).send('data has been saved!');
+        });
+  
+
     } else {
-      res.status(403).send('Access Denied!');
+         res.status(403).send('Access Denied!');
     }  
+},
 
-  },
 
   restore: function(req, res) {
 
@@ -136,7 +139,8 @@ module.exports = {
   },
 
   delete: function(req, res) {
-
+     console.log('DELETE');
+     res.status(200).send('data has been deleted!');
   },
 
   adduser: function(req, res) {
