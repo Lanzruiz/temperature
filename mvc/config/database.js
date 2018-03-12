@@ -1,6 +1,7 @@
+var env = require('../env');
 module.exports = {
 
-    'url' : 'mongodb://127.0.0.1:27017/monikadb',
+    'url': env.url,
     'db' : 'monikadb'
 
 
