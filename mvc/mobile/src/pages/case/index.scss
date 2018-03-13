@@ -1,0 +1,92 @@
+page-case{
+  ion-header{
+    padding: 0;
+    background-color: #212E84 !important;
+    ion-grid{
+      padding: 0 !important;
+      ion-row ion-col ion-title .toolbar-title{
+        font-size: 16px;
+        color: #FFF;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 4px;
+      }
+      ion-row ion-col button{
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: right;
+      }
+      ion-row ion-col button ion-icon{
+        color: #FFF;
+        font-size: 26px;
+      }
+      &.title-bar{
+        padding: 8px 16px !important;
+        ion-row ion-col .prev-arrow{
+          float: left;
+        }
+      }
+      &.settings-bar{
+        background: #8C93C1;
+        padding: 5px 16px !important;
+        ion-row ion-col h5{
+          font-family: 'AvenirMedium';
+          color: #FFF;
+          margin: 0;
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+  ion-content{
+    ion-card{
+      margin: 0 !important;
+      box-shadow: none !important;
+      border-bottom: 1px solid #D5DBFD;
+      width: 100% !important;
+      &:last-child{ border-bottom: none !important; }
+    }
+    ion-card ion-row ion-col p{
+      color: #212E84 !important;
+      font-size: 13px !important;
+      font-family: 'AvenirMedium';
+    }
+    ion-card ion-row ion-col button{
+      float: right;
+      padding: 0 !important;
+      margin: 0 !important;
+      height: auto !important;
+    }
+    ion-card ion-row ion-col button ion-icon{
+      color: #415BFF;
+      font-size: 26px;
+    }
+  }
+
+  ion-footer{
+    background-color: #212E84 !important;
+    ion-grid ion-row ion-col{
+      background: none !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    ion-grid ion-row ion-col button{ padding: 0 !important; }
+    ion-grid ion-row ion-col button .button-inner{ flex-flow: column; }
+    ion-grid ion-row ion-col button .button-inner ion-icon{
+      font-size: 30px;
+      color: #8C93C1;
+      margin-bottom: 5px;
+    }
+    ion-grid ion-row ion-col button .button-inner span{
+      font-family: 'Avenir Next';
+      color: #8C93C1;
+      font-size: 15px;
+      display: block;
+      text-align: center;
+    }
+  }
+}
