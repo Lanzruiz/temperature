@@ -33,6 +33,9 @@ module.exports = function (app, passport) {
         failureFlash: true // allow flash messages
     }));
 
+    //mobile
+    app.get('/mobile');
+
 
     //main user api
     app.post('/api/user/add', user.add);
