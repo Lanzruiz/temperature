@@ -10,6 +10,7 @@ import { ForgotPasswordPage } from '../pages/login/forgot-password/index';
 import { TenantsPage } from '../pages/tenants/index';
 import { AddTenantPage } from '../pages/tenants/add/index';
 import { EditTenantPage } from '../pages/tenants/edit/index';
+import { CasePage } from '../pages/case/index';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,10 +37,7 @@ export class MyApp {
       { title: 'Users',     component: LoginPage },
       { title: 'Sites',     component: LoginPage },
       { title: 'Alarms',    component: LoginPage },
-      { title: 'Cases',     component: LoginPage },
-      { title: 'Reports',   component: LoginPage },
-      { title: 'Graphs',    component: LoginPage },
-      { title: 'Logout',    component: LoginPage }
+      { title: 'Cases',     component: CasePage },
     ];
 
   }
