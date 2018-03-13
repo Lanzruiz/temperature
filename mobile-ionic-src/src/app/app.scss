@@ -38,6 +38,16 @@
     font-weight: 600;
     font-style: normal;
 }
+@font-face {
+    font-family: 'AvenirMedium';
+    src: url('../assets/fonts/AvenirMedium.eot');
+    src: url('../assets/fonts/AvenirMedium.eot') format('embedded-opentype'),
+         url('../assets/fonts/AvenirMedium.woff2') format('woff2'),
+         url('../assets/fonts/AvenirMedium.woff') format('woff'),
+         url('../assets/fonts/AvenirMedium.ttf') format('truetype'),
+         url('../assets/fonts/AvenirMedium.svg#AvenirMedium') format('svg');
+}
+
 
 body{
   font-family: 'Avenir Next';

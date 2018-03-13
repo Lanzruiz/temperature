@@ -11,6 +11,7 @@ import { TenantsPage } from '../pages/tenants/index';
 import { AddTenantPage } from '../pages/tenants/add/index';
 import { EditTenantPage } from '../pages/tenants/edit/index';
 import { Splash } from '../pages/splash/index';
+import { CasePage } from '../pages/case/index';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +26,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SignupAuthenticationScreen,
     TenantsPage,
     AddTenantPage,
-    EditTenantPage
+    EditTenantPage,
+    CasePage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SignupAuthenticationScreen,
     TenantsPage,
     AddTenantPage,
-    EditTenantPage
+    EditTenantPage,
+    CasePage
   ],
   providers: [
     StatusBar,
