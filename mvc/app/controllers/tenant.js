@@ -20,56 +20,55 @@ const fse = require('fs-extra');
 
 module.exports = {
  
-  add : function(req, res){
+  add : function(req, res) {
+
+    var tenant = new tenantModel(
+          req.body.company, 
+          req.body.subdomain.replace(/\s/g, '').toLowerCase(), 
+          req.body.email, 
+          req.body.contact, 
+          req.body.address
+    );
 
     if(req.body.access_token == auth.access_token) {
 
-      var item = {
-         email: req.body.email,
-         firstname: req.body.firstname,
-         middlename: req.body.middlename,
-         lastname: req.body.lastname,
-         password: req.body.password,
-         database: req.body.company,
-         dbpassword: password.password,
-         company: req.body.company,
-         subdomain: req.body.subdomain.replace(/\s/g, '').toLowerCase(),
-         role: 2
-      }
+      console.log(tenant.find('company', req.body.company));
 
-      var tenant = {
-          email: req.body.email,
-          password: password.password,
-          company: req.body.company,
-          firstname: req.body.firstname,
-          middlename: req.body.middlename,
-          role: 1
-      }
+      if(tenant.find('company', req.body.company) != true) {
 
-      var data = new tenantModel(item);
-      data.save(function(err) {
-        if (err) throw err;
+        tenant.add();
 
-        // fetch user and test password verification
-        tenantModel.findOne({ email: req.body.email }, function(err, user) {
-            if (err) throw err;
+        res.status(200).send('data has been saved!');
 
-            // test a matching password
-            user.comparePassword(req.body.password, function(err, isMatch) {
-                if (err) throw err;
-                console.log(req.body.password, isMatch); // -> Password123: true
-            });
+      }else {
+        res.status(302).send('duplicate!');
+      }  
 
-        });
-
-      });
-
-      res.status(200).send('data has been saved!');
     } else {
       res.status(403).send('Access Denied!');
     }  
-},
+  },
 
+  edit: function(req, res) {
+    if(req.body.access_token == auth.access_token) {
+
+      var tenant = new tenantModel(
+        req.body.company, 
+        req.body.subdomain.replace(/\s/g, '').toLowerCase(), 
+        req.body.email, 
+        req.body.contact, 
+        req.body.address
+      );
+
+      //console.log(req.body.id);
+
+      tenant.edit(req.body.company);
+      res.status(200).send('data has been updated!');
+
+    } else {
+      res.status(403).send('Access Denied!');
+    } 
+  },
 
   restore: function(req, res) {
 

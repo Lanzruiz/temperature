@@ -44,6 +44,7 @@ module.exports = function (app, passport) {
     app.post('/api/tenant/add', tenant.add);
     app.delete('/api/tenant/delete/:id',tenant.delete)
     app.get('/api/tenant/restore/:access_token', tenant.add);
+    app.post('/api/tenant/edit/', tenant.edit)
     //app.post('/api/tenant/backup/:id', tenant.backup);
 
     //tenant api

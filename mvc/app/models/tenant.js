@@ -1,45 +1,85 @@
 var database = require('../../config/database')
 var database = require('../../lib/mongoose')
-var mongoose = require('mongoose');
-mongoose.connect(database.url+database.db);
-var Schema = mongoose.Schema;
-bcrypt = require('bcrypt'),
-SALT_WORK_FACTOR = 10;
+var mongoclient = require('../../lib/mongodb')
 
 
-var UserDataSchema =  new Schema({
-    email: {type: String, required: true},
-    firstname: String,
-    middlename: String,
-    lastname: String,
-    password: String,
-    role: Number,
-    company: String,
-    subdomain: String,
-    database: String,
-    dbpassword: String,
-    created_date: Date,
-    updated_date: Date, 
-    active_hash: String,
-    tenant: String
+class Tenant {
 
-},{collection: 'users'});
+  constructor(company, subdomain, email, contact, address) {
+    this._company = company;
+    this._subdomain = subdomain;
+    this._email = email;
+    this._contact = contact;
+    this._address = address;
+  }
 
-UserDataSchema.pre('save', database.checkpassword);
+  add() {
 
-UserDataSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-        if (err) return cb(err);
-        cb(null, isMatch);
-    });
-};
+    var myobj = { 
+        company: this._company, 
+        subdomain: this._subdomain, 
+        email: this._email, 
+        contact: this._contact, 
+        address: this._address 
+    };
+
+    mongoclient.save(myobj);
+  }
+
+  edit(id) {
+
+    var myobj = { 
+        company: this._company, 
+        subdomain: this._subdomain, 
+        email: this._email, 
+        contact: this._contact, 
+        address: this._address
+    };
+
+     mongoclient.update(this._company, myobj);
+  }
+
+  delete() {
+
+  }
+
+  find(element, data) {
+
+     var headsup;
+
+     switch (element) {
+
+        case 'company':
+            console.log(data);
+            var myobj = { 
+                company: data
+            };
+            headsup = mongoclient.searchOne(myobj);
+
+            break;
+
+        case 'subdomain':
+
+            break;
+
+        case 'email':
+
+            break;
 
 
-var UserData = mongoose.model('tenant', UserDataSchema);
+
+     }  
+
+     return headsup;    
+  }
+
+  findall() {
+
+  }
+}
 
 
-
-module.exports = UserData;
+module.exports = Tenant;
 
 
 

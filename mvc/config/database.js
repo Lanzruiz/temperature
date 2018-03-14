@@ -2,7 +2,7 @@ var env = require('../env');
 module.exports = {
 
     'url': env.url,
-    'db' : 'monikadb'
+    'db' : env.database
 
 
 
