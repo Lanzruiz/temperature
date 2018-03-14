@@ -26,7 +26,17 @@ class Tenant {
     mongoclient.save(myobj);
   }
 
-  edit(id) {
+  activate() {
+
+    var myobj = { 
+        company: this._company, 
+        status: 1
+    };
+
+     mongoclient.update(myobj);
+  }
+
+  edit() {
 
     var myobj = { 
         company: this._company, 
@@ -36,7 +46,7 @@ class Tenant {
         address: this._address
     };
 
-     mongoclient.update(this._company, myobj);
+     mongoclient.update(myobj);
   }
 
   delete() {

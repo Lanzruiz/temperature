@@ -49,6 +49,22 @@ module.exports = {
     }  
   },
 
+  activate: function(req, res){
+    if(req.body.access_token == auth.access_token) {
+
+      var tenant = new tenantModel(
+        req.body.company, 
+
+      );
+
+      tenant.activate();
+      res.status(200).send('data has been activate!');
+
+    } else {
+      res.status(403).send('Access Denied!');
+    }  
+  },
+
   edit: function(req, res) {
     if(req.body.access_token == auth.access_token) {
 
@@ -62,7 +78,7 @@ module.exports = {
 
       //console.log(req.body.id);
 
-      tenant.edit(req.body.company);
+      tenant.edit();
       res.status(200).send('data has been updated!');
 
     } else {

@@ -44,13 +44,13 @@ module.exports.save = function(data) {
 }	
 
 
-module.exports.update = function(company, data) {
+module.exports.update = function(data) {
 
 	MongoClient.connect(url, function(err, db) {
 		  if (err) throw err;
 		  //console.log(id);
 		  var dbo = db.db(env.database);
-		  var myquery = { company: company };
+		  var myquery = { company: data.company};
 		  var newvalues = { $set: data };
 		  dbo.collection("users").updateOne(myquery, newvalues, function(err, res) {
 		    if (err) throw err;
