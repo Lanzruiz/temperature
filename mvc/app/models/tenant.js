@@ -20,7 +20,8 @@ class Tenant {
         subdomain: this._subdomain, 
         email: this._email, 
         contact: this._contact, 
-        address: this._address 
+        address: this._address,
+        status: 0
     };
 
     mongoclient.save(myobj);
@@ -31,6 +32,16 @@ class Tenant {
     var myobj = { 
         company: this._company, 
         status: 1
+    };
+
+     mongoclient.update(myobj);
+  }
+
+  deactivate() {
+
+    var myobj = { 
+        company: this._company, 
+        status: 0
     };
 
      mongoclient.update(myobj);

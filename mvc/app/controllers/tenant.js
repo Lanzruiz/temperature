@@ -65,6 +65,21 @@ module.exports = {
     }  
   },
 
+  deactivate: function(req, res){
+    if(req.body.access_token == auth.access_token) {
+
+      var tenant = new tenantModel(
+        req.body.company, 
+
+      );
+
+      tenant.deactivate();
+      res.status(200).send('data has been deactivate!');
+
+    } else {
+      res.status(403).send('Access Denied!');
+    }  
+  },
   edit: function(req, res) {
     if(req.body.access_token == auth.access_token) {
 
