@@ -21,7 +21,7 @@ const fse = require('fs-extra');
 module.exports = {
  
   add : function(req, res) {
-
+    console.log(req.body.subdomain);
     var tenant = new tenantModel(
           req.body.company, 
           req.body.subdomain.replace(/\s/g, '').toLowerCase(), 
@@ -158,13 +158,13 @@ module.exports = {
     console.log("token from auth " +auth.access_token);
     
     if( access == auth.access_token) {
-
+      var tenant = new tenantModel();
       console.log(req.param("access_token"));
 
-      tenantModel.find({role:2})
-           .then(function(doc){
-              res.status(200).send(doc); 
-      })
+      tenant.findAll(function(data) {
+        res.status(200).send(data); 
+      });
+           
 
     } else {
       res.status(403).send('Access Denied!');

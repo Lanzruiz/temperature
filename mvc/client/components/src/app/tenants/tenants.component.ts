@@ -1,8 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { TenantService } from '../providers/tenant.service';
 import { TenantData } from '../providers/data/tenantData';
+import { Status } from '../common/enums';
 import { Tenant } from '../tenant';
 import { Router, NavigationExtras } from '@angular/router';
+
+
+
+enum AgentStatus {
+    1 = "available" ,
+    2 = "busy",
+    3 = "away",
+    4 = "offline"
+
+
+}
+
 
 @Component({
   selector: 'app-tenants',
@@ -15,100 +28,33 @@ export class TenantsComponent implements OnInit {
 
   tenants: Tenant[];
 
+  status: Status;
+
+  x = 5;
   tenantsHeader: [ {header:'Company Legal Name'},{ header: 'Email'}];
 
   constructor(
     private router: Router,
     private tenantService: TenantService,
-    private tenantData: TenantData
+    private tenantData: TenantData,
     ) { }
 
   ngOnInit() {
+    console.log(Status["1"];);
   	this.getTenants();  
   }
 
 
   getTenants(): void {
-    // this.tenantService.getTenants()
-    //     .subscribe(
-    //     (res: any) => {
-    //       this.tenants = res; 
-    //     },
-    //     error => {
-    //       alert("ERROR");
-    //     });
-
-    this.tenants = [ {
-      _id: '111',
-       email: 'sample1@yahoo.com',
-      password: 'sample1',
-      database: 'db1',
-      dbpassword: 'dbpassword',
-      company: 'sampleComp1',
-      subdomain: 'sample1.com',
-      role: 2,
-      contact : '0912321',
-      address : '149 California blah blah',
-      status : 'active'
-    },
-    {
-      _id: '112',
-       email: 'sample1@yahoo.com',
-      password: 'sample1',
-      database: 'db1',
-      dbpassword: 'dbpassword',
-      company: 'sampleComp1',
-      subdomain: 'sample1.com',
-      role: 2,
-      contact : '0912321',
-      address : '149 California blah blah',
-       status : 'deactivated'
-    },
-    {
-      _id: '113',
-       email: 'sample1@yahoo.com',
-      password: 'sample1',
-      database: 'db1',
-      dbpassword: 'dbpassword',
-      company: 'sampleComp1',
-      subdomain: 'sample1.com',
-      role: 2,
-      contact : '0912321',
-      address : '149 California blah blah',
-      status : 'deactivated'
-    },
-    {
-      _id: '114',
-       email: 'sample1@yahoo.com',
-      password: 'sample1',
-      database: 'db1',
-      dbpassword: 'dbpassword',
-      company: 'sampleComp1',
-      subdomain: 'sample1.com',
-      role: 2,
-      contact : '0912321',
-      address : '149 California blah blah',
-       status : 'active'
-    },
-    {
-      _id: '115',
-       email: 'sample1@yahoo.com',
-      password: 'sample1',
-      database: 'db1',
-      dbpassword: 'dbpassword',
-      company: 'sampleComp1',
-      subdomain: 'sample1.com',
-      role: 2,
-      contact : '0912321',
-      address : '149 California blah blah',
-       status : 'deactivated'
-    }
- 
-
-
-
-    ];
-
+    this.tenantService.getTenants()
+        .subscribe(
+        (res: any) => {
+          this.tenants = res;
+          console.log(res); 
+        },
+        error => {
+          alert("ERROR");
+        });
   }
 
   backup(): void {

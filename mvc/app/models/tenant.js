@@ -94,8 +94,11 @@ class Tenant {
      return headsup;    
   }
 
-  findall() {
+  findAll(callback) {
 
+    mongoclient.findAll(function(data) {
+        callback(data);
+    });
   }
 }
 
