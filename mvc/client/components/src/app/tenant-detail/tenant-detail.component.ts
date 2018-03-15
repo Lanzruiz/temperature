@@ -15,9 +15,6 @@ export class TenantDetailComponent implements OnInit,OnDestroy  {
   
   ADD_ACTION = 0;
   EDIT_ACTION = 2;
-
-  
-
   action : number;
   constructor(
     private route: ActivatedRoute,

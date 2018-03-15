@@ -16,7 +16,6 @@ enum AgentStatus {
 
 }
 
-
 @Component({
   selector: 'app-tenants',
   templateUrl: './tenants.component.html',
