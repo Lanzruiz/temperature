@@ -16,13 +16,14 @@ export class TenantDetailComponent implements OnInit,OnDestroy  {
   ADD_ACTION = 0;
   EDIT_ACTION = 2;
 
+  
+
   action : number;
   constructor(
     private route: ActivatedRoute,
     private tenatData:TenantData
     ) {
   	this.route.queryParams.subscribe(params => {
-        console.log(this.tenatData.storage);
         this.tenant = this.tenatData.storage
     });
   }

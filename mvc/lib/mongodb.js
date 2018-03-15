@@ -74,3 +74,15 @@ module.exports.searchOne = function(data) {
 		  });
     });
 }
+
+
+module.exports.findAll = function(callback) {
+    MongoClient.connect(url, function(err, db) {
+		  if (err) throw err;
+		  var dbo = db.db(env.database);
+		  dbo.collection("users").find().toArray(function(err, result) {
+		    if (err) throw err;
+		    callback(result);
+		  });
+    });
+}

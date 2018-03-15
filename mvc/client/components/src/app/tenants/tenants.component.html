@@ -50,10 +50,11 @@
                   <td>{{tenant.subdomain}}</td>
                   <td>{{tenant.email}}</td>
                   <td>
-                    <button *ngIf="tenant.status" 
+                   <!--  <button *ngIf="tenant.status" 
                      (click)="toggleStatus()"
-                     type="button" [ngClass]=" tenant.status === 'active' ? 'btn-success' :'btn-danger'" class="status-btn">{{tenant.status}}
-                    </button>
+                     type="button" [ngClass]=" tenant.status === 'active' ? 'btn-success' :'btn-danger'" class="status-btn">{{Status[tenant.status]}}
+                    </button> -->
+                    {{tenant.status}}
                   </td>
                   <td>
                       <div class="btn-group" dropdown>
