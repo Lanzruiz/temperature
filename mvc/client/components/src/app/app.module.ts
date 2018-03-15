@@ -3,14 +3,19 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
+import { BsDropdownModule } from 'ngx-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { TenantsComponent } from './tenants/tenants.component';
 import { TenantListComponent } from './tenant-list/tenant-list.component';
-import { TenantService } from './tenant.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { TenantDetailComponent } from './tenant-detail/tenant-detail.component';
+
+
+import { TenantService } from './providers/tenant.service';
+import { TenantData } from './providers/data/tenantData';
 
 
 
@@ -27,10 +32,12 @@ import { TenantDetailComponent } from './tenant-detail/tenant-detail.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [
-   TenantService
+   TenantService,
+   TenantData
   ],
   bootstrap: [AppComponent]
 })
