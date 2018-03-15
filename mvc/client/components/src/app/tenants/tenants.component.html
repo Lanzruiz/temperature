@@ -1,23 +1,86 @@
- <table class="table-striped table-bordered">
-  <thead>
-    <tr>
-      <th scope="col" text-align="center">Company Legal Name</th>
-      <th scope="col">Email</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let tenant of tenants"
-    [class.selected]="tenant === selectedTenant"
-    (click)="onSelect(tenant)">
- 
-      <td>{{tenant.company}}</td>
-      <td>{{tenant.email}}</td>
-      <td><button (click)="onBackupClick(tenant)">backup</button></td>
-      <td><button (click)="onDeleteClick(tenant)">Delete</button></td>
-    </tr>
-  </tbody>
-</table>
+<div class="content">
+  <div class="login-wrapper" >
+  <div class="tenant-table">
+    <div class="row head">
+        <div class="col-md-12">
+            <h3>List of Tenants</h3>
+        </div>
+    </div>
 
+    <div class="filter-block">
+        <div class="pull-right">
+            <a class="btn-flat pull-right success new-product add-tenant" (click)="onCreateClick()">+
+             Create Tenant
+           </a>
+        </div>
+    </div>
+    <br/>
+      <br/>
+
+    <div>
+        <table class="tenant-table">
+            <thead>
+                <tr>
+                    <th>
+                        Company Legal Name
+                    </th>
+                    <th>
+                        <span class="line"></span>Subdomain
+                    </th>
+                    <th>
+                        <span class="line"></span>Email
+                    </th>
+                    <th>
+                        <span class="line"></span>Status
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- row -->
+                 <tr *ngFor="let tenant of tenants"
+                [class.selected]="tenant === selectedTenant"
+                (click)="onSelect(tenant)">
+                  <td class="text-align left">
+                    <a class ="name" (click)="onEditClick(tenant)">
+                      {{tenant.company}}
+                    </a>
+                  </td>
+                  <td>{{tenant.subdomain}}</td>
+                  <td>{{tenant.email}}</td>
+                  <td>
+                    <button *ngIf="tenant.status" 
+                     (click)="toggleStatus()"
+                     type="button" [ngClass]=" tenant.status === 'active' ? 'btn-success' :'btn-danger'" class="status-btn">{{tenant.status}}
+                    </button>
+                  </td>
+                  <td>
+                      <div class="btn-group" dropdown>
+                        <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+                          Action <span class="caret"></span>
+                        </button>
+                        <ul *dropdownMenu class="dropdown-menu" role="menu">
+                          <li role="menuitem"><a class="dropdown-item" href="#">Backup</a></li>
+                          <li role="menuitem"><a class="dropdown-item" href="#">Restore
+                          </a></li>
+                          <li class="divider dropdown-divider"></li>
+                          <li role="menuitem">
+                            <a class="dropdown-item" (click)="onDeleteClick(tenant)">Delete</a>
+                          </li>
+                    
+                        </ul>
+                      </div>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end users table -->
+
+<!-- 
 <app-tenant-list [tenant]="selectedTenant"></app-tenant-list>
+ -->

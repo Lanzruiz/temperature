@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/b3/css/bootstrap/bootstrap.css";
+@import "assets/b3/css/bootstrap/bootstrap-overrides.css";
+@import "assets/b3/css/compiled/elements.css";
+@import "assets/b3/css/compiled/icons.css";
+@import "assets/b3/css/lib/font-awesome.css";
+@import "assets/b3/css/compiled/signin.css";
+
+body {
+	background-image: url("assets/b3/img/bgs/landscape.jpg");
+}
