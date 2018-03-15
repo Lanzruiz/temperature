@@ -1,34 +1,43 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,OnDestroy } from '@angular/core';
 import { Tenant } from '../tenant';
+import { ActivatedRoute } from '@angular/router';
+import { TenantData } from '../providers/data/tenantData';
 
 @Component({
   selector: 'app-tenant-detail',
   templateUrl: './tenant-detail.component.html',
   styleUrls: ['./tenant-detail.component.css']
 })
-export class TenantDetailComponent implements OnInit {
+export class TenantDetailComponent implements OnInit,OnDestroy  {
 
-  //@Input() tenant: Tenant;
-
-  tenant : Tenant ;
+  private sub: any;
+  private tenant : Tenant ;
   
   ADD_ACTION = 0;
-  EDIT_ACTION = 2
+  EDIT_ACTION = 2;
 
   action : number;
-  constructor() {
-  	this.tenant = new Tenant();
-  	this.tenant.company = '';
-  	this.tenant.subdomain = '';
-  	this.tenant.contact = '';
-  	this.tenant.address = '';
-  	this.tenant.email = '';
+  constructor(
+    private route: ActivatedRoute,
+    private tenatData:TenantData
+    ) {
+  	this.route.queryParams.subscribe(params => {
+        console.log(this.tenatData.storage);
+        this.tenant = this.tenatData.storage
+    });
   }
 
   ngOnInit() {
-  	this.action = this.ADD_ACTION; 
+    this.sub = this.route.params.subscribe(params => {
+       this.action = 
+       (params['id'] == undefined) ?
+       this.ADD_ACTION : this.EDIT_ACTION;
+    });
   }
-
+  
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 
 
 }

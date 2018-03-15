@@ -1,30 +1,42 @@
+/*.login-wrapper .tenant-table {
+    margin: 0 auto;
+    padding: 35px 0 30px;
+    float: none;
+    -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
 
-table {
-  box-sizing: border-box;
-  overflow: hidden;
-  margin: 4em auto;
-  border-collapse: collapse;
-  min-width: 23em; width: 70%; max-width: 56em;
-  border-radius: .5em;
-  box-shadow: 0 0 .5em #000;
-}
-thead {
-  background: linear-gradient(#606062, #28262b);
-  color: white;
-}
+    width: 90%;
+    background: rgba(255, 255, 255, 0.65);
+}*/
 
-td, th {
-  min-width: 100px;
-  height: 50px;
-  text-align: center;
-}
-h2,ol {
-  color: #999;
-}
-.alert-success td {
-  color: #3c763d;
+.add-tenant {
+	margin-right: 60px;
 }
 
-.alert td button {
-  margin-right: 30px;
+.status-btn {
+	width : 150px;
+}
+
+.tenant-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.tenant-table td, .tenant-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tenant-table tr{background-color: #f2f2f2;}
+
+.tenant-table tr:hover {background-color: #ddd;}
+
+.tenant-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #87CEFA;
+    color: #FF1493;
 }

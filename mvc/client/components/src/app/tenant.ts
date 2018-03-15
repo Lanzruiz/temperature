@@ -9,4 +9,5 @@ export class Tenant {
 	role: number;
 	contact : string;
 	address : string;
+	status : string;
 }
