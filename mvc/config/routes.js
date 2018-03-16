@@ -2,6 +2,9 @@
 var home = require('../app/controllers/home');
 var user = require('../app/controllers/user');
 var tenant = require('../app/controllers/tenant');
+
+var express = require('express');
+var path    = require('path');
 //you can include all your controllers
 var subdomain = require('express-subdomain');
 
@@ -16,7 +19,7 @@ module.exports = function (app, passport) {
     app.get('/tenants/list', home.tenantlist);
     app.get('/tenant/add', home.createnant);
 
-   
+
     //app.post('/api/signup', home.signup);//home
     //app.get('/', user.login);//home
     app.post('/api/createTenants',home.createTenants);
@@ -34,8 +37,7 @@ module.exports = function (app, passport) {
     }));
 
     //mobile
-    app.get('/mobile');
-
+    app.use('/mobile', express.static(path.join(__dirname, '../../mobile-ionic-src/www')));
 
     //main user api
     app.post('/api/user/add', user.add);
