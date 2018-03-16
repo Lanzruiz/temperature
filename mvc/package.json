@@ -38,7 +38,7 @@
     "node-constants": "latest",
     "nodemailer": "^2.4.1",
     "nodemailer-smtp-transport": "^2.5.0",
-    "nodemon": "latest",
+    "nodemon": "^1.17.1",
     "numeral": "latest",
     "passport": "latest",
     "passport-local": "latest",

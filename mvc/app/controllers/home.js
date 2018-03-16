@@ -36,14 +36,14 @@ exports.home = function(req, res) {
 
 
 	// console.log(trim(req.hostname, '.'+constant.base_url))
-	
+
 	res.render('login.ejs', {
 		error : req.flash("error"),
 		success: req.flash("success"),
 		session:req.session,
-	
+
 	 });
-	 
+
 }
 
 
@@ -82,8 +82,5 @@ exports.login = function(req, res) {
 		});
 
 	}
-	
+
 }
-
-
-    
