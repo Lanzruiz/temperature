@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+
+import { TenantsPage } from '../tenants/index';
 
 @Component({
   selector: 'page-case',
@@ -6,7 +9,11 @@ import { Component } from '@angular/core';
 })
 export class CasePage {
 
-  constructor() {
+  constructor(public navCtrl: NavController) {
 
+  }
+
+  onBackToTenantsPage(){
+    this.navCtrl.push(TenantsPage);
   }
 }
