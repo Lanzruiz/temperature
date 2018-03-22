@@ -19,6 +19,8 @@ module.exports = {
          middlename: req.body.middlename,
          lastname: req.body.lastname,
          password: req.body.password,
+         mobile: req.body.mobile,
+         profilePic: req.body.profilePic,
          role: 1
       }
 
@@ -50,6 +52,10 @@ module.exports = {
   login: function(res){
 
   },
+
+  permissionList : function(req, res){
+    
+  }
 
   list : function(req, res){
     var access = req.param("access_token");

@@ -1,42 +1,67 @@
 var database = require('../../config/database')
 var database = require('../../lib/mongoose')
-var mongoose = require('mongoose');
-mongoose.connect(database.url+database.db);
-var Schema = mongoose.Schema;
-bcrypt = require('bcrypt'),
-SALT_WORK_FACTOR = 10;
+var mongoclient = require('../../lib/mongodb')
 
 
-var UserDataSchema =  new Schema({
-	email: {type: String, required: true},
-	firstname: String,
-	middlename: String,
-	lastname: String,
-	password: String,
-	role: Number,
-	company: String,
-	created_date: Date,
-	updated_date: Date, 
-	active_hash: String,
-	tenant: String
+class User {
+	constructor(email,password,role,mobile,profilepic,firstname,lastname) {
+	    this.email = email;
+	    this.password = password;
+	    this.role = role;
+	    this.mobile = mobile;
+	    this.profilepic = profilepic;
+	    this.firstname = firstname;
+	    this.lastname = lastname;
+  	}
 
-},{collection: 'users'});
+	add(permissions) {
 
-UserDataSchema.pre('save', database.checkpassword);
+    	var myobj = { 
+    		email = this.email,
+    		password = this.password,
+    		role = this.role,
+    		mobile = this.mobile,
+    		profilepic = this.profilepic,
+    		firstname = this.firstname;
+    		lastname = this.lastname;
+    	};	
 
-UserDataSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-        if (err) return cb(err);
-        cb(null, isMatch);
-    });
-};
+    mongoclient.save(myobj);
+    mongoclient.saveUserPermission(userid,permissions);
+  }
+}
 
 
-var UserData = mongoose.model('user', UserDataSchema);
+// var UserDataSchema =  new Schema({
+// 	email: {type: String, required: true},
+// 	firstname: String,
+// 	middlename: String,
+// 	lastname: String,
+// 	password: String,
+// 	role: Number,
+// 	company: String,
+// 	created_date: Date,
+// 	updated_date: Date, 
+// 	active_hash: String,
+// 	tenant: String
+
+// },{collection: 'users'});
+
+// UserDataSchema.pre('save', database.checkpassword);
+
+// UserDataSchema.methods.comparePassword = function(candidatePassword, cb) {
+//     bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+//         if (err) return cb(err);
+//         cb(null, isMatch);
+//     });
+// };
+
+
+// var UserData = mongoose.model('user', UserDataSchema);
 
 
 
-module.exports = UserData;
+// module.exports = UserData;
 
 
 
