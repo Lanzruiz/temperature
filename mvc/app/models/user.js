@@ -5,32 +5,65 @@ var mongoclient = require('../../lib/mongodb')
 
 class User {
 	constructor(email,password,role,mobile,profilepic,firstname,lastname) {
-	    this.email = email;
-	    this.password = password;
-	    this.role = role;
-	    this.mobile = mobile;
-	    this.profilepic = profilepic;
-	    this.firstname = firstname;
-	    this.lastname = lastname;
-  	}
+	    this._email = email;
+	    this._password = password;
+	    this._role = role;
+	    this._mobile = mobile;
+	    this._profilepic = profilepic;
+	    this._firstname = firstname;
+	    this._lastname = lastname;
+	    this._model = 'users';
+		}
 
 	add(permissions) {
 
-    	var myobj = { 
-    		email = this.email,
-    		password = this.password,
-    		role = this.role,
-    		mobile = this.mobile,
-    		profilepic = this.profilepic,
-    		firstname = this.firstname;
-    		lastname = this.lastname;
-    	};	
+		var myobj = { 
+			email: this._email,
+			password: this._password,
+			role: this._role,
+			mobile: this._mobile,
+			profilepic: this._profilepic,
+			firstname: this._firstname,
+			lastname: this._lastname
+		};	
+		console.log(this._model);
+		mongoclient.save(myobj,this._model);
+		//mongoclient.saveUserPermission(userid,permissions);
+	}
 
-    mongoclient.save(myobj);
-    mongoclient.saveUserPermission(userid,permissions);
+	find(element, data) {
+
+     var headsup;
+
+     switch (element) {
+
+        case 'company':
+         
+            break;
+
+        case 'subdomain':
+
+            break;
+
+        case 'email':
+   			console.log(data);
+            var myobj = { 
+                email: data
+            };
+            headsup = mongoclient.searchOne(myobj,this._model);
+
+            break;
+
+
+
+     }  
+
+     return headsup;    
   }
 }
 
+
+module.exports = User;
 
 // var UserDataSchema =  new Schema({
 // 	email: {type: String, required: true},

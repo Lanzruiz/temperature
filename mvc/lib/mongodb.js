@@ -27,14 +27,14 @@ switch (env.app_env) {
 }    
 
 
-module.exports.save = function(data) {
+module.exports.save = function(data,model) {
 
 	MongoClient.connect(url, function(err, db) {
 		
 		console.log("Connected correctly to server");
         var dbo = db.db(env.database);
 		var myobj = data;
-		dbo.collection("users").insertOne(myobj, function(err, res) {
+		dbo.collection(model).insertOne(myobj, function(err, res) {
 		    if (err) throw err;
 		    console.log("1 document inserted");
 		    db.close();
@@ -44,7 +44,7 @@ module.exports.save = function(data) {
 }	
 
 
-module.exports.update = function(data) {
+module.exports.update = function(data,model) {
 
 	MongoClient.connect(url, function(err, db) {
 		  if (err) throw err;
@@ -52,7 +52,7 @@ module.exports.update = function(data) {
 		  var dbo = db.db(env.database);
 		  var myquery = { company: data.company};
 		  var newvalues = { $set: data };
-		  dbo.collection("users").updateOne(myquery, newvalues, function(err, res) {
+		  dbo.collection(model).updateOne(myquery, newvalues, function(err, res) {
 		    if (err) throw err;
 		    console.log("1 document updated");
 		    db.close();
@@ -61,13 +61,13 @@ module.exports.update = function(data) {
 
 }	
 
-module.exports.searchOne = function(data) {
+module.exports.searchOne = function(data,model) {
 
     MongoClient.connect(url, function(err, db) {
 		  if (err) throw err;
 		  var dbo = db.db(env.database);
 		  var myquery = { data };
-		  dbo.collection("users").find(myquery, function(err, result) {
+		  dbo.collection(model).find(myquery, function(err, result) {
 		    if (err) throw err;
 		    console.log(result);
 		    db.close();
@@ -76,11 +76,11 @@ module.exports.searchOne = function(data) {
 }
 
 
-module.exports.findAll = function(callback) {
+module.exports.findAll = function(callback,model) {
     MongoClient.connect(url, function(err, db) {
 		  if (err) throw err;
 		  var dbo = db.db(env.database);
-		  dbo.collection("users").find().toArray(function(err, result) {
+		  dbo.collection(model).find().toArray(function(err, result) {
 		    if (err) throw err;
 		    callback(result);
 		  });
