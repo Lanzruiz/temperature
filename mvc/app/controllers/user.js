@@ -11,41 +11,32 @@ module.exports = {
  
   add : function(req, res){
 
+    var user = new userModel(
+         req.body.email,
+         req.body.password,
+         req.body.role,
+         req.body.mobile,
+         req.body.profilePic,
+         req.body.firstname,
+         req.body.lastname,
+    );
     if(req.body.access_token == auth.access_token) {
 
-      var item = {
-         email: req.body.email,
-         firstname: req.body.firstname,
-         middlename: req.body.middlename,
-         lastname: req.body.lastname,
-         password: req.body.password,
-         mobile: req.body.mobile,
-         profilePic: req.body.profilePic,
-         role: 1
-      }
+      //console.log(tenant.find('company', req.body.company));
 
-      var data = new userModel(item);
-      data.save(function(err) {
-        if (err) throw err;
+      if(user.find('email', req.body.email) != true) {
 
-        // fetch user and test password verification
-        userModel.findOne({ email: req.body.email }, function(err, user) {
-            if (err) throw err;
+        user.add([111,222,33]);
 
-            // test a matching password
-            user.comparePassword(req.body.password, function(err, isMatch) {
-                if (err) throw err;
-                console.log(req.body.password, isMatch); // -> Password123: true
-            });
+        res.status(200).send('data has been saved!');
 
-            
-        });
-      });
-      console.log('Data has been save!');
-      res.status(200).send('data has been saved!');
+      }else {
+        res.status(302).send('duplicate!');
+      }  
+
     } else {
       res.status(403).send('Access Denied!');
-    }  
+    } 
 
   },
 
@@ -55,23 +46,23 @@ module.exports = {
 
   permissionList : function(req, res){
     
-  }
+  },
 
   list : function(req, res){
-    var access = req.param("access_token");
+     var access = req.param("access_token");
 
-    console.log("token from url "+access);
-    console.log("token from auth " +auth.access_token);
+     console.log("token from url "+access);
+     console.log("token from auth " +auth.access_token);
 
-    if( access == auth.access_token) {
+     if( access == auth.access_token) {
 
-      userModel.find()
-           .then(function(doc){
-              res.status(200).send(doc); 
-           })
-    } else {
-      res.status(403).send('Access Denied!');
-    } 
+       userModel.find()
+            .then(function(doc){
+               res.status(200).send(doc); 
+            })
+     } else {
+       res.status(403).send('Access Denied!');
+     } 
 
   },
 

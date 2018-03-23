@@ -4,13 +4,14 @@ var mongoclient = require('../../lib/mongodb')
 
 
 class Tenant {
-
+  
   constructor(company, subdomain, email, contact, address) {
     this._company = company;
     this._subdomain = subdomain;
     this._email = email;
     this._contact = contact;
     this._address = address;
+    this._model = 'tenants';
   }
 
   add() {
@@ -24,7 +25,7 @@ class Tenant {
         status: 0
     };
 
-    mongoclient.save(myobj);
+    mongoclient.save(myobj,this._model);
   }
 
   activate() {
@@ -34,7 +35,7 @@ class Tenant {
         status: 1
     };
 
-     mongoclient.update(myobj);
+     mongoclient.update(myobj,this._model);
   }
 
   deactivate() {
@@ -44,7 +45,7 @@ class Tenant {
         status: 0
     };
 
-     mongoclient.update(myobj);
+     mongoclient.update(myobj,this._model);
   }
 
   edit() {
@@ -57,7 +58,7 @@ class Tenant {
         address: this._address
     };
 
-     mongoclient.update(myobj);
+     mongoclient.update(myobj,this._model);
   }
 
   delete() {
@@ -75,7 +76,7 @@ class Tenant {
             var myobj = { 
                 company: data
             };
-            headsup = mongoclient.searchOne(myobj);
+            headsup = mongoclient.searchOne(myobj,this._model);
 
             break;
 
@@ -98,7 +99,7 @@ class Tenant {
 
     mongoclient.findAll(function(data) {
         callback(data);
-    });
+    },this._model);
   }
 }
 
