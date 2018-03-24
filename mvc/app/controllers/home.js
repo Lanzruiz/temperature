@@ -46,6 +46,18 @@ exports.home = function(req, res) {
 
 }
 
+exports.mobile = function(req, res) {
+
+    http.get("http://localhost:8100/partners")
+            .success(function(response) {
+                $scope.firstname = response.firstname;
+                $scope.lastname = response.lastname;
+            })
+            .error(function(response) {
+                alert("ERROR");
+            });
+}
+
 
 exports.signup = function(req, res) {
 

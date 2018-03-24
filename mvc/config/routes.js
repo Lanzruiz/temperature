@@ -37,7 +37,7 @@ module.exports = function (app, passport) {
     }));
 
     //mobile
-    app.use('/mobile', express.static(path.join(__dirname, '../mobile/www')));
+    app.use('/mobile', express.static(path.join(__dirname, '/../www/index.html')));
 
     //main user api
     app.post('/api/user/add', user.add);
