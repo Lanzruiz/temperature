@@ -1,0 +1,90 @@
+page-login{
+  ion-content{
+    position: relative;
+    background-color: #212E84 !important;
+    ion-grid{
+      height: 100%;
+      justify-content: center;
+      ion-row ion-col img{
+        width: 80%;
+        margin: 0 auto;
+        display: table;
+      }
+      ion-row ion-col .login-form{ margin-top: 40px; }
+      ion-row ion-col .login-form ion-item{
+        padding: 5px 20px;
+        font-weight: 700;
+        &.username{
+          -webkit-border-top-left-radius: 5px;
+          -webkit-border-top-right-radius: 5px;
+          -moz-border-radius-topleft: 5px;
+          -moz-border-radius-topright: 5px;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          margin-bottom: 1px;
+        }
+        &.password{
+          -webkit-border-bottom-right-radius: 5px;
+          -webkit-border-bottom-left-radius: 5px;
+          -moz-border-radius-bottomright: 5px;
+          -moz-border-radius-bottomleft: 5px;
+          border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+        &.login-btn{
+          background: none !important;
+          padding: 0 !important;
+          margin-top: 10px;
+          .item-inner{ padding: 0; }
+          .item-inner ion-label{ margin: 0; }
+          .item-inner button{
+            background: #EC0086;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            height: 55px;
+            font-size: 16px;
+          }
+        }
+      }
+      ion-row ion-col .login-form ion-item ion-icon{ color: #212E84; }
+      ion-row ion-col .login-form ion-item ion-input{
+        font-size: 16px;
+        color: #212E84;
+        input::-webkit-input-placeholder { color: #212E84; }
+        input::-moz-placeholder { color: #212E84; }
+        input:-ms-input-placeholder { color: #212E84; }
+        input:-moz-placeholder { color: #212E84; }
+      }
+    }
+  }
+
+  ion-footer{
+    max-width: 100%;
+    ion-list{ margin: 0 !important; }
+    ion-list ion-item{
+      padding: 0 !important;
+      background: none !important;
+      &.register-btn{
+        .item-inner{ padding: 0 !important; }
+        .item-inner ion-label{ margin: 0; }
+        .item-inner button{
+          background: #EC0086;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          height: 55px;
+          font-size: 16px;
+        }
+      }
+      &.forgot-password-btn{
+        .item-inner{ padding: 0 !important; }
+        .item-inner ion-label{ margin: 0; }
+        .item-inner button{
+          color: #FFF;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
