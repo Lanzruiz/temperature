@@ -10,7 +10,7 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "start" : "ionic serve --port 8200 -i 35730"
+    "start": "ionic serve --port 8200 -i 35730"
   },
   "dependencies": {
     "@angular/animations": "5.2.9",

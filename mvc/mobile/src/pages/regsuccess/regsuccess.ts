@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RegsuccessPage } from '../pages';
-
 /**
- * Generated class for the UploadphotoPage page.
+ * Generated class for the RegsuccessPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,16 +9,16 @@ import { RegsuccessPage } from '../pages';
 
 @IonicPage()
 @Component({
-  selector: 'page-uploadphoto',
-  templateUrl: 'uploadphoto.html',
+  selector: 'page-regsuccess',
+  templateUrl: 'regsuccess.html',
 })
-export class UploadphotoPage {
+export class RegsuccessPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  doUpload() {
-    this.navCtrl.push(RegsuccessPage);
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad RegsuccessPage');
   }
 
 }
