@@ -13,7 +13,9 @@ page-edit-tenant{
       ion-title .toolbar-title{
         font-size: 17px;
         font-weight: 400;
+        color: #FFF;
       }
+      .ion-ios-arrow-back{ color: #FFF; }
       &:last-child{
         a{
           font-size: 17px;
@@ -25,6 +27,8 @@ page-edit-tenant{
   }
 
   ion-content{
+    background-color: #212E84 !important;
+    .scroll-content{ background: #F8F9FF; }
     .profile{
       ion-row ion-col ion-item ion-avatar{
         max-width: 55px;
@@ -88,6 +92,29 @@ page-edit-tenant{
       }
     }
 
+  }
+
+  ion-footer{
+    background-color: #212E84 !important;
+    ion-grid ion-row ion-col{
+      background: none !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    ion-grid ion-row ion-col button{ padding: 0 !important; }
+    ion-grid ion-row ion-col button .button-inner{ flex-flow: column; }
+    ion-grid ion-row ion-col button .button-inner ion-icon{
+      font-size: 30px;
+      color: #8C93C1;
+      margin-bottom: 5px;
+    }
+    ion-grid ion-row ion-col button .button-inner span{
+      font-family: 'Avenir Next';
+      color: #8C93C1;
+      font-size: 15px;
+      display: block;
+      text-align: center;
+    }
   }
 
 }

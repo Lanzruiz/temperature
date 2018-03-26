@@ -6,6 +6,7 @@ page-add-tenant{
       padding-right: 0 !important;
       ion-row{
         ion-col{
+          .ion-ios-arrow-back{ color: #FFF; }
           ion-icon{
             font-size: 26px;
             font-weight: 700;
@@ -15,6 +16,7 @@ page-add-tenant{
             font-weight: 400;
             font-family: 'Helvetica';
             font-size: 16px;
+            .toolbar-title{ color: #FFF; }
           }
           &.add{
             a{
@@ -32,6 +34,8 @@ page-add-tenant{
   }
 
   ion-content{
+    background-color: #212E84 !important;
+    .scroll-content{ background: #F8F9FF; }
     ion-grid{
       padding-left: 0 !important;
       padding-right: 0 !important;
@@ -169,6 +173,29 @@ page-add-tenant{
           }
         }
       }
+    }
+  }
+
+  ion-footer{
+    background-color: #212E84 !important;
+    ion-grid ion-row ion-col{
+      background: none !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    ion-grid ion-row ion-col button{ padding: 0 !important; }
+    ion-grid ion-row ion-col button .button-inner{ flex-flow: column; }
+    ion-grid ion-row ion-col button .button-inner ion-icon{
+      font-size: 30px;
+      color: #8C93C1;
+      margin-bottom: 5px;
+    }
+    ion-grid ion-row ion-col button .button-inner span{
+      font-family: 'Avenir Next';
+      color: #8C93C1;
+      font-size: 15px;
+      display: block;
+      text-align: center;
     }
   }
 }

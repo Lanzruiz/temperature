@@ -2,7 +2,7 @@
   <ion-grid>
     <ion-row>
       <ion-col col-2>
-        <ion-icon class="ion-navicon-round"></ion-icon>
+        <ion-icon class="ion-ios-arrow-back" (click)="onGoBack()"></ion-icon>
       </ion-col><!-- ion-col -->
       <ion-col col-8>
         <ion-title>Add Tenant</ion-title>
@@ -116,3 +116,40 @@
     </ion-row><!-- ion-row -->
   </ion-grid><!-- ion-grid -->
 </ion-content><!-- ion-content -->
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-20>
+        <button ion-button block clear icon-center>
+          <ion-icon class="ion-grid"></ion-icon>
+          <span>Dashboard</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-person"></ion-icon>
+          <span>Profile</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-search"></ion-icon>
+          <span>Search</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear>
+          <ion-icon class="ion-android-notifications-none"></ion-icon>
+          <span>Notification</span>
+        </button>
+      </ion-col>
+      <ion-col col-20>
+        <button ion-button block clear menuToggle>
+          <ion-icon class="ion-navicon"></ion-icon>
+          <span>Menu</span>
+      </button>
+      </ion-col>
+    </ion-row><!-- ion-row -->
+  </ion-grid><!-- ion-grid -->
+</ion-footer><!-- ion-footer -->

@@ -12,6 +12,10 @@ export class AddTenantPage {
       public actionsheetCtrl: ActionSheetController
     ) {}
 
+  onGoBack() {
+    this.navCtrl.pop();
+  }
+  
   openStatusBox() {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Select Status',
