@@ -14,12 +14,12 @@ switch (env.app_env) {
           f = require('util').format,
           assert = require('assert');
 
-		var user = encodeURIComponent(env.user);
-		var pass = encodeURIComponent(env.pass);
+		var user = encodeURIComponent(database.user);
+		var pass = encodeURIComponent(database.pass);
 		var authMechanism = 'DEFAULT';
 
 		// Connection URL
-		var url = f('mongodb://%s:%s@localhost:27017/admin?authMechanism=%s',
+		var url = f('mongodb://%s:%s@'+database.url+':27017/admin?authMechanism=%s',
 		  user, pass, authMechanism);
 
       break;  

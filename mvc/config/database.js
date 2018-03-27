@@ -2,7 +2,9 @@ var env = require('../env');
 module.exports = {
 
     'url': env.url,
-    'db' : env.database
+    'db' : env.database,
+    'user': env.user,
+    'pass': env.pass
 
 
 
