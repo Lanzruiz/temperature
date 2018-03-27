@@ -2,6 +2,7 @@
 var home = require('../app/controllers/home');
 var user = require('../app/controllers/user');
 var tenant = require('../app/controllers/tenant');
+var permission = require('../app/controllers/permission');
 
 var express = require('express');
 var path    = require('path');
@@ -43,6 +44,8 @@ module.exports = function (app, passport) {
     app.post('/api/user/add', user.add);
     app.get('/api/user/list/:access_token', user.list);
     app.get('/api/tenant/list/:access_token', tenant.list);
+    app.get('/api/user/:id', user.get);
+    app.get('api/permission/list',permission.list);
     app.post('/api/tenant/add', tenant.add);
     app.delete('/api/tenant/delete/:id',tenant.delete)
     app.get('/api/tenant/restore/:access_token', tenant.add);

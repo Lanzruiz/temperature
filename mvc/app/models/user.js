@@ -16,7 +16,6 @@ class User {
 		}
 
 	add(permissions) {
-
 		var myobj = { 
 			email: this._email,
 			password: this._password,
@@ -26,78 +25,37 @@ class User {
 			firstname: this._firstname,
 			lastname: this._lastname
 		};	
-		console.log(this._model);
-		mongoclient.save(myobj,this._model);
-		//mongoclient.saveUserPermission(userid,permissions);
+		mongoclient.save(function(data) {
+        	mongoclient.setPermissions(data.insertedId, permissions);
+    	},myobj,this._model);
+		
 	}
 
-	find(element, data) {
+	setPermissions(id,permissions) {
+		mongoclient.setPermissions(id,permissions);
+	}
 
-     var headsup;
+	find(id, callback) {
+   		mongoclient.findById(function(userData) {
+   			console.log(userData, 'USERDATA');
+   			mongoclient.getPermissionByUserId(function(permissions) {
+        	//	console.log(permissions);
+        		var data = {
+        			user : userData,
+        			permissions : permissions
+        		};
+        		callback(data);
+    		},id)
+    	},id,this._model);
+  	}
 
-     switch (element) {
-
-        case 'company':
-         
-            break;
-
-        case 'subdomain':
-
-            break;
-
-        case 'email':
-   			console.log(data);
-            var myobj = { 
-                email: data
-            };
-            headsup = mongoclient.searchOne(myobj,this._model);
-
-            break;
-
-
-
-     }  
-
-     return headsup;    
-  }
+ 	findAll(callback) {
+	    mongoclient.findAll(function(data) {
+	        callback(data);
+	    },this._model);
+  	}
 }
 
 
 module.exports = User;
-
-// var UserDataSchema =  new Schema({
-// 	email: {type: String, required: true},
-// 	firstname: String,
-// 	middlename: String,
-// 	lastname: String,
-// 	password: String,
-// 	role: Number,
-// 	company: String,
-// 	created_date: Date,
-// 	updated_date: Date, 
-// 	active_hash: String,
-// 	tenant: String
-
-// },{collection: 'users'});
-
-// UserDataSchema.pre('save', database.checkpassword);
-
-// UserDataSchema.methods.comparePassword = function(candidatePassword, cb) {
-//     bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-//         if (err) return cb(err);
-//         cb(null, isMatch);
-//     });
-// };
-
-
-// var UserData = mongoose.model('user', UserDataSchema);
-
-
-
-// module.exports = UserData;
-
-
-
-
-
 
