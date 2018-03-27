@@ -2,7 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
 var database = require('../config/database')
 var env = require('../env')
 
-
+var ObjectId = require('mongodb').ObjectID;
 
 switch (env.app_env) {
     case 'local':
@@ -27,7 +27,7 @@ switch (env.app_env) {
 }    
 
 
-module.exports.save = function(data,model) {
+module.exports.save = function(callback, data,model) {
 
 	MongoClient.connect(url, function(err, db) {
 		
@@ -37,6 +37,7 @@ module.exports.save = function(data,model) {
 		dbo.collection(model).insertOne(myobj, function(err, res) {
 		    if (err) throw err;
 		    console.log("1 document inserted");
+		    callback(res);
 		    db.close();
 		});
    });
@@ -48,7 +49,6 @@ module.exports.update = function(data,model) {
 
 	MongoClient.connect(url, function(err, db) {
 		  if (err) throw err;
-		  //console.log(id);
 		  var dbo = db.db(env.database);
 		  var myquery = { company: data.company};
 		  var newvalues = { $set: data };
@@ -75,6 +75,18 @@ module.exports.searchOne = function(data,model) {
     });
 }
 
+module.exports.findById = function(callback, id, model) {
+    MongoClient.connect(url, function(err, db) {
+		if (err) throw err;
+			var dbo = db.db(env.database);
+			var myquery = { '_id' : ObjectId(id)}; 
+			dbo.collection(model).find(myquery).toArray(function(err, docs) {
+			    console.log("Found the following records");
+			    console.log(docs);
+			    callback(docs);
+		    });
+    });
+}
 
 module.exports.findAll = function(callback,model) {
     MongoClient.connect(url, function(err, db) {
@@ -85,4 +97,31 @@ module.exports.findAll = function(callback,model) {
 		    callback(result);
 		  });
     });
+}
+
+module.exports.setPermissions = function(id,permissions) {
+    MongoClient.connect(url, function(err, db) {
+        var dbo = db.db(env.database);
+		for(i = 0; i < permissions.length; i++) { 
+			var myobj = {userid : id, permissionid : permissions[i] };
+			dbo.collection('user_permissions').insertOne(myobj, function(err, res) {
+			    if (err) throw err;
+			    console.log("1 document inserted");
+			});
+		}
+	    db.close();
+   });
+}
+
+module.exports.getPermissionByUserId = function(callback,id) {
+    MongoClient.connect(url, function(err, db) {
+		if (err) throw err;
+			var dbo = db.db(env.database);
+			var myquery = { 'userid' : ObjectId(id)}; 
+			dbo.collection('user_permissions').find(myquery).toArray(function(err, docs) {
+			    console.log("Found the following records");
+			    console.log(docs);
+			    callback(docs);
+		    });
+		});
 }

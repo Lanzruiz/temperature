@@ -179,6 +179,12 @@ module.exports = {
 
   },
 
+  find(id, callback) {
+
+    mongoclient.findAll(function(data) {
+        callback(data);
+    },this._model);
+  }
   // backup: function(req, res){
  
   //     // var id = req.param('id');
