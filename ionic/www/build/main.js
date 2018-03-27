@@ -34,15 +34,15 @@ var map = {
 		13
 	],
 	"../pages/item-create/item-create.module": [
-		336,
+		333,
 		12
 	],
 	"../pages/item-detail/item-detail.module": [
-		333,
+		334,
 		11
 	],
 	"../pages/list-master/list-master.module": [
-		334,
+		336,
 		10
 	],
 	"../pages/login/login.module": [
@@ -50,27 +50,27 @@ var map = {
 		9
 	],
 	"../pages/menu/menu.module": [
-		339,
+		337,
 		8
 	],
 	"../pages/regsuccess/regsuccess.module": [
-		337,
+		339,
 		7
 	],
 	"../pages/search/search.module": [
-		338,
+		340,
 		6
 	],
 	"../pages/settings/settings.module": [
-		341,
-		4
-	],
-	"../pages/signup/signup.module": [
-		340,
+		338,
 		5
 	],
-	"../pages/tabs/tabs.module": [
+	"../pages/signup/signup.module": [
 		342,
+		4
+	],
+	"../pages/tabs/tabs.module": [
+		341,
 		3
 	],
 	"../pages/tutorial/tutorial.module": [
@@ -395,16 +395,16 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/authcode/authcode.module#AuthcodePageModule', name: 'AuthcodePage', segment: 'authcode', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cards/cards.module#CardsPageModule', name: 'CardsPage', segment: 'cards', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/content/content.module#ContentPageModule', name: 'ContentPage', segment: 'content', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/regsuccess/regsuccess.module#RegsuccessPageModule', name: 'RegsuccessPage', segment: 'regsuccess', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/uploadphoto/uploadphoto.module#UploadphotoPageModule', name: 'UploadphotoPage', segment: 'uploadphoto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
