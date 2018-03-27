@@ -63,11 +63,11 @@ var map = {
 	],
 	"../pages/settings/settings.module": [
 		341,
-		5
+		4
 	],
 	"../pages/signup/signup.module": [
 		340,
-		4
+		5
 	],
 	"../pages/tabs/tabs.module": [
 		342,
