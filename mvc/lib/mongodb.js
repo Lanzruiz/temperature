@@ -102,6 +102,22 @@ module.exports.drop = function(callback,model) {
 	});
 }
 
+
+module.exports.deletePermissionByUserId = function(callback,id) {
+	MongoClient.connect(url, function(err, db) {
+	  if (err) throw err;
+	  var dbo = db.db(env.database);
+	  var myquery = {userid : id};
+	  console.log(myquery);
+	  dbo.collection('user_permissions').deleteMany(myquery, function(err, obj) {
+	    if (err) throw err;
+	    console.log(obj.result.n + " document(s) deleted");
+	    callback();
+	    db.close();
+	  });
+	});
+}
+
 module.exports.searchOne = function(data,model) {
 
     MongoClient.connect(url, function(err, db) {
@@ -158,9 +174,9 @@ module.exports.getPermissionByUserId = function(callback,id) {
     MongoClient.connect(url, function(err, db) {
 		if (err) throw err;
 			var dbo = db.db(env.database);
-			var myquery = { 'userid' : ObjectId(id)}; 
+			var myquery = { 'userid' : id}; 
 			dbo.collection('user_permissions').find(myquery).toArray(function(err, docs) {
-			    console.log("Found the following records");
+			    console.log("Found the following permissions");
 			    console.log(docs);
 			    callback(docs);
 		    });

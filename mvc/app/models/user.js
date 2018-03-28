@@ -32,7 +32,9 @@ class User {
 	}
 
 	setPermission(id,permissions) {
-		mongoclient.setPermissions(id,permissions);
+		mongoclient.deletePermissionByUserId(function() {
+			mongoclient.setPermissions(id,permissions);
+		},id);
 	}
 
 	find(id, callback) {
