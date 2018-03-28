@@ -31,13 +31,12 @@ class User {
 		
 	}
 
-	setPermissions(id,permissions) {
+	setPermission(id,permissions) {
 		mongoclient.setPermissions(id,permissions);
 	}
 
 	find(id, callback) {
    		mongoclient.findById(function(userData) {
-   			console.log(userData, 'USERDATA');
    			mongoclient.getPermissionByUserId(function(permissions) {
         	//	console.log(permissions);
         		var data = {
