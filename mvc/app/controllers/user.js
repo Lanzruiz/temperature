@@ -82,6 +82,14 @@ module.exports = {
      // } 
   },
 
+  setPermission : function(req, res) {
+    var id = req.param("id");
+
+    var user = new userModel();
+    user.setPermission(id,req.body.permissions);
+    res.status(200).send('permissions updated'); 
+  },
+
 	page : function(req, res){
 
       res.render('login.ejs');
