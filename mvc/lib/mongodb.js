@@ -1,7 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 var database = require('../config/database')
 var env = require('../env')
-
 var ObjectId = require('mongodb').ObjectID;
 
 switch (env.app_env) {
@@ -24,6 +23,36 @@ switch (env.app_env) {
 
       break;  
 
+}
+
+module.exports.loadPermissions = function(){
+	MongoClient.connect(url, function(err, db) {
+		fs = require('fs');
+		readline = require('readline');
+ 		var dbo = db.db(env.database);
+
+		var rl = readline.createInterface({
+	      input : fs.createReadStream('./sql/permissions.txt'),
+	      output: process.stdout,
+	      terminal: false
+		})
+		var permissions = [];
+		rl.on('line',function(line){
+			try{
+				var splitter = line.split(',');
+				var myobj = {name : splitter[0], hasTenant : splitter[1], hasSite : splitter[2] }
+				dbo.collection('permissions').insertOne(myobj);
+            }
+            catch (err){
+                console.log(err);
+            }
+		})
+
+		rl.on('close',function(){
+            db.close();
+            console.log('***************completed');
+        });
+	});
 }    
 
 
@@ -60,6 +89,18 @@ module.exports.update = function(data,model) {
     });
 
 }	
+
+module.exports.drop = function(callback,model) {
+	MongoClient.connect(url, function(err, db) {
+	  if (err) throw err;
+	  var dbo = db.db(env.database);
+	  dbo.collection(model).drop(function(err, delOK) {
+	    if (err) throw err;
+	    callback(delOK);
+	    db.close();
+	  });
+	});
+}
 
 module.exports.searchOne = function(data,model) {
 
