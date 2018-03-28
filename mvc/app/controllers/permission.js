@@ -1,7 +1,7 @@
 var numeral = require('numeral');
 var bcrypt = require('bcrypt-nodejs');
 var dateFormat = require('dateformat');
-//var userModel = require('../models/user');
+var permissionModel = require('../models/permission');
 var tenantModel = require('../models/permission');
 var MongoClient = require('mongodb').MongoClient;
 
@@ -19,7 +19,18 @@ const fse = require('fs-extra');
 
 module.exports = {
 	list : function( req, res) {
+		console.log('list');
+		var permission = new permissionModel();
+		permission.findAll(function(data) {
+			res.status(200).send(data); 
+		});
+	},
 
+	load : function ( req, res ) {
+		console.log('load');
+		var permission = new permissionModel();
+		permission.load();
+		res.status(200).send('Permissions has been loaded'); 
 	}
 }
  

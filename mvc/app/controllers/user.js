@@ -22,7 +22,7 @@ module.exports = {
     );
 
     if(req.body.access_token == auth.access_token) {
-      console.log(req.body.permissions);
+        console.log(req.body.permissions);
       //console.log(tenant.find('company', req.body.company));
 
       //if(user.find('email', req.body.email) != true) {

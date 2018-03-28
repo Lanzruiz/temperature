@@ -45,7 +45,6 @@ module.exports = function (app, passport) {
     app.get('/api/user/list/:access_token', user.list);
     app.get('/api/tenant/list/:access_token', tenant.list);
     app.get('/api/user/:id', user.get);
-    app.get('api/permission/list',permission.list);
     app.post('/api/tenant/add', tenant.add);
     app.delete('/api/tenant/delete/:id',tenant.delete)
     app.get('/api/tenant/restore/:access_token', tenant.add);
@@ -60,6 +59,10 @@ module.exports = function (app, passport) {
     app.post('/api/tenant/adduser', tenant.adduser);
     app.get('/api/tenant/member/list/:id', user.list);
 
+    //permission api
+
+    app.get('/api/permission/list',permission.list);
+    app.post('/api/permission/load',permission.load);
     app.use(subdomain('now', app));
 
 
