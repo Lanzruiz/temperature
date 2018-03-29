@@ -11,7 +11,7 @@ class Tenant {
     this._email = email;
     this._contact = contact;
     this._address = address;
-    this._model = 'tenants';
+    this._model = "tenants";
   }
 
   add() {
@@ -25,7 +25,7 @@ class Tenant {
         status: 0
     };
 
-    mongoclient.save(myobj,this._model);
+    mongoclient.save(myobj, this._model);
   }
 
   activate() {

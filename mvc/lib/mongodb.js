@@ -55,8 +55,8 @@ module.exports.loadPermissions = function(){
 	});
 }    
 
-
-module.exports.save = function(callback, data,model) {
+//module.exports.save = function(callback, data, model) {
+module.exports.save = function(data, model) {
 
 	MongoClient.connect(url, function(err, db) {
 		
@@ -66,7 +66,7 @@ module.exports.save = function(callback, data,model) {
 		dbo.collection(model).insertOne(myobj, function(err, res) {
 		    if (err) throw err;
 		    console.log("1 document inserted");
-		    callback(res);
+		    //callback(res);
 		    db.close();
 		});
    });
