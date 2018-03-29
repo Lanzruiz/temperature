@@ -1,4 +1,4 @@
-webpackJsonp([16],{
+webpackJsonp([13],{
 
 /***/ 130:
 /***/ (function(module, exports) {
@@ -21,68 +21,56 @@ webpackEmptyAsyncContext.id = 130;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/authcode/authcode.module": [
-		330,
-		15
-	],
 	"../pages/cards/cards.module": [
-		331,
-		14
-	],
-	"../pages/content/content.module": [
-		332,
-		13
-	],
-	"../pages/item-create/item-create.module": [
-		333,
+		330,
 		12
 	],
-	"../pages/item-detail/item-detail.module": [
-		334,
+	"../pages/content/content.module": [
+		331,
 		11
 	],
-	"../pages/list-master/list-master.module": [
-		336,
+	"../pages/item-create/item-create.module": [
+		332,
 		10
+	],
+	"../pages/item-detail/item-detail.module": [
+		333,
+		9
+	],
+	"../pages/list-master/list-master.module": [
+		334,
+		8
 	],
 	"../pages/login/login.module": [
 		335,
-		9
-	],
-	"../pages/menu/menu.module": [
-		337,
-		8
-	],
-	"../pages/regsuccess/regsuccess.module": [
-		339,
 		7
 	],
-	"../pages/search/search.module": [
-		340,
+	"../pages/menu/menu.module": [
+		336,
 		6
+	],
+	"../pages/search/search.module": [
+		337,
+		5
 	],
 	"../pages/settings/settings.module": [
 		338,
-		5
+		4
 	],
 	"../pages/signup/signup.module": [
-		342,
-		4
+		339,
+		3
 	],
 	"../pages/tabs/tabs.module": [
 		341,
-		3
-	],
-	"../pages/tutorial/tutorial.module": [
-		343,
 		2
 	],
-	"../pages/uploadphoto/uploadphoto.module": [
-		344,
+	"../pages/tutorial/tutorial.module": [
+		340,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		345,
+		342,
 		0
 	]
 };
@@ -274,22 +262,16 @@ var Items = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirstRunPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MainPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return SignUpPage; });
-/* unused harmony export AuthcodePage */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return UploadphotoPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return RegsuccessPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Tab1Root; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Tab2Root; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Tab3Root; });
+/* unused harmony export LoginPage */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Tab1Root; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Tab2Root; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Tab3Root; });
 // The page the user lands on after opening the app and without a session
 var FirstRunPage = 'LoginPage';
 // The main page the user will see as they use the app over a long period of time.
 // Change this if not using tabs
 var MainPage = 'TabsPage';
-var SignUpPage = 'SignupPage';
-var AuthcodePage = 'AuthcodePage';
-var UploadphotoPage = 'UploadphotoPage';
-var RegsuccessPage = 'RegsuccessPage';
+var LoginPage = 'LoginPage';
 // The initial root pages for our tabs (remove if not using tabs)
 var Tab1Root = 'ListMasterPage';
 var Tab2Root = 'SearchPage';
@@ -392,21 +374,18 @@ var AppModule = /** @class */ (function () {
                 }),
                 __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/authcode/authcode.module#AuthcodePageModule', name: 'AuthcodePage', segment: 'authcode', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cards/cards.module#CardsPageModule', name: 'CardsPage', segment: 'cards', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/content/content.module#ContentPageModule', name: 'ContentPage', segment: 'content', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/regsuccess/regsuccess.module#RegsuccessPageModule', name: 'RegsuccessPage', segment: 'regsuccess', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/uploadphoto/uploadphoto.module#UploadphotoPageModule', name: 'UploadphotoPage', segment: 'uploadphoto', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
                 }),

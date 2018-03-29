@@ -4,7 +4,6 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
-import { SignUpPage } from '../pages';
 
 @IonicPage()
 @Component({
@@ -31,10 +30,6 @@ export class LoginPage {
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
-  }
-
-  clicked() {
-     this.navCtrl.push(SignUpPage);
   }
 
   // Attempt to login in through our User service

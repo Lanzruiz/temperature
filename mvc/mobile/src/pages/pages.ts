@@ -8,6 +8,7 @@ export const SignUpPage = 'SignupPage';
 export const AuthcodePage = 'AuthcodePage';
 export const UploadphotoPage = 'UploadphotoPage';
 export const RegsuccessPage = 'RegsuccessPage';
+export const TenantsPage = 'TenantsPage';
 
 
 // The initial root pages for our tabs (remove if not using tabs)

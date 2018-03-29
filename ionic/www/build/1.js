@@ -1,14 +1,15 @@
 webpackJsonp([1],{
 
-/***/ 344:
+/***/ 340:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadphotoPageModule", function() { return UploadphotoPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TutorialPageModule", function() { return TutorialPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__uploadphoto__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tutorial__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(118);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +19,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var UploadphotoPageModule = /** @class */ (function () {
-    function UploadphotoPageModule() {
+
+var TutorialPageModule = /** @class */ (function () {
+    function TutorialPageModule() {
     }
-    UploadphotoPageModule = __decorate([
+    TutorialPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__uploadphoto__["a" /* UploadphotoPage */],
+                __WEBPACK_IMPORTED_MODULE_2__tutorial__["a" /* TutorialPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__uploadphoto__["a" /* UploadphotoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tutorial__["a" /* TutorialPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__tutorial__["a" /* TutorialPage */]
+            ]
         })
-    ], UploadphotoPageModule);
-    return UploadphotoPageModule;
+    ], TutorialPageModule);
+    return TutorialPageModule;
 }());
 
-//# sourceMappingURL=uploadphoto.module.js.map
+//# sourceMappingURL=tutorial.module.js.map
 
 /***/ }),
 
-/***/ 360:
+/***/ 353:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadphotoPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TutorialPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(118);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,30 +64,69 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the UploadphotoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var UploadphotoPage = /** @class */ (function () {
-    function UploadphotoPage(navCtrl, navParams) {
+var TutorialPage = /** @class */ (function () {
+    function TutorialPage(navCtrl, menu, translate, platform) {
+        var _this = this;
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.menu = menu;
+        this.platform = platform;
+        this.showSkip = true;
+        this.dir = 'ltr';
+        this.dir = platform.dir();
+        translate.get(["TUTORIAL_SLIDE1_TITLE",
+            "TUTORIAL_SLIDE1_DESCRIPTION",
+            "TUTORIAL_SLIDE2_TITLE",
+            "TUTORIAL_SLIDE2_DESCRIPTION",
+            "TUTORIAL_SLIDE3_TITLE",
+            "TUTORIAL_SLIDE3_DESCRIPTION",
+        ]).subscribe(function (values) {
+            console.log('Loaded values', values);
+            _this.slides = [
+                {
+                    title: values.TUTORIAL_SLIDE1_TITLE,
+                    description: values.TUTORIAL_SLIDE1_DESCRIPTION,
+                    image: 'assets/img/ica-slidebox-img-1.png',
+                },
+                {
+                    title: values.TUTORIAL_SLIDE2_TITLE,
+                    description: values.TUTORIAL_SLIDE2_DESCRIPTION,
+                    image: 'assets/img/ica-slidebox-img-2.png',
+                },
+                {
+                    title: values.TUTORIAL_SLIDE3_TITLE,
+                    description: values.TUTORIAL_SLIDE3_DESCRIPTION,
+                    image: 'assets/img/ica-slidebox-img-3.png',
+                }
+            ];
+        });
     }
-    UploadphotoPage.prototype.doUpload = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__pages__["c" /* RegsuccessPage */]);
+    TutorialPage.prototype.startApp = function () {
+        this.navCtrl.setRoot('WelcomePage', {}, {
+            animate: true,
+            direction: 'forward'
+        });
     };
-    UploadphotoPage = __decorate([
+    TutorialPage.prototype.onSlideChangeStart = function (slider) {
+        this.showSkip = !slider.isEnd();
+    };
+    TutorialPage.prototype.ionViewDidEnter = function () {
+        // the root left menu should be disabled on the tutorial page
+        this.menu.enable(false);
+    };
+    TutorialPage.prototype.ionViewWillLeave = function () {
+        // enable the root left menu when leaving the tutorial page
+        this.menu.enable(true);
+    };
+    TutorialPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-uploadphoto',template:/*ion-inline-start:"/Users/hurdmanphilippines/Desktop/Aptiture/monika-project/ionic/src/pages/uploadphoto/uploadphoto.html"*/'\n\n<ion-content class="master uploadphoto-content" padding>\n  <ion-navbar>\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n  <div class="login-box">\n     <form (submit)="doUpload()">\n    \n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            <ion-label class="text-underline">Upload a photo here</ion-label>\n          </ion-list>\n          <ion-list>\n            <ion-label>or</ion-label>\n          </ion-list>\n          <ion-list>\n            <ion-label><ion-icon ios="ios-camera" class="con-camera" md="md-camera"></ion-icon> Take a picture</ion-label>\n          </ion-list>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row>\n        <ion-col class="signup-col margin-top-40">\n          <button class="submit-btn" ion-button color="primary" block>Next</button>\n         \n        </ion-col>\n      </ion-row>\n      \n      \n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/hurdmanphilippines/Desktop/Aptiture/monika-project/ionic/src/pages/uploadphoto/uploadphoto.html"*/,
+            selector: 'page-tutorial',template:/*ion-inline-start:"/Users/hurdmanphilippines/Desktop/Aptiture/monika-project/ionic/src/pages/tutorial/tutorial.html"*/'<ion-header no-shadow>\n  <ion-navbar>\n    <ion-buttons end *ngIf="showSkip">\n      <button ion-button (click)="startApp()" color="primary">{{ \'TUTORIAL_SKIP_BUTTON\' | translate}}</button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content no-bounce>\n  <ion-slides pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">\n    <ion-slide *ngFor="let slide of slides">\n      <img [src]="slide.image" class="slide-image" />\n      <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n      <p [innerHTML]="slide.description"></p>\n    </ion-slide>\n    <ion-slide>\n      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />\n      <h2 class="slide-title">{{ \'TUTORIAL_SLIDE4_TITLE\' | translate }}</h2>\n      <button ion-button icon-end large clear (click)="startApp()">\n        {{ \'TUTORIAL_CONTINUE_BUTTON\' | translate }}\n        <ion-icon name="arrow-forward"></ion-icon>\n      </button>\n    </ion-slide>\n  </ion-slides>\n</ion-content>\n'/*ion-inline-end:"/Users/hurdmanphilippines/Desktop/Aptiture/monika-project/ionic/src/pages/tutorial/tutorial.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], UploadphotoPage);
-    return UploadphotoPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]])
+    ], TutorialPage);
+    return TutorialPage;
 }());
 
-//# sourceMappingURL=uploadphoto.js.map
+//# sourceMappingURL=tutorial.js.map
 
 /***/ })
 
