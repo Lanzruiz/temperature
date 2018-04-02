@@ -27,7 +27,8 @@ module.exports = {
           req.body.subdomain.replace(/\s/g, '').toLowerCase(), 
           req.body.email, 
           req.body.contact, 
-          req.body.address
+          req.body.address,
+          req.body.password
     );
 
     if(req.body.access_token == auth.access_token) {

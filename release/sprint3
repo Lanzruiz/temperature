@@ -1,0 +1,21 @@
+
+Mobile
+
+MCP-421 - As a Tenant User I should be able to access all the pages of my Tenant Account using my mobile device. (iOS, Android, Windows)
+
+MCP-420 - As a Tenant Admin I should be able to access all the pages of my Tenant Account using my mobile device. (iOS, Android, Windows)
+
+
+Web and Api
+
+MCP-154 - As a Tenant Admin, I should be able to create users and assign permissions within my tenant account using the Web Based System
+
+MCP-150 - As a Monika Staff, I should be able to create users and assign them permissions within the system, and permissions within each tenant account using the Web Based System.
+
+MCP-154 - As a Tenant Admin, I should be able to create users and assign permissions within my tenant account using the Web Based System
+
+MCP-158 - As a Monika Staff, I should be able to create a user within a tenant using the Web Based System so that I can help the Tenant Admin if problem arises.
+
+MCP-166 - As a Monika Staff, I should be able to edit a tenant user's permission settings using the Web Based System.
+
+MCP-170 - As a Tenant Admin, I should be able to edit my tenant user's permission settings using the Web Based System so that I can update his allowed activity within the Monika system.

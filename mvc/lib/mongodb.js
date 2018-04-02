@@ -2,6 +2,18 @@ var MongoClient = require('mongodb').MongoClient;
 var database = require('../config/database')
 var env = require('../env')
 var ObjectId = require('mongodb').ObjectID;
+var pgtools = require('pgtools');
+var fs = require('fs');
+var pg = require('pg');
+const fse = require('fs-extra');
+
+
+ const config = {
+        user: 'postgres',
+        password: 'Bounce1234',
+        port: 5433,
+        host: 'localhost'
+      }
 
 switch (env.app_env) {
     case 'local':
@@ -67,6 +79,45 @@ module.exports.save = function(data, model) {
 		    if (err) throw err;
 		    console.log("1 document inserted");
 		    //callback(res);
+		    // step 1
+		    // step
+		    pgtools.createdb(config, data.company, function (err, res) {
+        if (err) {
+          console.error(err);
+          process.exit(-1);
+        }
+        console.log(res);
+        
+
+       });
+
+
+      var stream = fs.createWriteStream("sql/role.sql");
+      stream.once('open', function(fd) {
+        stream.write("CREATE USER "+data.company+" WITH PASSWORD '"+data.password+"';");
+         stream.write("grant all privileges on "+data.company+" to "+data.company+";");
+
+        //stream.write("My second row\n");
+        //stream.end();
+
+
+      var sql = fs.readFileSync('sql/role.sql').toString();
+
+      pg.connect('postgres://postgres:Bounce1234@localhost:5433/postgres', function(err, client, done){
+          if(err){
+              console.log('error: ', err);
+             
+          }
+          client.query(sql, function(err, result){
+              done();
+              if(err){
+                  console.log('error: ', err);
+                 
+              }
+              
+          });
+      });
+      });
 		    db.close();
 		});
    });
@@ -83,6 +134,7 @@ module.exports.update = function(data,model) {
 		  var newvalues = { $set: data };
 		  dbo.collection(model).updateOne(myquery, newvalues, function(err, res) {
 		    if (err) throw err;
+
 		    console.log("1 document updated");
 		    db.close();
 		  });

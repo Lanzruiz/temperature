@@ -5,12 +5,13 @@ var mongoclient = require('../../lib/mongodb')
 
 class Tenant {
   
-  constructor(company, subdomain, email, contact, address) {
+  constructor(company, subdomain, email, contact, address, password) {
     this._company = company;
     this._subdomain = subdomain;
     this._email = email;
     this._contact = contact;
     this._address = address;
+    this._password = password;
     this._model = "tenants";
   }
 
@@ -22,6 +23,7 @@ class Tenant {
         email: this._email, 
         contact: this._contact, 
         address: this._address,
+        password: this._password,
         status: 0
     };
 
