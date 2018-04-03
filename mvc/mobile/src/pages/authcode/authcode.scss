@@ -6,6 +6,13 @@ page-authcode {
 
    background-color: #212E84;
 
+    .text-left{
+      
+      position: absolute;
+      top: 265px;
+      left: 64px;
+    }
+
     ion-icon.icon.icon-md.ion-md-contact {
       position: absolute;
       z-index: 9000;
@@ -18,8 +25,16 @@ page-authcode {
     ion-label {
 
        color: #FFFFFF;
-       font-size: 20px;
-       margin-top: 50px;
+       font-size: 15px;
+       margin-top: 2px;
+       float:left;
+    }
+
+    ion-radio {
+       float: left;
+       margin-left: 26px;
+       margin-right: 10px;
+       margin-top: 5px;
     }
 
     ion-icon.icon.icon-md.ion-md-lock {
@@ -67,6 +82,7 @@ page-authcode {
     ion-row {
        align-items: center;
        text-align: center;
+
      }
  
      ion-item {

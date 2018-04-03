@@ -8,7 +8,17 @@ export const SignUpPage = 'SignupPage';
 export const AuthcodePage = 'AuthcodePage';
 export const UploadphotoPage = 'UploadphotoPage';
 export const RegsuccessPage = 'RegsuccessPage';
+<<<<<<< HEAD
 export const TenantsPage = 'TenantsPage';
+=======
+export const AuthSetupPage = 'AuthSetupPage';
+export const SecondauthcontentPage = 'SecondauthcontentPage';
+export const TenantsPage = 'TenantsPage';
+export const IconTextPage = 'IconTextPage';
+export const TdashboardPage = 'TdashboardPage';
+export const TmainPage = 'TmainPage';
+export const ProfilePage = 'ProfilePage';
+>>>>>>> MCP-406
 
 
 // The initial root pages for our tabs (remove if not using tabs)

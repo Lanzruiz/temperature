@@ -50,6 +50,7 @@ var map = {
 		6
 	],
 	"../pages/search/search.module": [
+<<<<<<< HEAD
 		337,
 		5
 	],
@@ -63,6 +64,25 @@ var map = {
 	],
 	"../pages/tabs/tabs.module": [
 		341,
+=======
+		338,
+		6
+	],
+	"../pages/settings/settings.module": [
+		340,
+		5
+	],
+	"../pages/signup/signup.module": [
+		341,
+		4
+	],
+	"../pages/tabs/tabs.module": [
+		342,
+		3
+	],
+	"../pages/tutorial/tutorial.module": [
+		343,
+>>>>>>> MCP-406
 		2
 	],
 	"../pages/tutorial/tutorial.module": [
@@ -382,8 +402,13 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
+<<<<<<< HEAD
+=======
+                        { loadChildren: '../pages/regsuccess/regsuccess.module#RegsuccessPageModule', name: 'RegsuccessPage', segment: 'regsuccess', priority: 'low', defaultHistory: [] },
+>>>>>>> MCP-406
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }

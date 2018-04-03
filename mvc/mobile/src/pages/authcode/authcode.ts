@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TdashboardPage } from '../pages';
 
 /**
  * Generated class for the AuthcodePage page.
@@ -20,6 +21,14 @@ export class AuthcodePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AuthcodePage');
+  }
+
+   // Attempt to login in through our User service
+  doConfirm() {
+    
+      this.navCtrl.push(TdashboardPage);
+    
+    
   }
 
 }
