@@ -1,12 +1,47 @@
-page-regsuccess {
+page-auth-setup {
 
 }
 
-.regsuccess-content {
+ioni-tabs {
+   background-color: #212E84;
+}
+
+.authsetup-content {
+
+   .deactive-color {
+     color: rgba(60, 60, 60, 0.7);
+   }
+
+
 
    background-color: #212E84;
 
-  
+   .tabs-md .tab-button {
+    min-height: 5.6rem;
+    font-weight: normal;
+    color: #bdbdbd;
+    padding: 0;
+    }
+    .tabs-md .tab-button-icon {
+      margin-top: 1px;
+      min-width: 2.4rem;
+      font-size: 2.4rem;
+      color: #bdbdbd;
+      -webkit-transition: -webkit-transform 0.3s ease-in-out;
+      transition: -webkit-transform 0.3s ease-in-out;
+      transition: transform 0.3s ease-in-out;
+      transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+      -webkit-transform-origin: 50% 150%;
+      transform-origin: 50% 150%;
+    }
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+      color: #bdbdbd;
+      -webkit-transform: translate3d(0, -2px, 0);
+      transform: translate3d(0, -2px, 0);
+    }
+   .tabbar.show-tabbar {
+    background: #212E84;
+   }
 
    .paragraph {
       font-size: 18px;
@@ -148,4 +183,5 @@ page-regsuccess {
        font-size: 0.8em;
      }
   }
+
 

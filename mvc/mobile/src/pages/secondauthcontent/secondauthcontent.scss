@@ -1,28 +1,47 @@
-page-regsuccess {
+page-secondauthcontent {
 
 }
 
-.regsuccess-content {
+.secondauth-content {
 
-   background-color: #212E84;
+   background-color: white;
 
-  
+    .copy {
+	    position: absolute;
+	    width: 20%;
+	    right: 35px;
+	    /* top: 23px; */
+	    margin-top: 15px;
+    }
 
-   .paragraph {
-      font-size: 18px;
-   }
+    .reminders {
+       color: #212E84;
+       text-align: left;
+       font-size: 1.1em;
 
-   .icon-camera {
-     
-     padding-right: 30px !important;
-   }
+    }
 
-   .text-underline {
-     text-decoration: underline !important;
+     .procedures {
+       color: #212E84;
+       text-align: left;
+       font-size: 0.9em;
+       margin-top: 0.3em;
+       display: block;
+       
+    }
+
+   .code{
+      
+      border: solid 1px #bdbdbd;
+      margin-top: 30px;
+      border-top-left-radius: 5px !important;
+      border-top-right-radius: 5px !important;
+      border-bottom-left-radius: 5px !important;
+      border-bottom-right-radius: 5px !important;
    }
 
    button.back-button.bar-button.bar-button-md.back-button-md.bar-button-default.bar-button-default-md.show-back-button {
-    color: #FFF;
+      color: #FFF;
     }
    .margin-top-40 {
       margin-top: 130px !important;
@@ -76,8 +95,9 @@ page-regsuccess {
       margin-top: 15px;
       color: #212e84;
     }
-    .logo {
-      width: 20em;
+    .qr {
+      width: 10em;
+      margin-top: 50px;
     }
  
     .logo-row {
@@ -111,10 +131,7 @@ page-regsuccess {
       border-bottom-right-radius: 5px !important;
     }
  
-    ion-row {
-       align-items: center;
-       text-align: center;
-     }
+    
  
      ion-item {
          
@@ -140,7 +157,6 @@ page-regsuccess {
        background: #ec0086;
        border-radius: 5px !important;
        padding: 25px 0 25px 0;
-       margin-top: -13px;
      }
  
      .register-btn {
@@ -148,4 +164,3 @@ page-regsuccess {
        font-size: 0.8em;
      }
   }
-
