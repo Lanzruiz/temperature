@@ -9,8 +9,6 @@ export const AuthcodePage = 'AuthcodePage';
 export const UploadphotoPage = 'UploadphotoPage';
 export const RegsuccessPage = 'RegsuccessPage';
 
-export const TenantsPage = 'TenantsPage';
-
 export const AuthSetupPage = 'AuthSetupPage';
 export const SecondauthcontentPage = 'SecondauthcontentPage';
 export const TenantsPage = 'TenantsPage';
