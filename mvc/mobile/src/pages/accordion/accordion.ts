@@ -22,25 +22,33 @@ export class AccordionComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    console.log(this.cardContent.nativeElement);
-    this.renderer.setElementStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 500ms, padding 500ms");
-  }
+  angular.module('ionicApp', ['ionic'])
 
-  toggleAccordion() {
-    if (this.accordionExapanded) {
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "0px");
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "padding", "0px 16px");
-
+.controller('MyCtrl', function($scope) {
+  $scope.groups = [];
+  
+  $scope.groups = [
+    { name: 'Bubbles', id: 1, items: [{ subName: 'SubBubbles1', subId: '1-1' }, { subName: 'SubBubbles2', subId: '1-2' }]},
+    { name: 'Group1', id: 1, items: [{ subName: 'SubGrup1', subId: '1-1' }, { subName: 'SubGrup1', subId: '1-2' }]},
+    { name: 'Group1', id: 1, items: [{ subName: 'SubGrup1', subId: '1-1' }, { subName: 'SubGrup1', subId: '1-2' }]},
+  ];
+  
+  
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
     } else {
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "500px");
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "padding", "13px 16px");
-
+      $scope.shownGroup = group;
     }
-
-    this.accordionExapanded = !this.accordionExapanded;
-    this.icon = this.icon == "arrow-forward" ? "arrow-down" : "arrow-forward";
-
-  }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+  
+});
 
 }
