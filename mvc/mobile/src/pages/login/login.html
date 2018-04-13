@@ -16,11 +16,13 @@
             <ion-icon ios="icon-user ios-contact" md="md-contact"></ion-icon>
             <ion-item class="top-radius">
              
-              <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+              
+              <ion-input placeholder="Email" name="username" id="loginField" type="text" required [(ngModel)]="username" #email></ion-input>
             </ion-item>
             <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
             <ion-item class="bottom-radius">
-              <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+              
+              <ion-input placeholder="Password" name="password" id="passwordField" type="password" required [(ngModel)]="password"></ion-input>
             </ion-item>
             
           </ion-list>

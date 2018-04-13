@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "monika",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,7 @@
   "dependencies": {
     "async": "latest",
     "async-method": "^0.1.1",
+    "basic-auth": "^2.0.0",
     "basic-auth-connect": "latest",
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",

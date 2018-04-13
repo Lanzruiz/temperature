@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
-
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { User } from '../../providers/providers';
 import { AuthcodePage } from '../pages';
 import { SignUpPage } from '../pages';
@@ -16,18 +16,18 @@ export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
-  };
+  
 
   // Our translated text strings
   private loginErrorString: string;
 
+  username: any;
+  password: any;
+
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public translateService: TranslateService, public http: Http) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -40,19 +40,31 @@ export class LoginPage {
 
   // Attempt to login in through our User service
   doLogin() {
-    this.user.login(this.account).subscribe((resp) => {
+
+   console.log(this.password);
+
+   if(this.username == "staff@monika.com" && this.password == "enter123>run>child") {
+
+      this.navCtrl.push(TenantsPage);
+
+   } else if(this.username == "owner@demo.com" && this.password == "enter123>run>child"){
 
       this.navCtrl.push(AuthcodePage);
-    }, (err) => {
-      this.navCtrl.push(AuthcodePage);
+   }
+   else {
 
-      // Unable to log in
-      let toast = this.toastCtrl.create({
-        message: this.loginErrorString,
-        duration: 3000,
-        position: 'top'
-      });
-      toast.present();
-    });
+   }
+
+
+   //   let data = {
+   //    username: 'staff@monika.com',
+   //    password: 'enter123>run>child'
+   // }
+   //  this.http.post("http://127.0.0.1:9000/api/staff/auth", data)
+   //   .subscribe(data => {
+   //     console.log(data['_body']);
+   //    }, error => {
+   //     console.log(error);// Error getting the data
+   //   });
   }
 }

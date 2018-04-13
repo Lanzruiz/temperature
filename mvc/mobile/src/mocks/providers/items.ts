@@ -16,39 +16,46 @@ export class Items {
   constructor() {
     let items = [
       {
-        "name": "Burt Bear",
+        "name": "Cook Co",
         "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "about": "info@cook.com.",
+        "database": "Version 3.0.1555 32mb",
+        "color": "pink"
       },
       {
-        "name": "Charlie Cheetah",
+        "name": "Charlie Chocolate",
         "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        "about": "cook@charliechocolate.com",
+        "database": "Version 3.0.1555 32mb",
+        "color": "blue"
       },
       {
-        "name": "Donald Duck",
+        "name": "Starbucks",
         "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        "about": "monitor@starbucks.com",
+        "database": "Version 3.0.1555 32mb",
+         "color": "blue"
       },
       {
-        "name": "Eva Eagle",
+        "name": "Red Steak",
         "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
+        "about": "john@redsteak.co.uk",
+        "database": "Version 3.0.1555 32mb",
+        "color": "blue"
       },
       {
-        "name": "Ellie Elephant",
+        "name": "Wales Cooking School",
         "profilePic": "assets/img/speakers/elephant.jpg",
-        "about": "Ellie is an Elephant."
+        "about": "john@walescooking.com",
+        "database": "Version 3.0.1555 32mb",
+        "color": "blue"
       },
       {
-        "name": "Molly Mouse",
+        "name": "Molly House",
         "profilePic": "assets/img/speakers/mouse.jpg",
-        "about": "Molly is a Mouse."
-      },
-      {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "about": "molly@mollycook.co.uk",
+        "database": "Version 3.0.1555 32mb",
+        "color": "blue"
       }
     ];
 
