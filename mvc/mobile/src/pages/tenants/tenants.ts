@@ -7,6 +7,7 @@ import { ProfilePage }  from '../pages';
 import { Tab2Root } from '../pages';
 import { Tab3Root } from '../pages';
 
+
 /**
  * Generated class for the TenantsPage page.
  *
@@ -23,7 +24,7 @@ export class TenantsPage {
 
   tab1Root: any = ListMasterPage;
   tab2Root: any = ProfilePage;
-  tab3Root: any = Tab3Root;
+
 
   tab1Title = " ";
   tab2Title = " ";

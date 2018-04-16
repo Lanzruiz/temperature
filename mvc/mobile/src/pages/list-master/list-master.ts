@@ -22,6 +22,10 @@ export class ListMasterPage {
   ionViewDidLoad() {
   }
 
+  toggleMenu() {
+    document.getElementById("menu").style.display = "block";
+  }
+
   /**
    * Prompt the user to add a new item. This shows our ItemCreatePage in a
    * modal and then adds the new item to our data source if the user created one.
@@ -43,12 +47,20 @@ export class ListMasterPage {
     this.items.delete(item);
   }
 
+  moreDisplay(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+ }
+
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });
-  }
+
+
 }
+
+

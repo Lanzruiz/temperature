@@ -1,3 +1,4 @@
+
 <ion-header>
 
   <ion-navbar>
@@ -24,19 +25,40 @@
         <h2>{{item.name}}</h2>
         <p>{{item.about}}</p>
         <p class="font-size-15px">{{item.database}}</p>
-        <ion-icon ios="ios-more" md="ios-more" ion-item (click)="openItem(item)"></ion-icon>
+        <ion-icon ios="ios-more" md="ios-more" ion-item (click)="moreDisplay(item.name)"></ion-icon>
         <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-
-
+        
       </ion-item>
-     
-
-
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
+       <ion-item id="{{item.name}}" class="w3-container w3-hide menu">
+          
+            <div class="menu-delete">
+               <ion-icon class="trash" ios="ios-trash" md="ios-trash-outline"></ion-icon>
+               <p class="label">Delete</p>
+            </div>
+          
+          <div class="menu-download">
+             <ion-icon class="download" ios="ios-download" md="ios-download-outline"></ion-icon>
+             <p class="label">Download</p>
+          </div>
+          <div class="menu-backup">
+             <ion-icon class="backup" ios="ios-filing" md="ios-filing-outline"></ion-icon>
+             <p class="label">Backup</p>
+          </div>
+           <div class="menu-restore">
+             <ion-icon class="restore" ios="ios-refresh" md="ios-refresh-outline"></ion-icon>
+             <p class="label">Restore</p>
+          </div>
+          <div class="menu-deactivate">
+              <ion-icon class="deactivate" ios="ios-power" md="ios-power-outline"></ion-icon>
+               <p class="label">Deactivate</p>
+          </div>
+          <div class="menu-edit">
+              <ion-icon class="edit" ios="ios-more" md="ios-more-outline"></ion-icon>
+              <p class="label">Edit</p>
+          </div>
+       </ion-item>
+    
     </ion-item-sliding>
+
   </ion-list>
 </ion-content>
