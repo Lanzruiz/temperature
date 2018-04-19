@@ -10,7 +10,7 @@ const fse = require('fs-extra');
 
  const config = {
         user: 'postgres',
-        password: 'Bounce1234',
+        password: 'root',
         port: 5433,
         host: 'localhost'
       }
@@ -69,7 +69,7 @@ module.exports.loadPermissions = function(){
 
 //module.exports.save = function(callback, data, model) {
 module.exports.save = function(data, model) {
-
+	console.log('---------------');
 	MongoClient.connect(url, function(err, db) {
 		
 		console.log("Connected correctly to server");
@@ -78,52 +78,83 @@ module.exports.save = function(data, model) {
 		dbo.collection(model).insertOne(myobj, function(err, res) {
 		    if (err) throw err;
 		    console.log("1 document inserted");
-		    //callback(res);
-		    // step 1
-		    // step
-		    pgtools.createdb(config, data.company, function (err, res) {
+
+			createTenantDb(data.company,data.password);
+		    //pgtools.createdb(config, data.company, function (err, res) {
         if (err) {
-          console.error(err);
+          //console.error(err);
           process.exit(-1);
         }
-        console.log(res);
-        
 
        });
 
+  //     console.log('ssssssssssssssssssssssssss');
+  //     var stream = fs.createWriteStream("sql/role.sql");
+  //     stream.once('open', function(fd) {
+  //     stream.write("CREATE DATABASE"+data.company)
+  //     stream.write("CREATE USER "+data.company+" WITH PASSWORD '"+data.password+"';");
+  //     stream.write("grant all privileges on "+data.company+" to "+data.company+";");
 
-      var stream = fs.createWriteStream("sql/role.sql");
-      stream.once('open', function(fd) {
-        stream.write("CREATE USER "+data.company+" WITH PASSWORD '"+data.password+"';");
-         stream.write("grant all privileges on "+data.company+" to "+data.company+";");
-
-        //stream.write("My second row\n");
-        //stream.end();
+  //       //stream.write("My second row\n");
+  //       //stream.end();
 
 
-      var sql = fs.readFileSync('sql/role.sql').toString();
+  //     var sql = fs.readFileSync('sql/role.sql').toString();
 
-      pg.connect('postgres://postgres:Bounce1234@localhost:5433/postgres', function(err, client, done){
-          if(err){
-              console.log('error: ', err);
-             
-          }
-          client.query(sql, function(err, result){
-              done();
-              if(err){
-                  console.log('error: ', err);
-                 
-              }
-              
-          });
-      });
-      });
-		    db.close();
-		});
+  //     //var sql = 'CREATE USER'
+
+	 //      pg.connect('postgres://postgres:Bounce1234@localhost:5433/postgres', function(err, client, done){
+	 //          if(err){
+	 //              console.log('error: ', err);
+	             
+	 //          }
+	 //          client.query(sql, function(err, result){
+	 //              done();
+	 //              if(err){
+	 //                  console.log('error: ', err);
+	                 
+	 //              }
+	              
+	 //          });
+	 //      });
+  //     });
+		//     db.close();
+		// });
    });
 
 }	
 
+createTenantDb = function (company, password) {
+
+	var conString = 'postgres://postgres:root@localhost:5432/postgres';
+
+	var client = new pg.Client(conString);
+	client.connect(function(err) {
+		if(err) {
+			return console.error('could not connect to postgres', err);
+		}
+	    client.query({
+	    text: "CREATE DATABASE "+company,
+	    name: "createDBQuery"
+	    });
+
+	    client.query({
+	    text: "CREATE USER "+company+" WITH PASSWORD '"+password+"'",
+	    name: "createUserQuery"
+	    });
+
+	    client.query({
+	    text: "GRANT ALL PRIVILEGES ON "+company+" TO "+company,
+	    name: "setPrevileges"
+	    });
+
+
+	    client.on("error", function (err) {
+	        console.log("DB insertion failed. Error Message: " + err, null);
+	        return;
+	    });
+	});
+}
 
 module.exports.update = function(data,model) {
 

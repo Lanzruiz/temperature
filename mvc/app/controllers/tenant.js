@@ -21,7 +21,6 @@ const fse = require('fs-extra');
 module.exports = {
  
   add : function(req, res) {
-    console.log(req.body.subdomain);
     var tenant = new tenantModel(
           req.body.company, 
           req.body.subdomain.replace(/\s/g, '').toLowerCase(), 
@@ -32,9 +31,6 @@ module.exports = {
     );
 
     if(req.body.access_token == auth.access_token) {
-
-      console.log(tenant.find('company', req.body.company));
-
       if(tenant.find('company', req.body.company) != true) {
 
         tenant.add();
