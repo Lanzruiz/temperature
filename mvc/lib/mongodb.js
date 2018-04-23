@@ -69,7 +69,6 @@ module.exports.loadPermissions = function(){
 
 //module.exports.save = function(callback, data, model) {
 module.exports.save = function(data, model) {
-	console.log('---------------');
 	MongoClient.connect(url, function(err, db) {
 		
 		console.log("Connected correctly to server");
@@ -82,7 +81,6 @@ module.exports.save = function(data, model) {
 			createTenantDb(data.company,data.password);
 		    //pgtools.createdb(config, data.company, function (err, res) {
         if (err) {
-          //console.error(err);
           process.exit(-1);
         }
 
@@ -133,21 +131,22 @@ createTenantDb = function (company, password) {
 		if(err) {
 			return console.error('could not connect to postgres', err);
 		}
-	    client.query({
-	    text: "CREATE DATABASE "+company,
-	    name: "createDBQuery"
-	    });
 
-	    client.query({
-	    text: "CREATE USER "+company+" WITH PASSWORD '"+password+"'",
-	    name: "createUserQuery"
-	    });
-
-	    client.query({
-	    text: "GRANT ALL PRIVILEGES ON "+company+" TO "+company,
-	    name: "setPrevileges"
-	    });
-
+		client.query('CREATE DATABASE '+company, function(err, result) {
+			if(err)
+				return console.error('Create Database Error', err);
+			console.log('DATABASE CREATED...')
+			client.query("CREATE USER "+company+" WITH PASSWORD '"+password+"'", function(err, result) {
+				if(err)
+					return console.error('Create User Error',err);
+				console.log('USER CREATED...');
+				client.query("GRANT ALL PRIVILEGES ON DATABASE "+company+" TO "+company, function(err,result) {
+					if(err)
+						return console.error('Error on assigning privileges',err);
+					console.log('PRIVILEGES GRANTED....');
+				});
+			});
+		});
 
 	    client.on("error", function (err) {
 	        console.log("DB insertion failed. Error Message: " + err, null);
