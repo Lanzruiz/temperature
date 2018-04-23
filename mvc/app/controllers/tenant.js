@@ -12,7 +12,7 @@ var mongolib = require('../../lib/mongoose')
 var password = require('../../lib/password')
 var bcrypt = require('../../lib/bcrypt')
 var mongoose = require('mongoose');
-var pgtools = require('pgtools');
+var pgtools= require('pg-tools');
 var fs = require('fs');
 var pg = require('pg');
 const fse = require('fs-extra');
@@ -193,6 +193,37 @@ module.exports = {
       res.render('login.ejs');
 
   },
+  backup: function(req, res){
+ 
+      var id = req.param('id');
+      var tenant = new tenantModel();
+      tenant.findById(id, function(err, tenant) {
+            if (err) throw err;
+
+            var tool = new pgtools();
+            tool.dumpDatabase({
+                host: 'localhost',
+                port: 5432,
+                user: tenant.company,
+                password: tenant.password,
+                dumpPath: 'public/Resource',
+                database: tenant.companyName
+            }, function (err, output, filePath) {
+                if (err) throw err;
+        
+                console.log(output);
+                console.log(filePath);
+
+                ///SHOULD SEND EMAIL WITH FILE PATH HERE
+
+                //return {filePath : filePath};
+               // console.log(dumpFileName);
+               
+            });
+
+      }
+
+  }
 
   find(id, callback) {
 
@@ -200,36 +231,7 @@ module.exports = {
         callback(data);
     },this._model);
   }
-  // backup: function(req, res){
- 
-  //     // var id = req.param('id');
-  //     // tenantModel.findOne({ id: id}, function(err, tenant) {
-  //     //       if (err) throw err;
-
-  //     //       var tool = new pgtools();
-  //     //       tool.dumpDatabase({
-  //     //           host: 'localhost',
-  //     //           port: 5432,
-  //     //           user: 'postgres',
-  //     //           password: 'postgres',
-  //     //           dumpPath: 'public/Resource',
-  //     //           database: tenant.companyName
-  //     //       }, function (err, output, filePath) {
-  //     //           if (err) throw err;
-        
-  //     //           console.log(output);
-  //     //           console.log(filePath);
-
-  //     //           ///SHOULD SEND EMAIL WITH FILE PATH HERE
-
-  //     //           //return {filePath : filePath};
-  //     //          // console.log(dumpFileName);
-               
-  //     //       });
-
-  //     // }
-
-  // }
+  
 
 }
 

@@ -46,6 +46,7 @@
     "password-generator": "^2.2.0",
     "pg": "^6.1.0",
     "pg-promise": "^8.1.0",
+    "pg-tools": "^0.1.0",
     "pgtools": "^0.3.0",
     "pm2": "latest",
     "request": "latest",

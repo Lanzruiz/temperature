@@ -66,7 +66,12 @@ class Tenant {
   delete() {
 
   }
-
+  
+  findById(id, callback) {
+      mongoclient.findById(function(data) {
+            callback(data);
+      },id,this._model);
+  }
   find(element, data) {
 
      var headsup;
