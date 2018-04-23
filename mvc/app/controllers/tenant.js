@@ -46,6 +46,22 @@ module.exports = {
     }  
   },
 
+  signup: function(req, res) {
+    var tenant = new tenantModel(
+          req.body.company, 
+          req.body.subdomain, 
+          req.body.email, 
+          req.body.contact, 
+          req.body.address,
+          req.body.password
+    );
+
+    tenant.add();
+
+    res.status(200).send('data has been saved!');
+
+  },
+
   activate: function(req, res){
     if(req.body.access_token == auth.access_token) {
 
@@ -143,7 +159,9 @@ module.exports = {
     }
   },
 
-  login: function(res){
+  login: function(req, res){
+
+
 
   },
 

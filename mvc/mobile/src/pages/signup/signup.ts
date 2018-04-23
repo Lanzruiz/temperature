@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { User } from '../../providers/providers';
 import { UploadphotoPage } from '../pages';
@@ -35,20 +36,34 @@ export class SignupPage {
   }
 
   doSignup() {
-    // Attempt to login in through our User service
-    this.user.signup(this.account).subscribe((resp) => {
-      this.navCtrl.push(UploadphotoPage);
-    }, (err) => {
 
-      this.navCtrl.push(UploadphotoPage);
+     let data = {
+       username: 'staff@monika.com',
+       password: 'enter123>run>child'
+    }
+
+    this.http.post("http://127.0.0.1:9000/api/staff/auth", data)
+      .subscribe(data => {
+        console.log(data['_body']);
+      }, error => {
+        console.log(error);// Error getting the data
+    });
+
+    // Attempt to login in through our User service
+   // this.user.signup(this.account).subscribe((resp) => {
+   //   this.navCtrl.push(UploadphotoPage);
+  //  }, (err) => {
+
+  //    this.navCtrl.push(UploadphotoPage);
 
       // Unable to sign up
-      let toast = this.toastCtrl.create({
-        message: this.signupErrorString,
-        duration: 3000,
-        position: 'top'
-      });
-      toast.present();
-    });
-  }
+ //     let toast = this.toastCtrl.create({
+  //      message: this.signupErrorString,
+ //       duration: 3000,
+  //      position: 'top'
+ //     });
+ //     toast.present();
+//   });
+//  }
+ }
 }
