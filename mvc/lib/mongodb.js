@@ -17,7 +17,7 @@ const fse = require('fs-extra');
 
 switch (env.app_env) {
     case 'local':
-        var url = database.url;
+        var url = database.url+':27017';
       break;
 
     case 'production':
@@ -28,6 +28,8 @@ switch (env.app_env) {
 		var user = encodeURIComponent(database.user);
 		var pass = encodeURIComponent(database.pass);
 		var authMechanism = 'DEFAULT';
+
+		console.log(database.url);
 
 		// Connection URL
 		var url = f('mongodb://%s:%s@'+database.url+':27017/admin?authMechanism=%s',
