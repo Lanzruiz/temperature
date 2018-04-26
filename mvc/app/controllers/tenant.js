@@ -12,7 +12,7 @@ var mongolib = require('../../lib/mongoose')
 var password = require('../../lib/password')
 var bcrypt = require('../../lib/bcrypt')
 var mongoose = require('mongoose');
-var pgtools= require('pg-tools');
+var pgtools = require('../../lib/pgtools');
 var fs = require('fs');
 var pg = require('pg');
 const fse = require('fs-extra');
@@ -197,33 +197,33 @@ module.exports = {
  
       var id = req.param('id');
       var tenant = new tenantModel();
-      tenant.findById(id, function(err, tenant) {
-            if (err) throw err;
-
+      tenant.findById(id, function(data) {
             var tool = new pgtools();
+
             tool.dumpDatabase({
                 host: 'localhost',
                 port: 5432,
-                user: tenant.company,
-                password: tenant.password,
+                user: data.company,
+                password: data.password,
                 dumpPath: 'public/Resource',
-                database: tenant.companyName
+                database: data.company
             }, function (err, output, filePath) {
                 if (err) throw err;
-        
-                console.log(output);
-                console.log(filePath);
-
-                ///SHOULD SEND EMAIL WITH FILE PATH HERE
-
-                //return {filePath : filePath};
-               // console.log(dumpFileName);
-               
+                res.status(200).send(filePath); 
             });
 
-      }
+      });
 
-  }
+  },
+
+  download(req, res){
+    var id = req.param('id');
+      var tenant = new tenantModel();
+      tenant.findById(id, function(data) {
+        var file = __dirname + req.filename;
+        res.download(file); // Set disposition and send it.
+      });
+  }),
 
   find(id, callback) {
 
