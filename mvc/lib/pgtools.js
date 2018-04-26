@@ -33,7 +33,9 @@
 
                         time = new Date().getTime();
                         filePath = path.join(options.dumpPath, options.database + time + '.sql');
-                        command = util.format('pg_dump -h %s -p %d -W -U %s -F c -b -v -f %s %s', options.host, options.port, options.user, filePath, options.database);
+                        //command = util.format('pg_dump -h %s -p %d -W -U %s -F c -b -v -f %s %s',
+                        // options.host, options.port, options.user, filePath, options.database);
+                        command = util.format('pg_dump --dbname=postgresql://%s:%s@%s:%d/%s -f "%s"',options.user,options.password,options.host,options.port,options.database,filePath);
 
                         ls = exec(command, function (error, stdout, stderr) {
                         if (error !== null) {
@@ -43,7 +45,7 @@
                         callback(null, (stdout ? stdout : stderr), filePath);
 
                          });
-                        ls.stdin.write(options.password + '\n');
+                        //ls.stdin.write(options.password + '\n');
 
                     });
                 }

@@ -69,9 +69,11 @@ class Tenant {
   
   findById(id, callback) {
       mongoclient.findById(function(data) {
-            callback(data);
+            if(data)
+              callback(data[0]);
       },id,this._model);
   }
+  
   find(element, data) {
 
      var headsup;
