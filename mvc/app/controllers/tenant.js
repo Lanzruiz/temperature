@@ -13,9 +13,11 @@ var password = require('../../lib/password')
 var bcrypt = require('../../lib/bcrypt')
 var mongoose = require('mongoose');
 var pgtools = require('../../lib/pgtools');
+var email = require('../../lib/email');
 var fs = require('fs');
 var pg = require('pg');
 const fse = require('fs-extra');
+var path = require('path');
 
 
 module.exports = {
@@ -53,7 +55,6 @@ module.exports = {
         req.body.company, 
 
       );
-
       tenant.activate();
       res.status(200).send('data has been activate!');
 
@@ -87,8 +88,6 @@ module.exports = {
         req.body.contact, 
         req.body.address
       );
-
-      //console.log(req.body.id);
 
       tenant.edit();
       res.status(200).send('data has been updated!');
@@ -191,7 +190,17 @@ module.exports = {
                 database: data.company
             }, function (err, output, filePath) {
                 if (err) throw err;
-                res.status(200).send(filePath); 
+
+                var filename = path.parse(filePath).base;
+                email.backup_email(data.company,data.email,filename,function(success){
+                   if(success) {
+                      console.log('Email has been sent..');
+                      res.status(200).send(filePath); 
+                    }
+                    else 
+                      res.status(302).send('Fail sending email');
+                });
+               
             });
 
       });
@@ -199,13 +208,10 @@ module.exports = {
   },
 
   download(req, res){
-    var id = req.param('id');
-      var tenant = new tenantModel();
-      tenant.findById(id, function(data) {
-        var file = __dirname + req.filename;
-        res.download(file); // Set disposition and send it.
-      });
-  }),
+    var filename = req.param('filename');
+    var file = path.join(__dirname,'../../public/Resource')+"/"+filename; 
+    res.sendFile(file);
+  },
 
   find(id, callback) {
 

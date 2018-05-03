@@ -11,7 +11,6 @@ var subdomain = require('express-subdomain');
 
 module.exports = function (app, passport) {
 
-
     app.get('/', home.login);
 
     app.get('/signup', home.signup);
@@ -54,7 +53,7 @@ module.exports = function (app, passport) {
     app.post('/api/staff/auth', user.login);
     app.post('/api/user/setPermission/:id',user.setPermission);
     app.post('/api/tenant/backup/:id', tenant.backup);
-    app.get('api/tenant/download',tenant.download);
+    app.get('/api/tenant/download/:filename',tenant.download);
 
     //tenant api
     app.post('/api/tenant/auth/', tenant.deactivate)
