@@ -60,8 +60,6 @@ exports.mobile = function(req, res) {
 
 
 exports.signup = function(req, res) {
-
-     console.log(trim(req.hostname, '.'+constant.base_url))
 	res.render('signup.ejs');
 
 }
