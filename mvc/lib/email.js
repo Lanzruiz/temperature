@@ -5,10 +5,17 @@ var constants = require('../config/constants');
 var transporter = nodemailer.createTransport(smtpTransport({
     host: constants.email_smtp_host,
     port: constants.email_smtp_port,
+
+    ///username and password of gmail account
+    //currently setup as gmail smtp
+    //change it in constants
+    auth: {
+        user: 'username@gmail.com',
+        pass: 'password'
+    },
 }));
 
-
-exports.activate_email = function(user_name,email,acitvate_link) {
+exports.backup_email = function(name,email,filename, callback) {
 	
 
 	var email_data = `<!doctype html>
@@ -202,25 +209,24 @@ exports.activate_email = function(user_name,email,acitvate_link) {
 	      <table>
 	        <tr>
 	          <td>
-	            <p>Hi `+user_name+`,</p>
+	            <p>Hi `+name+`,</p>
 	    
-	            <h3>Welcome to  express-mvc-generator </h3>
-	            <p>Your Account Created Successfully ,Please Confirm Your Account</p>
+	            <h3>Welcome to  Monika</h3>
 	            
-	            <h2>Click on the  button link below to activate your account</h2>
+	            <h2>Click on the  button link below to download the backup file</h2>
 	      
 	            <!-- button -->
 	            <table class="btn-primary" cellpadding="0" cellspacing="0" border="0">
 	              <tr>
 	                <td>
-	                  <a href="`+constants.host+`/confirm?email=`+email+`&active_link=`+acitvate_link+`">Verify Your express-mvc-generator</a>
-	                </td>
+	                <a href="`+constants.host+`/api/tenant/download/`+filename+`">
+			          click here to download backup
+			       </td>
 	              </tr>
 	            </table>
 	            <!-- /button -->
 	           
 	            <p>Thanks, have a lovely day.</p>
-	            <p><a href="`+constants.host+`">express-mvc-generator Team</a></p>
 	          </td>
 	        </tr>
 	      </table>
@@ -240,16 +246,6 @@ exports.activate_email = function(user_name,email,acitvate_link) {
 	    <td class="container">
 	      
 	      <!-- content -->
-	      <div class="content">
-	        <table>
-	          <tr>
-	            <td align="center">
-	              <p>Don't like these annoying emails? <a href="`+constants.host+`/unsubscribe?email=`+email+`"><unsubscribe>Unsubscribe</unsubscribe></a>.
-	              </p>
-	            </td>
-	          </tr>
-	        </table>
-	      </div>
 	      <!-- /content -->
 	      
 	    </td>
@@ -264,9 +260,9 @@ exports.activate_email = function(user_name,email,acitvate_link) {
 	
 	// setup e-mail data with unicode symbols
 	var mailOptions = {
-	    from: '"'+constants.smtp_from_name+'" <'+constants.smtp_from_eamil+'>', // sender address
+	    from: '"'+constants.smtp_from_name+'" <'+constants.smtp_from_email+'>', // sender address
 	    to: email, // list of receivers
-	    subject: 'express-mvc-generator Account Acitvation', // Subject line
+	    subject: 'Monika Tenant Backup', // Subject line
 	    html: email_data
 	};
 	
@@ -276,9 +272,37 @@ exports.activate_email = function(user_name,email,acitvate_link) {
 	    if (error) {
 	        return console.log(error);
 	    }
-	    
+	    callback(true);
 	});
+
 
   
   
 };
+
+
+// var nodemailer = require('nodemailer');
+
+// var MAIL_SERVER_URL = '127.0.0.0';
+// var smtp = nodemailer.createTransport({
+//     host: MAIL_SERVER_URL,
+//     connectionTimeout: 60000
+// });
+
+// module.exports = {
+//     options: (mailOptions) => {
+//         let email = {
+//             from: 'from@test.com',
+//             to: 'group@gmail.com',
+//             subject: 'yourEmailSubject'
+//             text: `${mailOptions.auid} requested access for modeler`
+//         };
+//         smtp.sendMail(email, (err, info) => {
+//             if (err) 
+//                 console.log(err);
+//             else
+//                 console.log(`Message sent: ${info.response}`);
+
+//         });
+//     }
+// };

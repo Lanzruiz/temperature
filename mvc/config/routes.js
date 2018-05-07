@@ -1,6 +1,7 @@
 
 var home = require('../app/controllers/home');
 var user = require('../app/controllers/user');
+var cases = require('../app/controllers/cases');
 var tenant = require('../app/controllers/tenant');
 var permission = require('../app/controllers/permission');
 
@@ -10,7 +11,6 @@ var path    = require('path');
 var subdomain = require('express-subdomain');
 
 module.exports = function (app, passport) {
-
 
     app.get('/', home.login);
 
@@ -53,14 +53,14 @@ module.exports = function (app, passport) {
     app.post('/api/tenant/deactivate/', tenant.deactivate);
     app.post('/api/staff/auth', user.login);
     app.post('/api/user/setPermission/:id',user.setPermission);
-    //app.post('/api/tenant/backup/:id', tenant.backup);
+    app.post('/api/tenant/backup/:id', tenant.backup);
+    app.get('/api/tenant/download/:filename',tenant.download);
 
     //tenant api
     app.post('/api/tenant/auth/', tenant.deactivate)
     app.post('/api/tenant/adduser', tenant.adduser);
     app.get('/api/tenant/member/list/:id', user.list);
     app.post('/api/tenant/signup/', tenant.signup);
-
     //permission api
 
     app.get('/api/permission/list',permission.list);
@@ -68,6 +68,8 @@ module.exports = function (app, passport) {
     app.use(subdomain('now', app));
 
 
+    //Cases api
 
+    app.post('/api/cases/add',cases.add);
 
 }

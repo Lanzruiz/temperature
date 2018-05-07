@@ -12,10 +12,12 @@ var mongolib = require('../../lib/mongoose')
 var password = require('../../lib/password')
 var bcrypt = require('../../lib/bcrypt')
 var mongoose = require('mongoose');
-var pgtools = require('pgtools');
+var pgtools = require('../../lib/pgtools');
+var email = require('../../lib/email');
 var fs = require('fs');
 var pg = require('pg');
 const fse = require('fs-extra');
+var path = require('path');
 
 
 module.exports = {
@@ -69,7 +71,6 @@ module.exports = {
         req.body.company, 
 
       );
-
       tenant.activate();
       res.status(200).send('data has been activate!');
 
@@ -103,8 +104,6 @@ module.exports = {
         req.body.contact, 
         req.body.address
       );
-
-      //console.log(req.body.id);
 
       tenant.edit();
       res.status(200).send('data has been updated!');
@@ -193,6 +192,44 @@ module.exports = {
       res.render('login.ejs');
 
   },
+  backup: function(req, res){
+ 
+      var id = req.param('id');
+      var tenant = new tenantModel();
+      tenant.findById(id, function(data) {
+            var tool = new pgtools();
+
+            tool.dumpDatabase({
+                host: 'localhost',
+                port: 5432,
+                user: data.company,
+                password: data.password,
+                dumpPath: 'public/Resource',
+                database: data.company
+            }, function (err, output, filePath) {
+                if (err) throw err;
+
+                var filename = path.parse(filePath).base;
+                email.backup_email(data.company,data.email,filename,function(success){
+                   if(success) {
+                      console.log('Email has been sent..');
+                      res.status(200).send(filePath); 
+                    }
+                    else 
+                      res.status(302).send('Fail sending email');
+                });
+               
+            });
+
+      });
+
+  },
+
+  download(req, res){
+    var filename = req.param('filename');
+    var file = path.join(__dirname,'../../public/Resource')+"/"+filename; 
+    res.sendFile(file);
+  },
 
   find(id, callback) {
 
@@ -200,36 +237,7 @@ module.exports = {
         callback(data);
     },this._model);
   }
-  // backup: function(req, res){
- 
-  //     // var id = req.param('id');
-  //     // tenantModel.findOne({ id: id}, function(err, tenant) {
-  //     //       if (err) throw err;
-
-  //     //       var tool = new pgtools();
-  //     //       tool.dumpDatabase({
-  //     //           host: 'localhost',
-  //     //           port: 5432,
-  //     //           user: 'postgres',
-  //     //           password: 'postgres',
-  //     //           dumpPath: 'public/Resource',
-  //     //           database: tenant.companyName
-  //     //       }, function (err, output, filePath) {
-  //     //           if (err) throw err;
-        
-  //     //           console.log(output);
-  //     //           console.log(filePath);
-
-  //     //           ///SHOULD SEND EMAIL WITH FILE PATH HERE
-
-  //     //           //return {filePath : filePath};
-  //     //          // console.log(dumpFileName);
-               
-  //     //       });
-
-  //     // }
-
-  // }
+  
 
 }
 
