@@ -1,14 +1,18 @@
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
-const someOtherPlaintextPassword = 'not_bacon';
+var bcrypt = require('bcryptjs');
+var salt = bcrypt.genSaltSync(10);
+var hash = bcrypt.hashSync("B4c0/\/", salt);
 
 
-module.exports.hash = function(salt) {
+module.exports.generateHash = function(password) {
 
-    bcrypt.genSalt(saltRounds, function(err, salt) {
-        bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-           console.log(hash);
-        });
+    return bcrypt.hashSync(password, 8);
+
+};
+
+
+module.exports.comparePassword = function(password, hashPassword, callback) {
+
+	bcrypt.compare(password, hashPassword, function(err, res) {
+      callback(res);
     });
 }

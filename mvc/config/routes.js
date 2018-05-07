@@ -56,7 +56,7 @@ module.exports = function (app, passport) {
     //app.post('/api/tenant/backup/:id', tenant.backup);
 
     //tenant api
-    app.post('/api/tenant/auth/', tenant.deactivate)
+    app.post('/api/tenant/auth', tenant.auth)
     app.post('/api/tenant/adduser', tenant.adduser);
     app.get('/api/tenant/member/list/:id', user.list);
     app.post('/api/tenant/signup/', tenant.signup);

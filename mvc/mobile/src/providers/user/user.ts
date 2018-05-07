@@ -49,6 +49,10 @@ export class User {
     return seq;
   }
 
+  getname(){
+    console.log("test");
+  }
+
   /**
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.

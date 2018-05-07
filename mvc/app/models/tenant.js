@@ -1,6 +1,7 @@
 var database = require('../../config/database')
 var database = require('../../lib/mongoose')
 var mongoclient = require('../../lib/mongodb')
+var bcrypt = require('../../lib/bcrypt')
 
 
 class Tenant {
@@ -23,7 +24,7 @@ class Tenant {
         email: this._email, 
         contact: this._contact, 
         address: this._address,
-        password: this._password,
+        password: bcrypt.generateHash(this._password),
         status: 0
     };
 
@@ -67,14 +68,14 @@ class Tenant {
 
   }
 
-  find(element, data) {
+  find(element, callback) {
 
-     var headsup;
+    var headsup;
 
-     switch (element) {
+      switch (element) {
 
         case 'company':
-            console.log(data);
+            
             var myobj = { 
                 company: data
             };
@@ -86,15 +87,63 @@ class Tenant {
 
             break;
 
+        case 'category':
+
+            var myobj = { 
+              email: this._email
+            };
+
+            var email = this._email;
+            
+           mongoclient.searchOne(myobj, this._model, function(result){
+              //console.log(myobj);
+              callback(result.category)
+            });
+           break;   
+
         case 'email':
 
-            break;
+            var myobj = { 
+              email: this._email
+            };
 
+            var email = this._email;
 
+            mongoclient.searchOne(myobj, this._model, function(result){
+              //console.log(myobj);
+              if(result[0].email == email){
+                callback(true);
+              } else {
+                callback(false);
+              }
+            });
 
-     }  
+            
 
-     return headsup;    
+          break;
+
+        case 'password':
+
+           var myobj = { 
+                email: this._email
+            };
+
+            var password =  this._password;
+
+            mongoclient.searchOne(myobj, this._model, function(result){
+               console.log(result[0].password);
+              bcrypt.comparePassword(password, result[0].password, function(res){
+                 callback(res);
+              });
+            });
+
+          // bcrypt.comparePassword(myobj, mongoclient.searchOne('password',this._model, function(res){
+          //   console.log(res);
+          // }));
+
+          break;
+        
+    }     
   }
 
   findAll(callback) {
