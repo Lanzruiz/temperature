@@ -1,6 +1,7 @@
 
 var home = require('../app/controllers/home');
 var user = require('../app/controllers/user');
+var cases = require('../app/controllers/cases');
 var tenant = require('../app/controllers/tenant');
 var permission = require('../app/controllers/permission');
 
@@ -67,6 +68,8 @@ module.exports = function (app, passport) {
     app.use(subdomain('now', app));
 
 
+    //Cases api
 
+    app.post('/api/cases/add',cases.add);
 
 }

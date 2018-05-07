@@ -2,7 +2,6 @@ var numeral = require('numeral');
 var bcrypt = require('bcrypt-nodejs');
 var dateFormat = require('dateformat');
 var permissionModel = require('../models/permission');
-var tenantModel = require('../models/permission');
 var MongoClient = require('mongodb').MongoClient;
 
 var database = require('../../config/database')
