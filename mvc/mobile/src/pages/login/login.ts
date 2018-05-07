@@ -6,6 +6,7 @@ import { User } from '../../providers/providers';
 import { AuthcodePage } from '../pages';
 import { SignUpPage } from '../pages';
 import { TenantsPage } from '../pages';
+import { AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -27,7 +28,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService, public http: Http) {
+    public translateService: TranslateService, public http: Http, private alertCtrl: AlertController) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -41,30 +42,38 @@ export class LoginPage {
   // Attempt to login in through our User service
   doLogin() {
 
+    let data = {
+       email: this.username,
+       password: this.password
+    }
+
    console.log(this.password);
 
-   if(this.username == "staff@monika.com" && this.password == "enter123>run>child") {
+   this.http.post("http://127.0.0.1:9000/api/tenant/auth", data)
+      .subscribe(data => {
+        if(data.status == 200){
+          this.navCtrl.push(TenantsPage);
+        
+        } else {
+          
+        }
+      }, error => {
+        console.log(error);// Error getting the data
+    });
 
-      this.navCtrl.push(TenantsPage);
+  // if(this.username == "staff@monika.com" && this.password == "enter123>run>child") {
 
-   } else if(this.username == "owner@demo.com" && this.password == "enter123>run>child"){
+   //   this.navCtrl.push(TenantsPage);
 
-      this.navCtrl.push(AuthcodePage);
-   }
-   else {
+  // } else if(this.username == "owner@demo.com" && this.password == "enter123>run>child"){
 
-   }
+  //    this.navCtrl.push(AuthcodePage);
+  // }
+ //  else {
+
+ // }
 
 
-   //   let data = {
-   //    username: 'staff@monika.com',
-   //    password: 'enter123>run>child'
-   // }
-   //  this.http.post("http://127.0.0.1:9000/api/staff/auth", data)
-   //   .subscribe(data => {
-   //     console.log(data['_body']);
-   //    }, error => {
-   //     console.log(error);// Error getting the data
-   //   });
+
   }
 }

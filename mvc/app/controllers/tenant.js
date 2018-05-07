@@ -7,7 +7,8 @@ var tenantModel = require('../models/tenant');
 var MongoClient = require('mongodb').MongoClient;
 
 var database = require('../../config/database')
-var auth = require('../../config/auth')
+var auth0 = require('../../config/auth0')
+//var auth = require('../../config/auth')
 var mongolib = require('../../lib/mongoose')
 var password = require('../../lib/password')
 var bcrypt = require('../../lib/bcrypt')
@@ -18,6 +19,9 @@ var fs = require('fs');
 var pg = require('pg');
 const fse = require('fs-extra');
 var path = require('path');
+
+var request = require("request");
+
 
 
 module.exports = {
@@ -57,6 +61,8 @@ module.exports = {
           req.body.address,
           req.body.password
     );
+
+    console.log(req.body.company);
 
     tenant.add();
 
@@ -158,9 +164,53 @@ module.exports = {
     }
   },
 
-  login: function(req, res){
+  auth: function(req, res){
 
 
+    var tenant = new tenantModel(
+          req.body.company, 
+          req.body.subdomain, 
+          req.body.email, 
+          req.body.contact, 
+          req.body.address,
+          req.body.password
+    );
+
+    tenant.find('email', function(result){
+       
+       if(result == true) {
+
+         console.log("User exist");
+
+          tenant.find('password', function(result){
+            if(result==true) {
+              auth0.generateAccess_token(function(result){
+                 var token = JSON.parse(result);
+                 var data = {
+                    email: req.body.email,
+                    access_token: token.access_token,
+                    status: 0,
+                    category: token.permission
+                 //console.log(data.access_token);
+                  }
+                 res.json(data);
+              });
+            }
+            else {
+               console.log("access denied");
+               var data = {
+                 status: 403
+               }
+            }
+          });
+
+       } else {
+         console.log("user not exist");
+       }
+  
+    });
+
+    
 
   },
 

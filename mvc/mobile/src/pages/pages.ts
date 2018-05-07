@@ -5,6 +5,7 @@ export const FirstRunPage = 'LoginPage';
 // Change this if not using tabs
 export const MainPage = 'TabsPage';
 export const SignUpPage = 'SignupPage';
+export const Signup2Page = 'Signup2Page';
 export const AuthcodePage = 'AuthcodePage';
 export const UploadphotoPage = 'UploadphotoPage';
 export const RegsuccessPage = 'RegsuccessPage';
@@ -18,6 +19,7 @@ export const TmainPage = 'TmainPage';
 export const ProfilePage = 'ProfilePage';
 export const TenantlistPage = 'TenantlistPage';
 export const ListMasterPage = 'ListMasterPage';
+export const TenantdashboardPage = 'TenantdashboardPage';
 
 
 

@@ -15,15 +15,15 @@
           <ion-list inset>
             <ion-icon ios="icon-user ios-contact" md="md-contact"></ion-icon>
             <ion-item class="top-radius-5 bottom-radius-5 margin-bottom-15">
-              <ion-input type="email" placeholder="First Name" name="email"></ion-input>
+              <ion-input type="text" placeholder="First Name" name="firstname" [(ngModel)]="firstname" ></ion-input>
+            </ion-item>
+            <ion-icon ios="icon-user ios-contact" md="md-contact"></ion-icon>
+            <ion-item class="top-radius-5 bottom-radius-5 margin-bottom-15">
+              <ion-input type="text" placeholder="Last Name" name="lastname" [(ngModel)]="lastname"></ion-input>
             </ion-item>
             <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
             <ion-item class="top-radius-5 bottom-radius-5 margin-bottom-15">
-              <ion-input type="text" placeholder="Last Name" name="password"></ion-input>
-            </ion-item>
-            <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
-            <ion-item class="top-radius-5 bottom-radius-5 margin-bottom-15">
-              <ion-input type="text" placeholder="Mobile Number" name="password"></ion-input>
+              <ion-input type="text" placeholder="Mobile Number" name="mobile" [(ngModel)]="mobile"></ion-input>
             </ion-item>
           </ion-list>
         </ion-col>

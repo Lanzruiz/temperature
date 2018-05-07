@@ -7,13 +7,15 @@ var fs = require('fs');
 var pg = require('pg');
 const fse = require('fs-extra');
 
-
- const config = {
+ 
+const config = {
         user: 'postgres',
         password: 'root',
         port: 5433,
         host: 'localhost'
-      }
+}
+
+var rest = [];
 
 switch (env.app_env) {
     case 'local':
@@ -32,8 +34,7 @@ switch (env.app_env) {
 		console.log(database.url);
 
 		// Connection URL
-		var url = f('mongodb://%s:%s@'+database.url+':27017/admin?authMechanism=%s',
-		  user, pass, authMechanism);
+		 var url = f('mongodb://%s:%s@monika-cloudplatform-ionic-qa.aptiture.com:27017/admin?authMechanism=%s', user, pass, authMechanism);
 
       break;  
 
@@ -71,22 +72,23 @@ module.exports.loadPermissions = function(){
 
 //module.exports.save = function(callback, data, model) {
 module.exports.save = function(data, model) {
-	MongoClient.connect(url, function(err, db) {
+
+    MongoClient.connect(url, function(err, db) {
 		
-		console.log("Connected correctly to server");
+	    console.log("Connected correctly to server");
         var dbo = db.db(env.database);
-		var myobj = data;
+	    var myobj = data;
 		dbo.collection(model).insertOne(myobj, function(err, res) {
-		    if (err) throw err;
-		    console.log("1 document inserted");
+           if (err) throw err;
+ 	       console.log("1 document inserted");
 
-			createTenantDb(data.company,data.password);
+	//		createTenantDb(data.company,data.password);
 		    //pgtools.createdb(config, data.company, function (err, res) {
-        if (err) {
-          process.exit(-1);
-        }
+     //   if (err) {
+    //      process.exit(-1);
+        });
 
-       });
+    });
 
   //     console.log('ssssssssssssssssssssssssss');
   //     var stream = fs.createWriteStream("sql/role.sql");
@@ -120,7 +122,7 @@ module.exports.save = function(data, model) {
   //     });
 		//     db.close();
 		// });
-   });
+   // });
 
 }	
 
@@ -202,18 +204,23 @@ module.exports.deletePermissionByUserId = function(callback,id) {
 	});
 }
 
-module.exports.searchOne = function(data,model) {
+module.exports.searchOne = function(data, model, callback) {
 
     MongoClient.connect(url, function(err, db) {
 		  if (err) throw err;
+		  //console.log(data);
 		  var dbo = db.db(env.database);
-		  var myquery = { data };
-		  dbo.collection(model).find(myquery, function(err, result) {
+		  var myquery = data;
+		  dbo.collection(model).find(myquery).toArray(function(err, result) {
 		    if (err) throw err;
-		    console.log(result);
+		    //console.log(result);
+		    callback(result);
 		    db.close();
+
 		  });
     });
+
+   
 }
 
 module.exports.findById = function(callback, id, model) {

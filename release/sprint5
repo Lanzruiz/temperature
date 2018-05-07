@@ -1,0 +1,12 @@
+
+Mobile
+
+MCP-406 - As a Mobile Developer, I should build the front end user interface for Cases
+MCP-155 - As a Tenant Admin, I should be able to create users and assign permissions within my tenant account using my Mobile Device (iOS, Android, Windows)
+MCP-334 - As a Tenant Admin, I should be able to Open a Case using my mobile Device so that I can take the necessary actions to resolve an issue.
+
+MCP-310 - As a Tenant User, I should be able to access the List Case using my Mobile Device (iOS, Android, Windows) so that I can properly seek the information that I might need.
+
+Web and Api
+
+MCP-395 - As a Developer, I should properly integrate Auth0 to the Monika Log In system
