@@ -22,7 +22,7 @@ export class Signup2Page {
     lnane: any;
     mobile: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
 
        this.fname = this.navParams.get('fname');
        this.lname = this.navParams.get('lname');
