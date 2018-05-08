@@ -42,9 +42,16 @@ export class LoginPage {
        password: this.password
     }
 
+     var headers = new Headers();
+    headers.append('Access-Control-Allow-Origin' , '*');
+    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+    headers.append('Accept','application/json');
+    headers.append('content-type','application/json');
+     let options = new RequestOptions({ headers:headers,withCredentials: true});
+
    console.log(this.password);
 
-   this.http.post("https://monika-cloudplatform-api-uat.aptiture.com/api/tenant/auth", data)
+   this.http.post("https://monika-cloudplatform-api-uat.aptiture.com/api/tenant/auth", data, options)
       .subscribe(data => {
         if(data.status == 200){
           this.navCtrl.push(TenantsPage);
