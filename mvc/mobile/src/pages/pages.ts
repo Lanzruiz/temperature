@@ -4,8 +4,6 @@ export const FirstRunPage = 'LoginPage';
 // The main page the user will see as they use the app over a long period of time.
 // Change this if not using tabs
 export const MainPage = 'TabsPage';
-export const SignUpPage = 'SignupPage';
-export const Signup2Page = 'Signup2Page';
 export const AuthcodePage = 'AuthcodePage';
 export const UploadphotoPage = 'UploadphotoPage';
 export const RegsuccessPage = 'RegsuccessPage';
