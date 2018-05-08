@@ -8,10 +8,12 @@ var express = require('express');
 var path    = require('path');
 //you can include all your controllers
 var subdomain = require('express-subdomain');
+var cors = require('cors')
 
 module.exports = function (app, passport) {
 
-
+    app.use(cors());
+    
     app.get('/', home.login);
 
     app.get('/signup', home.signup);
