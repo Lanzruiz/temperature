@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the Signup2Page page.
