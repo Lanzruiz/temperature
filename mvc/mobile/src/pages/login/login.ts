@@ -4,7 +4,6 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { User } from '../../providers/providers';
 import { AuthcodePage } from '../pages';
-import { SignUpPage } from '../pages';
 import { TenantsPage } from '../pages';
 import { AlertController } from 'ionic-angular';
 
