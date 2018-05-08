@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the Signup2Page page.
@@ -19,15 +18,15 @@ import { NavController, NavParams} from 'ionic-angular';
 export class Signup2Page {
 
  
-    fname: any;
-    lnane: any;
-    mobile: any;
+ //   fname: any;
+//   lnane: any;
+//    mobile: any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
 
-       this.fname = this.navParams.get('fname');
-       this.lname = this.navParams.get('lname');
-       this.mobile = this.navParams.get('mobile');          
+   //    this.fname = this.navParams.get('fname');
+   //    this.lname = this.navParams.get('lname');
+   //    this.mobile = this.navParams.get('mobile');          
     }
 
     ionViewDidLoad() {
@@ -35,26 +34,26 @@ export class Signup2Page {
        console.log('ionViewDidLoad Signup2Page');
     }
 
-    doSignup() {
+   // doSignup() {
 
-        let data = {
+  //      let data = {
 
-           firstname: this.fname,
-           lastname:  this.lname,
-           mobile:    this.mobile,
-           email:     this.email,
-           password:  this.password
+  //         firstname: this.fname,
+  //         lastname:  this.lname,
+  //         mobile:    this.mobile,
+  //         email:     this.email,
+  //        password:  this.password
 
 
-        }
+     //   }
 
-        this.http.post("http://127.0.0.1:9000/api/tenant/signup/", data).subscribe(data => {
-	          if(data.status == 200){
-	            this.navCtrl.push(TenantsPage);
-	          }
-          }, error => {
-          console.log(error);// Error getting the data
-        });
+ //       this.http.post("http://127.0.0.1:9000/api/tenant/signup/", data).subscribe(data => {
+	//          if(data.status == 200){
+	//            this.navCtrl.push(TenantsPage);
+//	          }
+//         }, error => {
+ //         console.log(error);// Error getting the data
+ //       });
 
 
    }

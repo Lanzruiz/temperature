@@ -21,9 +21,15 @@ export class SignupPage {
   lastname: any;
   mobile: any;
   constructor(public navCtrl: NavController,
+<<<<<<< HEAD
     public user: User,
     public toastCtrl: ToastController,
     public translateService: TranslateService, private http: Http, public navParams: NavParams) {
+=======
+    //public user: User,
+   // public toastCtrl: ToastController,
+    //public translateService: TranslateService, private http: Http) {
+>>>>>>> MCP-395
 
 
   }
@@ -32,7 +38,7 @@ export class SignupPage {
 
     //console.log(this.firstname);
 
-    this.navCtrl.push(Signup2Page, {fname: this.firstname, lname: this.lastname, mobile: this.mobile});
+   // this.navCtrl.push(Signup2Page, {fname: this.firstname, lname: this.lastname, mobile: this.mobile});
 
  
 
