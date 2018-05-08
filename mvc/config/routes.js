@@ -11,11 +11,10 @@ var path    = require('path');
 var subdomain = require('express-subdomain');
 var cors = require('cors')
 
+
 module.exports = function (app, passport) {
 
-
-    app.use(cors());
-
+    app.use(cors())
     app.get('/', home.login);
 
     app.get('/signup', home.signup);
