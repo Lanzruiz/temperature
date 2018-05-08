@@ -23,7 +23,7 @@ export class SignupPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService, private http: Http) {
+    public translateService: TranslateService, private http: Http, public navParams: NavParams) {
 
 
   }
