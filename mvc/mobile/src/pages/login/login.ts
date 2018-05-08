@@ -35,10 +35,6 @@ export class LoginPage {
     })
   }
 
-  clicked() {
-     this.navCtrl.push(SignUpPage);
-  }
-
   // Attempt to login in through our User service
   doLogin() {
 
