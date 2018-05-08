@@ -23,9 +23,7 @@ export class SignupPage {
     public toastCtrl: ToastController,
     public translateService: TranslateService, private http: Http) {
 
-    this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
-      this.signupErrorString = value;
-    })
+
   }
 
   doSignup() {
