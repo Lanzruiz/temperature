@@ -45,7 +45,7 @@ export class LoginPage {
 
    console.log(this.password);
 
-   this.http.post("http://127.0.0.1:9000/api/tenant/auth", data)
+   this.http.post("http://monika-cloudplatform-api-qa.aptiture.com/api/tenant/auth", data)
       .subscribe(data => {
         if(data.status == 200){
           this.navCtrl.push(TenantsPage);
