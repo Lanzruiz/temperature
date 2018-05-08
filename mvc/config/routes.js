@@ -13,11 +13,9 @@ var cors = require('cors')
 
 module.exports = function (app, passport) {
 
-<<<<<<< HEAD
-=======
+
     app.use(cors());
-    
->>>>>>> MCP-395
+
     app.get('/', home.login);
 
     app.get('/signup', home.signup);
