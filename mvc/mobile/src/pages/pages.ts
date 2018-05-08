@@ -18,7 +18,7 @@ export const TmainPage = 'TmainPage';
 export const ProfilePage = 'ProfilePage';
 export const TenantlistPage = 'TenantlistPage';
 export const ListMasterPage = 'ListMasterPage';
-
+export const CasePage = 'CasePage';
 
 
 
