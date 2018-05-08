@@ -17,9 +17,9 @@ import { Signup2Page } from '../pages';
 export class SignupPage {
  
 
-  firstname: any;
-  lastname: any;
-  mobile: any;
+ //firstname: any;
+ // lastname: any;
+ // mobile: any;
   constructor(public navCtrl: NavController,
 
     //public user: User,
