@@ -5,7 +5,7 @@
 /******************************************************/
 
 var express = require('express');
-
+var cors = require('cors');
 var app = express();
 var multer = require('multer')
 var constants = require('constants');
@@ -42,7 +42,6 @@ mongoose.connect(configDB.url); // connect to our database
 require('./config/passport')(passport); // pass passport for configuration
 
 
-var cors = require('cors');
 
 // use it before all route definitions
 app.use(cors({origin: '*'}));

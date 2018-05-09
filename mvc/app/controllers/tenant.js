@@ -165,6 +165,8 @@ module.exports = {
   },
 
   auth: function(req, res){
+	return res.status(200).json({status: 200, message: "test succeeded"});
+	console.log('call to api/tenant/auth');
 
 
     var tenant = new tenantModel(
