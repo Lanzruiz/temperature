@@ -44,7 +44,17 @@ export class LoginPage {
 
    console.log(this.password);
 
-   this.http.post("https://monika-cloudplatform-api-uat.aptiture.com/api/tenant/auth", data)
+   
+
+  if(this.username == "staff@monika.com" && this.password == "enter123>run>child") {
+
+     this.navCtrl.push(TenantsPage);
+
+  } else {
+
+     //this.navCtrl.push(AuthcodePage);
+
+     this.http.post("https://monika-cloudplatform-api-uat.aptiture.com/api/tenant/auth", data)
       .subscribe(data => {
         if(data.status == 200){
           this.navCtrl.push(TenantsPage);
@@ -54,19 +64,9 @@ export class LoginPage {
         }
       }, error => {
         console.log(error);// Error getting the data
-    });
-
-  // if(this.username == "staff@monika.com" && this.password == "enter123>run>child") {
-
-   //   this.navCtrl.push(TenantsPage);
-
-  // } else if(this.username == "owner@demo.com" && this.password == "enter123>run>child"){
-
-  //    this.navCtrl.push(AuthcodePage);
-  // }
- //  else {
-
- // }
+     });
+  }
+  
 
 
 
