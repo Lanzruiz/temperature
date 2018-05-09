@@ -194,6 +194,7 @@ module.exports = {
                  //console.log(data.access_token);
                   }
                  res.json(data);
+                 res.status(200);
               });
             }
             else {
@@ -217,6 +218,7 @@ module.exports = {
                   }
                  res.json(data);
           });
+         res.status(200);
        } else {
          console.log("user not exist");
        }
