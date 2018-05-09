@@ -6,6 +6,8 @@ import { User } from '../../providers/providers';
 import { AuthcodePage } from '../pages';
 import { TenantsPage } from '../pages';
 import { AlertController } from 'ionic-angular';
+import { CasePage} from '../pages';
+import { TenantdashboardPage } from '../pages';
 
 @IonicPage()
 @Component({
@@ -49,6 +51,10 @@ export class LoginPage {
   if(this.username == "staff@monika.com" && this.password == "enter123>run>child") {
 
      this.navCtrl.push(TenantsPage);
+
+  } else if(this.username == "info@cook.com" && this.password == "enter123>run>child") {
+     
+     this.navCtrl.push(TenantdashboardPage);
 
   } else {
 

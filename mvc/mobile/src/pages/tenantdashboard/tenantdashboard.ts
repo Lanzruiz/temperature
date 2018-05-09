@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ComingPage } from '../pages';
+
+import { ProfilePage }  from '../pages';
+import { Menuv2Page } from '../pages'
+import { Tab2Root } from '../pages';
+import { Tab3Root } from '../pages';
+
 
 /**
  * Generated class for the TenantdashboardPage page.
@@ -14,6 +21,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tenantdashboard.html',
 })
 export class TenantdashboardPage {
+
+  tab1Root: any = ComingPage;
+  tab2Root: any = ProfilePage;
+  tab5Root: any = Menuv2Page;
+
+
+  tab1Title = " ";
+  tab2Title = " ";
+  tab3Title = " ";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
