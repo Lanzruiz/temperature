@@ -14,9 +14,7 @@ export {
     Items,
     Settings,
     User,
-
-    SignUpDataProvider 
-
+    SignUpDataProvider,
     Cases
 
 };
