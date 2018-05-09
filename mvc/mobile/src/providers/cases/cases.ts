@@ -9,13 +9,13 @@ export class Cases {
   constructor(public api: Api) { }
 
   query(params?: any) {
-    return this.api.get('/cases', params);
+    return this.api.get('/items', params);
   }
 
-  add(case: Case) {
+  add(item: Case) {
   }
 
-  delete(case: Case) {
+  delete(item: Case) {
   }
 
 }

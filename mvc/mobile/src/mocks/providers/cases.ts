@@ -4,7 +4,7 @@ import { Case } from '../../models/case';
 
 @Injectable()
 export class Cases {
-  cases: Case[] = [];
+  items: Case[] = [];
 
   defaultCase: any = {
     "region_site": "VIC Metro - 60 Elizabeth Street",
@@ -75,34 +75,34 @@ export class Cases {
       }
     ];
 
-    for (let case of cases) {
-      this.cases.push(new Case(case));
+    for (let item of cases) {
+      this.items.push(new Case(item));
     }
   }
 
   query(params?: any) {
     if (!params) {
-      return this.cases;
+      return this.items;
     }
 
-    return this.cases.filter((case) => {
+    return this.items.filter((item) => {
       for (let key in params) {
-        let field = case[key];
+        let field = item[key];
         if (typeof field == 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
-          return case;
+          return item;
         } else if (field == params[key]) {
-          return case;
+          return item;
         }
       }
       return null;
     });
   }
 
-  add(case: Case) {
-    this.cases.push(case);
+  add(item: Case) {
+    this.items.push(item);
   }
 
-  delete(case: Case) {
-    this.cases.splice(this.cases.indexOf(case), 1);
+  delete(item: Case) {
+    this.items.splice(this.items.indexOf(item), 1);
   }
 }

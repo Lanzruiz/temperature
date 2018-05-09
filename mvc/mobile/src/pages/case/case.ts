@@ -12,8 +12,69 @@ import { Cases } from '../../providers/providers';
 export class CasePage {
   currentItems: Case[];
 
-  constructor(public navCtrl: NavController, public cases: Cases, public modalCtrl: ModalController) {
-    this.currentItems = this.cases.query();
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+    let cases = [
+      {
+        "region_site": "VIC Metro - 60 Elizabeth Street",
+        "location_unit": "Kitchen Freezer",
+        "case_desc": "(-13.8°C)Temperature too High",
+        "date_created": "2015-12-25",
+        "status": "Created",
+        "resolution": "Unresolved",
+        "asignee": "John Gamble"
+      },
+      {
+        "region_site": "VIC Metro - 60 Elizabeth Street",
+        "location_unit": "Kitchen Freezer",
+        "case_desc": "(-13.8°C)Temperature too High",
+        "date_created": "2015-12-25",
+        "status": "Created",
+        "resolution": "Unresolved",
+        "asignee": "John Gamble"
+      },
+      {
+        "region_site": "VIC Metro - 60 Elizabeth Street",
+        "location_unit": "Kitchen Freezer",
+        "case_desc": "(-13.8°C)Temperature too High",
+        "date_created": "2015-12-25",
+        "status": "Created",
+        "resolution": "Unresolved",
+        "asignee": "John Gamble"
+      },
+      {
+        "region_site": "VIC Metro - 60 Elizabeth Street",
+        "location_unit": "Kitchen Freezer",
+        "case_desc": "(-13.8°C)Temperature too High",
+        "date_created": "2015-12-25",
+        "status": "Created",
+        "resolution": "Unresolved",
+        "asignee": "John Gamble"
+      },
+      {
+        "region_site": "VIC Metro - 60 Elizabeth Street",
+        "location_unit": "Kitchen Freezer",
+        "case_desc": "(-13.8°C)Temperature too High",
+        "date_created": "2015-12-25",
+        "status": "Created",
+        "resolution": "Unresolved",
+        "asignee": "John Gamble"
+      },
+      {
+        "region_site": "VIC Metro - 60 Elizabeth Street",
+        "location_unit": "Kitchen Freezer",
+        "case_desc": "(-13.8°C)Temperature too High",
+        "date_created": "2015-12-25",
+        "status": "Created",
+        "resolution": "Unresolved",
+        "asignee": "John Gamble"
+      }
+    ];
+
+    // for (let item of cases) {
+    //   currentItems.push(new Case(item));
+    // }
+
+    this.currentItems = cases;
   }
 
   /**
@@ -43,18 +104,18 @@ export class CasePage {
   /**
    * Delete an item from the list of items.
    */
-  deleteItem(case) {
-    this.cases.delete(case);
-  }
+ //  deleteItem(item) {
+ //    this.cases.delete(item);
+ //  }
 
-  moreDisplay(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
- }
+ //  moreDisplay(id) {
+ //    var x = document.getElementById(id);
+ //    if (x.className.indexOf("w3-show") == -1) {
+ //        x.className += " w3-show";
+ //    } else { 
+ //        x.className = x.className.replace(" w3-show", "");
+ //    }
+ // }
 
   /**
    * Navigate to the detail page for this item.
