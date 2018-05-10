@@ -36,7 +36,7 @@ export class Menuv2Page {
     console.log('ionViewDidLoad Menuv2Page');
   }
 
-  itemSelected(item: string, component) {
+  itemSelected(item: string, component: string) {
 
     component = item.component;
     console.log("Selected Item", component);
