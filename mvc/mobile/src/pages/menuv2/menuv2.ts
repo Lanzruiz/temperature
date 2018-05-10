@@ -17,6 +17,8 @@ import { CasePage } from '../pages';
 })
 export class Menuv2Page {
 
+  componentName: string;
+
   items = [
     {name:'Dashboard', component: 'ComingPage'},
     {name:'Sites', component: 'SitesPage'},
@@ -27,7 +29,7 @@ export class Menuv2Page {
     {name:'Users', component: 'UsersPage'}
   ];
 
-  component: any;
+ 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -36,11 +38,11 @@ export class Menuv2Page {
     console.log('ionViewDidLoad Menuv2Page');
   }
 
-  itemSelected(item: string, component: string) {
+  itemSelected(item: string) {
 
-    component = item.component;
-    console.log("Selected Item", component);
-    this.navCtrl.push(item.component);
+    //component = item.component;
+    console.log("Selected Item", item);
+    this.navCtrl.push(item);
   }
 
 }
