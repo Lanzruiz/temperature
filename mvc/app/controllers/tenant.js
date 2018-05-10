@@ -164,7 +164,7 @@ module.exports = {
     }
   },
 
-  auth: function(req, res){
+  auth: function(req, res, next){
 
 
     var tenant = new tenantModel(
