@@ -15,6 +15,12 @@ page-login {
 
     }
 
+    form, input, optgroup, select {
+      margin: 9px;
+      font: inherit;
+      color: inherit;
+    }
+
     ion-label {
 
        color: #FFFFFF;
@@ -70,7 +76,7 @@ page-login {
      }
  
      .signup-col {
-       margin: 0px 16px 0px 16px;;
+       margin: 0px 1px 0px 1px;;
      }
  
      .item-inner {

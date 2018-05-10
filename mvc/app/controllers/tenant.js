@@ -164,7 +164,7 @@ module.exports = {
     }
   },
 
-  auth: function(req, res){
+  auth: function(req, res, next){
 	return res.status(200).json({status: 200, message: "test succeeded"});
 	console.log('call to api/tenant/auth');
 
