@@ -27,6 +27,7 @@ export class Menuv2Page {
     {name:'Users', component: 'UsersPage'}
   ];
 
+  component: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -35,8 +36,10 @@ export class Menuv2Page {
     console.log('ionViewDidLoad Menuv2Page');
   }
 
-  itemSelected(item: string) {
-    console.log("Selected Item", item.component);
+  itemSelected(item: string, component) {
+
+    component = item.component;
+    console.log("Selected Item", component);
     this.navCtrl.push(item.component);
   }
 
