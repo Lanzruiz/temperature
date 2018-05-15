@@ -23,7 +23,7 @@ export const Menuv2Page = 'Menuv2Page';
 
 
 export const CasePage = 'CasePage';
-
+export const CaseDetailPage = 'CaseDetailPage';
 
 
 

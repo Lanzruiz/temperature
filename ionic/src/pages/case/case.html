@@ -3,26 +3,30 @@
 
   <ion-navbar>
     <ion-title> Case List</ion-title>
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="settingClicked()">
-        <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content class="padding-top-50">
-
+  <ion-row class="case-setting">
+    <ion-col>
+      <h4 text-left>Case List Settings</h4>
+    </ion-col>
+    <ion-col text-right>
+        <button ion-button icon-only (click)="settingClicked()" clear>
+          <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
+        </button>
+    </ion-col>
+  </ion-row>
   <ion-list>
     <ion-item-sliding class="margin-item" *ngFor="let item of currentItems">
-      <ion-item >
+      <button ion-item (click)="caseClick(item)" no-lines>
         <h2>{{item.region_site}}</h2>
         <h2>{{item.location_unit}}</h2>
         <h2>{{item.case_desc}}</h2>
-        <h2>{{item.asignee}}</h2>        
-      </ion-item>
+        <h2>{{item.asignee}}</h2> 
+        <ion-icon ios="ios-more" md="ios-more">
+        </ion-icon>
+      </button>
        
     </ion-item-sliding>
 

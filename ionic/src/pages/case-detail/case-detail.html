@@ -1,0 +1,87 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      {{item.region_site}}
+    </ion-title>
+    <ion-buttons end> 
+    <button (click)="editCase()" clear> Edit </button> 
+  </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="master login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-row>
+      <img class="logo" src="../assets/imgs/image-place-holder@3x.png"/>
+    </ion-row>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="detail-box">
+  <!--     "region_site": "VIC Metro - 60 Elizabeth Street",
+    "location_unit": "Kitchen Freezer",
+    "case_desc": "(-13.8°C)Temperature too High",
+    "date_created": "2015-12-25",
+    "status": "Created",
+    "resolution": "Unresolved",
+    "asignee": "John Gamble", -->
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <p>{{item.region_site}}</p>
+             <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <ion-item>
+              <h4></h4>
+            </ion-item>
+             <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <ion-item>
+              <h4></h4>
+            </ion-item>
+             <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <ion-item>
+              <h4></h4>
+            </ion-item>
+             <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <ion-item>
+              <h4></h4>
+            </ion-item>
+             <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <ion-item>
+              <h4></h4>
+            </ion-item>
+             <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <ion-item>
+              <h4></h4>
+            </ion-item>
+             <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <ion-item>
+              <h4></h4>
+            </ion-item>
+             <ion-icon ios="icon-user ios-contact" md="md-contact">
+            </ion-icon>
+            <ion-item>
+              <h4></h4>
+            </ion-item>
+            <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+            <ion-item >
+              <h4></h4>
+            </ion-item>
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+  </div>
+</ion-content>
+

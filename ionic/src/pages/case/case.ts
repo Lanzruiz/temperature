@@ -3,7 +3,7 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Case } from '../../models/case';
 import { Cases } from '../../providers/providers';
-
+import { CaseDetailPage } from '../pages';
 @IonicPage()
 @Component({
   selector: 'page-case',
@@ -87,6 +87,9 @@ export class CasePage {
     document.getElementById("menu").style.display = "block";
   }
 
+  caseClick(item){
+    this.navCtrl.push(CaseDetailPage, { case:item });
+  }
   /**
    * Prompt the user to add a new item. This shows our ItemCreatePage in a
    * modal and then adds the new item to our data source if the user created one.
