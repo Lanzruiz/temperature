@@ -28,60 +28,36 @@
     "status": "Created",
     "resolution": "Unresolved",
     "asignee": "John Gamble", -->
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-            <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <p>{{item.region_site}}</p>
-             <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <ion-item>
-              <h4></h4>
-            </ion-item>
-             <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <ion-item>
-              <h4></h4>
-            </ion-item>
-             <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <ion-item>
-              <h4></h4>
-            </ion-item>
-             <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <ion-item>
-              <h4></h4>
-            </ion-item>
-             <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <ion-item>
-              <h4></h4>
-            </ion-item>
-             <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <ion-item>
-              <h4></h4>
-            </ion-item>
-             <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <ion-item>
-              <h4></h4>
-            </ion-item>
-             <ion-icon ios="icon-user ios-contact" md="md-contact">
-            </ion-icon>
-            <ion-item>
-              <h4></h4>
-            </ion-item>
-            <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
-            <ion-item >
-              <h4></h4>
-            </ion-item>
-            
-          </ion-list>
-        </ion-col>
-      </ion-row>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="map" item-start></ion-icon>
+            {{item.region_site}}
+        </ion-item>
+         <ion-item>
+          <ion-icon name="locate" item-start></ion-icon>
+            {{item.location_unit}}
+        </ion-item>
+         <ion-item>
+          <ion-icon name="alert" item-start></ion-icon>
+            {{item.case_desc}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="time" item-start></ion-icon>
+            {{item.date_created}}
+        </ion-item>
+        <ion-item>
+        <ion-icon name="star" item-start></ion-icon>
+            {{item.status}}
+        </ion-item>
+        <ion-item>
+        <ion-icon name="alert" item-start></ion-icon>
+            {{item.resolution}}
+        </ion-item>
+        <ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+            {{item.asignee}}
+        </ion-item>
+      </ion-list>
   </div>
 </ion-content>
 
